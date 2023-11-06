@@ -4,7 +4,56 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="86b210cd-bb51-447a-8238-63849e379964" name="Changes" comment="" />
+    <list default="true" id="86b210cd-bb51-447a-8238-63849e379964" name="Changes" comment="New branch for work">
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/toochi/resultmanagement/backend/Config.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/toochi/resultmanagement/backend/ConnectionProvider.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/toochi/resultmanagement/backend/QueryExecutor.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/toochi/resultmanagement/controllers/DashboardController.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/toochi/resultmanagement/controllers/InputResultController.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/toochi/resultmanagement/controllers/LauncherController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/toochi/resultmanagement/controllers/SettingsController.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/toochi/resultmanagement/controllers/StudentController.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/toochi/resultmanagement/controllers/ViewResultController.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/toochi/resultmanagement/models/Course.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/toochi/resultmanagement/models/Result.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/toochi/resultmanagement/models/Settings.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/toochi/resultmanagement/models/Student.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/toochi/resultmanagement/assets/css/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/toochi/resultmanagement/assets/icons/bookmark.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/toochi/resultmanagement/assets/icons/synchronize.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/toochi/resultmanagement/config/config.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/toochi/resultmanagement/launcher/launcher_view.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/toochi/resultmanagement/result/result_input_view.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/toochi/resultmanagement/result/view_result_view.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/toochi/resultmanagement/settings/settings_view.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/toochi/resultmanagement/student/student_view.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/toochi/resultmanagement/student/student_view.xml.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.2/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2/checksums/checksums.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.2/checksums/md5-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2/checksums/md5-checksums.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.2/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2/checksums/sha1-checksums.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.2/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.2/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.2/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.2/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.2/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2/fileHashes/resourceHashesCache.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/toochi/resultmanagement/Dashboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/toochi/resultmanagement/launcher/Launcher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/toochi/resultmanagement/DashboardController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/toochi/resultmanagement/MainApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/toochi/resultmanagement/MainApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/toochi/resultmanagement/Util.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/toochi/resultmanagement/utils/Util.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/toochi/resultmanagement/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/toochi/resultmanagement/dashboard/dashboard_view.fxml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -36,17 +85,97 @@
         <option value="Kotlin File" />
         <option value="Class" />
         <option value="Kotlin Data Class" />
+        <option value="CSS File" />
+        <option value="FxmlFile" />
+        <option value="Kotlin Class" />
       </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;history&quot;: [
+    {
+      &quot;state&quot;: &quot;OPEN&quot;,
+      &quot;assignee&quot;: &quot;Toochidennis&quot;,
+      &quot;author&quot;: &quot;Toochidennis&quot;
+    },
+    {
+      &quot;state&quot;: &quot;OPEN&quot;,
+      &quot;assignee&quot;: &quot;Toochidennis&quot;,
+      &quot;author&quot;: &quot;Toochidennis&quot;,
+      &quot;label&quot;: &quot;enhancement&quot;
+    },
+    {
+      &quot;state&quot;: &quot;OPEN&quot;,
+      &quot;assignee&quot;: &quot;Toochidennis&quot;,
+      &quot;reviewState&quot;: &quot;NO_REVIEW&quot;,
+      &quot;author&quot;: &quot;Toochidennis&quot;,
+      &quot;label&quot;: &quot;enhancement&quot;
+    }
+  ],
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Toochidennis&quot;,
+    &quot;reviewState&quot;: &quot;NO_REVIEW&quot;,
+    &quot;author&quot;: &quot;Toochidennis&quot;,
+    &quot;label&quot;: &quot;enhancement&quot;
+  }
+}</component>
+  <component name="GitToolBoxStore">
+    <option name="projectConfigVersion" value="5" />
+    <option name="recentBranches">
+      <RecentBranches>
+        <option name="branchesForRepo">
+          <list>
+            <RecentBranchesForRepo>
+              <option name="branches">
+                <list>
+                  <RecentBranch>
+                    <option name="branchName" value="dev_branch" />
+                    <option name="lastUsedInstant" value="1698962533" />
+                  </RecentBranch>
+                  <RecentBranch>
+                    <option name="branchName" value="main" />
+                    <option name="lastUsedInstant" value="1698962532" />
+                  </RecentBranch>
+                </list>
+              </option>
+              <option name="repositoryRootUrl" value="file://$PROJECT_DIR$" />
+            </RecentBranchesForRepo>
+          </list>
+        </option>
+      </RecentBranches>
+    </option>
+  </component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="816d55b7-3ee4-42a4-80a3-552344cf4fa9" />
+        <option name="url" value="https://github.com/Toochidennis/result-management.git" />
+      </UrlAndAccount>
     </option>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 2
-}]]></component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 2
+}</component>
   <component name="ProjectId" id="2XdPkE8xcrnCf0RWyyUuHmfpfly" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="autoscrollToSource" value="true" />
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -57,23 +186,51 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "dev__branch",
     "last_opened_file_path": "C:/Users/tooch/SceneBuilder/SceneBuilder.exe",
+    "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "editor.preferences.fonts.default",
     "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
+    ]
   }
 }]]></component>
-  <component name="RunManager" selected="Gradle.result-management [clean]">
-    <configuration name="Dashboard" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.toochi.resultmanagement.Dashboard" />
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\tooch\IdeaProjects\result-management\src\main\resources\com\toochi\resultmanagement\config" />
+      <recent name="C:\Users\tooch\IdeaProjects\result-management\src\main\resources\com\toochi\resultmanagement\assets\icons" />
+      <recent name="C:\Users\tooch\IdeaProjects\result-management\src\main\java\com\toochi\resultmanagement\assets\icons" />
+      <recent name="C:\Users\tooch\IdeaProjects\result-management\src\main\resources\com\toochi\resultmanagement\dashboard" />
+    </key>
+    <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
+      <recent name="com.toochi.resultmanagement.backend" />
+      <recent name="com.toochi.resultmanagement.utils" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.toochi.resultmanagement" />
+      <recent name="com.toochi.resultmanagement.launcher" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.MainApp">
+    <configuration name="Launcher" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.toochi.resultmanagement.launcher.Launcher" />
       <module name="result-management.main" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.toochi.resultmanagement.*" />
+          <option name="PATTERN" value="com.toochi.resultmanagement.controllers.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -86,7 +243,7 @@
       <module name="result-management.main" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.toochi.resultmanagement.*" />
+          <option name="PATTERN" value="com.toochi.resultmanagement.controllers.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -147,11 +304,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.MainApp" />
         <item itemvalue="Gradle.result-management [clean]" />
         <item itemvalue="Gradle.result-management [jlink]" />
         <item itemvalue="Kotlin.MainAppKt" />
-        <item itemvalue="Application.MainApp" />
-        <item itemvalue="Application.Dashboard" />
+        <item itemvalue="Application.Launcher" />
       </list>
     </recent_temporary>
   </component>
@@ -163,11 +320,38 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1698956131326</updated>
-      <workItem from="1698956133003" duration="3596000" />
+      <workItem from="1698956133003" duration="17722000" />
+      <workItem from="1699183536018" duration="35270000" />
     </task>
+    <task id="LOCAL-00001" summary="A result management app written with java and kotlin">
+      <option name="closed" value="true" />
+      <created>1698962313652</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1698962313652</updated>
+    </task>
+    <task id="LOCAL-00002" summary="New branch for work">
+      <option name="closed" value="true" />
+      <created>1698962567641</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1698962567641</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="A result management app written with java and kotlin" />
+    <MESSAGE value="New branch for work" />
+    <option name="LAST_COMMIT_MESSAGE" value="New branch for work" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
