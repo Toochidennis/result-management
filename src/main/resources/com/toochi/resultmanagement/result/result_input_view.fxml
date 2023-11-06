@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="700.0" prefWidth="1002.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.toochi.resultmanagement.controllers.InputResultController">
+    <children>
+        <VBox prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <Pane onMouseClicked="#submitBtn" prefHeight="120.0" prefWidth="200.0" style="-fx-background-color: #096C3A;">
+                    <children>
+                        <Button layoutX="804.0" layoutY="66.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="162.0" stylesheets="@../assets/css/style.css" text="Submit" />
+                  <TextField fx:id="searchTextField" layoutX="39.0" layoutY="66.0" prefHeight="40.0" prefWidth="423.0" />
+                  <ImageView fitHeight="25.0" fitWidth="35.0" layoutX="430.0" layoutY="73.0" onMouseClicked="#searchBtn" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assets/icons/synchronize.png" />
+                     </image>
+                  </ImageView>
+                    </children>
+                </Pane>
+            <HBox prefHeight="100.0" prefWidth="200.0" spacing="50.0">
+               <children>
+                  <Label fx:id="studentNameLabel" prefHeight="40.0" prefWidth="240.0" text="Toochi Dennis">
+                     <HBox.margin>
+                        <Insets left="50.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Label fx:id="studentProgrammeLabel" layoutX="60.0" layoutY="60.0" prefHeight="40.0" prefWidth="240.0" text="PGD" />
+                  <ComboBox fx:id="semesterComboBox" onMouseClicked="#semesterComboBox" prefHeight="40.0" prefWidth="240.0" />
+               </children>
+               <padding>
+                  <Insets top="50.0" />
+               </padding>
+            </HBox>
+            <Separator prefHeight="22.0" prefWidth="1002.0" VBox.vgrow="ALWAYS" />
+            <ScrollPane prefHeight="459.0" prefWidth="1002.0">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1200.0" prefWidth="986.0">
+                     <children>
+                        <VBox fx:id="vBox" layoutX="201.0" layoutY="-0.6666666666666666" prefHeight="1201.0" prefWidth="986.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-1.0" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </ScrollPane>
+            </children>
+        </VBox>
+    </children>
+</AnchorPane>
