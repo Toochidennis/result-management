@@ -45,7 +45,7 @@ class ConnectionProvider(config: Config) {
             address VARCHAR(255),
             
             FOREIGN KEY (session) REFERENCES $databaseName.$settingsTable(session),
-             FOREIGN KEY (programme) REFERENCES $databaseName.$settingsTable(programme)
+            FOREIGN KEY (programme) REFERENCES $databaseName.$settingsTable(programme)
         );
     """
 
