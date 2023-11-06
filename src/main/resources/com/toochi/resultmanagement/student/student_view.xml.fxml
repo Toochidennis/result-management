@@ -86,12 +86,12 @@
                   <Insets top="50.0" />
                </padding>
                <children>
-                  <TextField fx:id="emailTxt1" prefHeight="40.0" prefWidth="400.0" promptText="email">
+                  <TextField fx:id="emailTxt1" prefHeight="40.0" prefWidth="385.0" promptText="email">
                      <HBox.margin>
                         <Insets left="50.0" />
                      </HBox.margin>
                   </TextField>
-                  <TextField fx:id="addressTxt1" layoutX="60.0" layoutY="60.0" prefHeight="40.0" prefWidth="400.0" promptText="adress" />
+                  <TextField fx:id="addressTxt1" layoutX="60.0" layoutY="60.0" prefHeight="40.0" prefWidth="385.0" promptText="adress" />
                </children>
             </HBox>
          </children>

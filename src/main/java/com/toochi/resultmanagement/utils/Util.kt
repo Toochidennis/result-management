@@ -14,8 +14,6 @@ object Util {
             val loader = FXMLLoader(javaClass.getResource("/com/toochi/resultmanagement/$fxmlFileName"))
             val layout = loader.load<AnchorPane>()
             root.center = layout
-
-            println("loaded $fxmlFileName")
         } catch (e: Exception) {
             e.printStackTrace()
         }
