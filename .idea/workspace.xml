@@ -4,55 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="86b210cd-bb51-447a-8238-63849e379964" name="Changes" comment="New branch for work">
+    <list default="true" id="86b210cd-bb51-447a-8238-63849e379964" name="Changes" comment="Added Project_Default.xml">
       <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/toochi/resultmanagement/backend/Config.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/toochi/resultmanagement/backend/ConnectionProvider.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/toochi/resultmanagement/backend/QueryExecutor.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/toochi/resultmanagement/controllers/DashboardController.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/toochi/resultmanagement/controllers/InputResultController.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/toochi/resultmanagement/controllers/LauncherController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/toochi/resultmanagement/controllers/SettingsController.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/toochi/resultmanagement/controllers/StudentController.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/toochi/resultmanagement/controllers/ViewResultController.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/toochi/resultmanagement/models/Course.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/toochi/resultmanagement/models/Result.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/toochi/resultmanagement/models/Settings.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/toochi/resultmanagement/models/Student.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/toochi/resultmanagement/assets/css/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/toochi/resultmanagement/assets/icons/bookmark.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/toochi/resultmanagement/assets/icons/synchronize.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/toochi/resultmanagement/config/config.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/toochi/resultmanagement/launcher/launcher_view.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/toochi/resultmanagement/result/result_input_view.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/toochi/resultmanagement/result/view_result_view.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/toochi/resultmanagement/settings/settings_view.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/toochi/resultmanagement/student/student_view.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/toochi/resultmanagement/student/student_view.xml.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.2/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2/checksums/checksums.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.2/checksums/md5-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2/checksums/md5-checksums.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.2/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2/checksums/sha1-checksums.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.2/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.2/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.2/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.2/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.2/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/toochi/resultmanagement/Dashboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/toochi/resultmanagement/launcher/Launcher.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/toochi/resultmanagement/DashboardController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/toochi/resultmanagement/MainApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/toochi/resultmanagement/MainApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/toochi/resultmanagement/Util.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/toochi/resultmanagement/utils/Util.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/toochi/resultmanagement/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/toochi/resultmanagement/dashboard/dashboard_view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/toochi/resultmanagement/hello-view.fxml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -210,6 +173,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\tooch\IdeaProjects\result-management" />
       <recent name="C:\Users\tooch\IdeaProjects\result-management\src\main\resources\com\toochi\resultmanagement\config" />
       <recent name="C:\Users\tooch\IdeaProjects\result-management\src\main\resources\com\toochi\resultmanagement\assets\icons" />
       <recent name="C:\Users\tooch\IdeaProjects\result-management\src\main\java\com\toochi\resultmanagement\assets\icons" />
@@ -321,7 +285,7 @@
       <option name="presentableId" value="Default" />
       <updated>1698956131326</updated>
       <workItem from="1698956133003" duration="17722000" />
-      <workItem from="1699183536018" duration="35270000" />
+      <workItem from="1699183536018" duration="37935000" />
     </task>
     <task id="LOCAL-00001" summary="A result management app written with java and kotlin">
       <option name="closed" value="true" />
@@ -339,16 +303,354 @@
       <option name="project" value="LOCAL" />
       <updated>1698962567641</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Add .gitignore to exclude config.properties">
+      <option name="closed" value="true" />
+      <created>1699262503725</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1699262503726</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Add .gitignore to exclude config.properties">
+      <option name="closed" value="true" />
+      <created>1699262570218</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1699262570218</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Added bookmark.png for testing">
+      <option name="closed" value="true" />
+      <created>1699262652378</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1699262652378</updated>
+    </task>
+    <task id="LOCAL-00006" summary="build history">
+      <option name="closed" value="true" />
+      <created>1699262746295</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1699262746295</updated>
+    </task>
+    <task id="LOCAL-00007" summary="build history">
+      <option name="closed" value="true" />
+      <created>1699262801108</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1699262801108</updated>
+    </task>
+    <task id="LOCAL-00008" summary=".gitignore">
+      <option name="closed" value="true" />
+      <created>1699262820406</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1699262820406</updated>
+    </task>
+    <task id="LOCAL-00009" summary="build.gradle">
+      <option name="closed" value="true" />
+      <created>1699262889229</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1699262889229</updated>
+    </task>
+    <task id="LOCAL-00010" summary="config">
+      <option name="closed" value="true" />
+      <created>1699262916408</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1699262916408</updated>
+    </task>
+    <task id="LOCAL-00011" summary="configs">
+      <option name="closed" value="true" />
+      <created>1699262988864</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1699262988864</updated>
+    </task>
+    <task id="LOCAL-00012" summary="created Config.kt for db setup">
+      <option name="closed" value="true" />
+      <created>1699263107009</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1699263107009</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Added ConnectionProvider.kt">
+      <option name="closed" value="true" />
+      <created>1699263138993</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1699263138993</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Added Course.kt">
+      <option name="closed" value="true" />
+      <created>1699263160841</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1699263160841</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Added dashboard_view.fxml">
+      <option name="closed" value="true" />
+      <created>1699263185350</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1699263185350</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Added DashboardController.kt">
+      <option name="closed" value="true" />
+      <created>1699263209606</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1699263209606</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Renamed Dashboard.java to Launcher.java">
+      <option name="closed" value="true" />
+      <created>1699263248502</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1699263248502</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Renamed DashboardController.java.java to LauncherController.java.java">
+      <option name="closed" value="true" />
+      <created>1699263271413</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1699263271413</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Added ViewResultController.kt">
+      <option name="closed" value="true" />
+      <created>1699263318106</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1699263318106</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Added view_result_view.fxml">
+      <option name="closed" value="true" />
+      <created>1699263338766</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1699263338766</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Added Util">
+      <option name="closed" value="true" />
+      <created>1699263382994</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1699263382994</updated>
+    </task>
+    <task id="LOCAL-00022" summary="Added synchronize.png">
+      <option name="closed" value="true" />
+      <created>1699263418674</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1699263418674</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Added style.css">
+      <option name="closed" value="true" />
+      <created>1699263452481</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1699263452481</updated>
+    </task>
+    <task id="LOCAL-00024" summary="Added StudentController.kt">
+      <option name="closed" value="true" />
+      <created>1699263476785</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1699263476785</updated>
+    </task>
+    <task id="LOCAL-00025" summary="Added student_view.xml.fxml">
+      <option name="closed" value="true" />
+      <created>1699263507844</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1699263507844</updated>
+    </task>
+    <task id="LOCAL-00026" summary="Renamed from student_view.xml.fxml to student_view.fxml">
+      <option name="closed" value="true" />
+      <created>1699263549443</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1699263549443</updated>
+    </task>
+    <task id="LOCAL-00027" summary="Added Student.kt">
+      <option name="closed" value="true" />
+      <created>1699263578896</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1699263578896</updated>
+    </task>
+    <task id="LOCAL-00028" summary="Added SettingsController.kt">
+      <option name="closed" value="true" />
+      <created>1699263605462</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1699263605462</updated>
+    </task>
+    <task id="LOCAL-00029" summary="Added settings_view.fxml">
+      <option name="closed" value="true" />
+      <created>1699263630435</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1699263630436</updated>
+    </task>
+    <task id="LOCAL-00030" summary="Added Settings.kt">
+      <option name="closed" value="true" />
+      <created>1699263656911</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1699263656911</updated>
+    </task>
+    <task id="LOCAL-00031" summary="Added">
+      <option name="closed" value="true" />
+      <created>1699263681936</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1699263681936</updated>
+    </task>
+    <task id="LOCAL-00032" summary="Added Result.kt">
+      <option name="closed" value="true" />
+      <created>1699263706335</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1699263706335</updated>
+    </task>
+    <task id="LOCAL-00033" summary="Added QueryExecutor.kt">
+      <option name="closed" value="true" />
+      <created>1699263731347</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1699263731347</updated>
+    </task>
+    <task id="LOCAL-00034" summary="Added MainApp.java">
+      <option name="closed" value="true" />
+      <created>1699263769434</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1699263769434</updated>
+    </task>
+    <task id="LOCAL-00035" summary="Added LauncherController.java">
+      <option name="closed" value="true" />
+      <created>1699263795464</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1699263795464</updated>
+    </task>
+    <task id="LOCAL-00036" summary="Added launcher_view.fxml">
+      <option name="closed" value="true" />
+      <created>1699263822096</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1699263822096</updated>
+    </task>
+    <task id="LOCAL-00037" summary="Added Launcher.java">
+      <option name="closed" value="true" />
+      <created>1699263852759</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1699263852759</updated>
+    </task>
+    <task id="LOCAL-00038" summary="Added InputResultController.kt">
+      <option name="closed" value="true" />
+      <created>1699263879427</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1699263879427</updated>
+    </task>
+    <task id="LOCAL-00039" summary="Added ConnectionProvider.kt">
+      <option name="closed" value="true" />
+      <created>1699263942657</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1699263942657</updated>
+    </task>
+    <task id="LOCAL-00040" summary="Added sql">
+      <option name="closed" value="true" />
+      <created>1699264986617</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1699264986617</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="A result management app written with java and kotlin" />
-    <MESSAGE value="New branch for work" />
-    <option name="LAST_COMMIT_MESSAGE" value="New branch for work" />
+    <MESSAGE value="Added DashboardController.kt" />
+    <MESSAGE value="Renamed Dashboard.java to Launcher.java" />
+    <MESSAGE value="Renamed DashboardController.java.java to LauncherController.java.java" />
+    <MESSAGE value="Added ViewResultController.kt" />
+    <MESSAGE value="Added view_result_view.fxml" />
+    <MESSAGE value="Added Util" />
+    <MESSAGE value="Added synchronize.png" />
+    <MESSAGE value="Added style.css" />
+    <MESSAGE value="Added StudentController.kt" />
+    <MESSAGE value="Added student_view.xml.fxml" />
+    <MESSAGE value="Renamed from student_view.xml.fxml to student_view.fxml" />
+    <MESSAGE value="Added Student.kt" />
+    <MESSAGE value="Added SettingsController.kt" />
+    <MESSAGE value="Added settings_view.fxml" />
+    <MESSAGE value="Added Settings.kt" />
+    <MESSAGE value="Added result_input_view.fxml" />
+    <MESSAGE value="Added Result.kt" />
+    <MESSAGE value="Added QueryExecutor.kt" />
+    <MESSAGE value="Added MainApp.java" />
+    <MESSAGE value="Added LauncherController.java" />
+    <MESSAGE value="Added launcher_view.fxml" />
+    <MESSAGE value="Added Launcher.java" />
+    <MESSAGE value="Added InputResultController.kt" />
+    <MESSAGE value="Added ConnectionProvider.kt" />
+    <MESSAGE value="Added Project_Default.xml" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added Project_Default.xml" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
