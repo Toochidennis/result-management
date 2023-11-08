@@ -1,6 +1,7 @@
 package com.toochi.resultmanagement.utils
 
 import javafx.collections.FXCollections
+import javafx.collections.ObservableList
 import javafx.fxml.FXMLLoader
 import javafx.scene.layout.AnchorPane
 import javafx.scene.layout.BorderPane
@@ -21,20 +22,25 @@ object Util {
     }
 
     @JvmStatic
-    fun generateSessions(): List<String> {
-        return (2005..2030)
-            .map(Year::of)
-            .map(Year::toString)
-            .toCollection(ArrayList())
+    fun generateSessions(): ObservableList<String> {
+        val sessionList = FXCollections.observableArrayList<String>()
+
+        for (i in 2005..2030) {
+            sessionList.add("${i - 1}/$i")
+        }
+
+        return sessionList
     }
 
     @JvmStatic
-    fun generateSemesters() = FXCollections.observableArrayList(
-        "First semester",
-        "Second semester"
-    )
+    fun generateSemesters(): ObservableList<String> =
+        FXCollections.observableArrayList(
+            "First semester",
+            "Second semester"
+        )
 
     @JvmStatic
-    fun generateProgrammes()= FXCollections.observableArrayList("PGD", "MBA","MSC")
+    fun generateProgrammes(): ObservableList<String> =
+        FXCollections.observableArrayList("PGD", "MBA", "MSC")
 
 }
