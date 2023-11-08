@@ -1,4 +1,7 @@
 package com.toochi.resultmanagement.models
 
-class Result {
-}
+data class Result(
+    val resultId: String,
+    val studentId: String,
+
+    )
