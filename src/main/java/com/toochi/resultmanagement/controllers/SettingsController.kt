@@ -47,21 +47,10 @@ class SettingsController {
     @FXML
     private lateinit var tableView: TableView<Settings>
 
-    private val settingsList = mutableListOf<Settings>()
 
     @FXML
     fun addCourseBtn() {
         prepareCourse()
-    }
-
-    @FXML
-    fun programmeBtn() {
-
-    }
-
-    @FXML
-    fun semesterBtn() {
-
     }
 
     @FXML
@@ -70,11 +59,11 @@ class SettingsController {
         createSemesters()
     }
 
-    private fun createProgrammes(){
+    private fun createProgrammes() {
         programmeComboBox.items = generateProgrammes()
     }
 
-    private fun createSemesters(){
+    private fun createSemesters() {
         semesterComboBox.items = generateSemesters()
     }
 
@@ -94,46 +83,36 @@ class SettingsController {
         val semester = semesterComboBox.value
         val programme = programmeComboBox.value
 
-        settingsList.add(
-            Settings(
-                0,
-                0,
-                courseName,
-                courseCode,
-                courseUnits.toInt(),
-                programme,
-                semester
-            )
+        val settings = Settings(
+            0, 0,
+            courseName, courseCode,
+            courseUnits.toInt(), programme,
+            semester
         )
 
-        println("$courseName $courseCode $courseUnits $programme $semester")
-        tableView.items.clear()
-
-        settingsList.forEach { settings ->
-            tableView.items.add(settings)
-        }
+        tableView.items.add(settings)
 
         createCourseTable()
 
-        insertCourse()
+        insertCourse(settings)
     }
 
-    private fun insertCourse(){
-        val values = hashMapOf<String, Any>()
-
-        settingsList.forEach { settings ->
-            values.apply {
-                put("course_name", settings.courseName)
-                put("course_code", settings.courseCode)
-                put("course_units", settings.courseUnits)
-                put("programme", settings.programme)
-                put("semester", settings.semester)
-            }
+    private fun insertCourse(settings: Settings) {
+        val values = hashMapOf<String, Any>().apply {
+            put("course_name", settings.courseName)
+            put("course_code", settings.courseCode)
+            put("course_units", settings.courseUnits)
+            put("programme", settings.programme)
+            put("semester", settings.semester)
         }
 
-       val rows =  executeInsertQuery("settings", values)
+        val rows = executeInsertQuery("settings", values)
 
-       println("Affected rows $rows")
+        println("Affected rows $rows")
+    }
+
+    private fun getExistingSettings(){
+
     }
 
 }
