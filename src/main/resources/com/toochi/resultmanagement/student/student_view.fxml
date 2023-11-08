@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
@@ -17,21 +18,22 @@
          <children>
             <Pane prefHeight="120.0" prefWidth="200.0" style="-fx-background-color: #096C3A;">
                <children>
-                  <Label layoutX="40.0" layoutY="33.0" prefHeight="77.0" prefWidth="330.0" text="Student Bio-data" textAlignment="JUSTIFY" textFill="WHITE">
+                  <Label layoutX="40.0" layoutY="33.0" prefHeight="77.0" prefWidth="330.0" text="Student Info" textAlignment="JUSTIFY" textFill="WHITE">
                      <font>
                         <Font size="38.0" />
                      </font>
                   </Label>
+                  <Button layoutX="830.0" layoutY="59.0" mnemonicParsing="false" onMouseClicked="#submitBtn" prefHeight="40.0" prefWidth="150.0" text="Submit" />
                </children>
             </Pane>
             <HBox prefHeight="101.0" prefWidth="1044.0" spacing="50.0">
                <children>
-                  <TextField fx:id="firstNameTxt" prefHeight="40.0" prefWidth="400.0" promptText="first name">
+                  <TextField fx:id="firstNameTextField" prefHeight="40.0" prefWidth="400.0" promptText="first name">
                      <HBox.margin>
                         <Insets left="50.0" />
                      </HBox.margin>
                   </TextField>
-                  <TextField fx:id="middleNameTxt" layoutX="10.0" layoutY="10.0" prefHeight="40.0" prefWidth="400.0" promptText="middle name" />
+                  <TextField fx:id="middleNameTextField" layoutX="10.0" layoutY="10.0" prefHeight="40.0" prefWidth="400.0" promptText="middle name" />
                </children>
                <padding>
                   <Insets top="50.0" />
@@ -39,12 +41,12 @@
             </HBox>
             <HBox layoutX="10.0" layoutY="130.0" prefHeight="101.0" prefWidth="1044.0" spacing="50.0">
                <children>
-                  <TextField fx:id="lastNameTxt" prefHeight="40.0" prefWidth="400.0" promptText="last name">
+                  <TextField fx:id="lastNameTextField" prefHeight="40.0" prefWidth="400.0" promptText="last name">
                      <HBox.margin>
                         <Insets left="50.0" />
                      </HBox.margin>
                   </TextField>
-                  <TextField fx:id="matricNumberTxt" prefHeight="40.0" prefWidth="400.0" promptText="matric number">
+                  <TextField fx:id="matricNumberTextField" prefHeight="40.0" prefWidth="400.0" promptText="matric number">
                      <HBox.margin>
                         <Insets />
                      </HBox.margin>
@@ -59,12 +61,12 @@
                   <Insets top="50.0" />
                </padding>
                <children>
-                  <TextField fx:id="phoneNumberTxt" prefHeight="40.0" prefWidth="400.0" promptText="phone number">
+                  <TextField fx:id="phoneNumberTextField" prefHeight="40.0" prefWidth="400.0" promptText="phone number">
                      <HBox.margin>
                         <Insets left="50.0" />
                      </HBox.margin>
                   </TextField>
-                  <TextField fx:id="disciplineTxt" prefHeight="40.0" prefWidth="400.0" promptText="discipline" />
+                  <TextField fx:id="disciplineTextField" prefHeight="40.0" prefWidth="400.0" promptText="discipline" />
                </children>
             </HBox>
             <HBox layoutX="10.0" layoutY="317.0" prefHeight="103.0" prefWidth="1044.0" spacing="50.0">
@@ -72,11 +74,12 @@
                   <Insets top="50.0" />
                </padding>
                <children>
-                  <ComboBox fx:id="sessionCombo" onMouseClicked="#sessionClick" prefHeight="40.0" prefWidth="400.0" promptText="Session">
+                  <ComboBox fx:id="sessionComboBox" prefHeight="40.0" prefWidth="175.0" promptText="Session">
                      <HBox.margin>
                         <Insets left="50.0" />
                      </HBox.margin>
                   </ComboBox>
+                  <ComboBox fx:id="programmeComboBox" prefHeight="40.0" prefWidth="175.0" promptText="programme" />
                   <DatePicker fx:id="dateOfBirthPicker" prefHeight="40.0" prefWidth="400.0" promptText="dob" />
                </children>
             </HBox>
@@ -85,12 +88,12 @@
                   <Insets top="50.0" />
                </padding>
                <children>
-                  <TextField fx:id="emailTxt1" prefHeight="40.0" prefWidth="400.0" promptText="email">
+                  <TextField fx:id="emailTextField" prefHeight="40.0" prefWidth="400.0" promptText="email">
                      <HBox.margin>
                         <Insets left="50.0" />
                      </HBox.margin>
                   </TextField>
-                  <TextField fx:id="addressTxt1" layoutX="60.0" layoutY="60.0" prefHeight="40.0" prefWidth="400.0" promptText="adress" />
+                  <TextField fx:id="addressTextField" layoutX="60.0" layoutY="60.0" prefHeight="40.0" prefWidth="400.0" promptText="address" />
                </children>
             </HBox>
          </children>
