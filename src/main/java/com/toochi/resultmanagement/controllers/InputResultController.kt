@@ -1,10 +1,9 @@
 package com.toochi.resultmanagement.controllers
 
-import com.toochi.resultmanagement.models.Course
+import com.toochi.resultmanagement.models.Settings
 import javafx.fxml.FXML
 import javafx.geometry.Insets
 import javafx.geometry.Orientation
-import javafx.geometry.Pos
 import javafx.scene.control.ComboBox
 import javafx.scene.control.Label
 import javafx.scene.control.Separator
@@ -62,7 +61,7 @@ class InputResultController {
     }
 
 
-    private val courseList = mutableListOf<Course>()
+    private val settingsList = mutableListOf<Settings>()
 
 
     @FXML
@@ -72,42 +71,40 @@ class InputResultController {
 
     @FXML
     fun initialize() {
-        for (i in 1..10) {
-            courseList.add(Course(i, "Course $i", "CSC10$i", i))
-        }
 
-        courseList.forEach { courseData ->
+        /*settingsList.forEach { courseData ->
             val row = createRow(courseData)
             vBox.children.addAll(row, Separator(Orientation.HORIZONTAL))
-        }
+        }*/
 
     }
 
 
-    private fun createRow(course: Course): HBox {
+    private fun createRow(settings: Settings): HBox {
         val hBox = HBox().apply {
             spacing = 50.0
-            padding = Insets(50.0, 0.0, 0.0, 0.0)
+            prefHeight = 80.0
+            padding = Insets(20.0, 0.0, 0.0, 0.0)
         }
 
-        val serialNumberLabel = Label(course.serialNumber.toString()).apply {
+        val serialNumberLabel = Label(settings.serialNumber.toString()).apply {
             prefHeight = 100.0
             prefWidth = 40.0
             padding = Insets(0.0, 0.0, 0.0, 50.0)
         }
 
-        val courseNameLabel = Label(course.courseName).apply {
+        val courseNameLabel = Label(settings.courseName).apply {
             prefHeight = 40.0
             prefWidth = 240.0
             wrapTextProperty()
         }
 
-        val courseCodeLabel = Label(course.courseCode).apply {
+        val courseCodeLabel = Label(settings.courseCode).apply {
             prefHeight = 40.0
             prefWidth = 100.0
         }
 
-        val courseUnitsLabel = Label(course.courseUnits.toString()).apply {
+        val courseUnitsLabel = Label(settings.courseUnits.toString()).apply {
             prefHeight = 40.0
             prefWidth = 100.0
         }
@@ -116,20 +113,20 @@ class InputResultController {
             prefHeight = 40.0
             prefWidth = 100.0
         }
-        gradeLaterTextField.textProperty().bindBidirectional(course.gradeLaterProperty)
+        gradeLaterTextField.textProperty().bindBidirectional(settings.gradeLaterProperty)
 
         val gradePointLabel = Label().apply {
             prefHeight = 40.0
             prefWidth = 100.0
         }
-        gradePointLabel.textProperty().bind(course.gradePointProperty.asString())
+        gradePointLabel.textProperty().bind(settings.gradePointProperty.asString())
 
         val totalLabel = Label().apply {
             prefHeight = 40.0
             prefWidth = 100.0
             padding = Insets(0.0, 50.0, 0.0, 0.0)
         }
-        totalLabel.textProperty().bind(course.totalProperty.asString())
+        totalLabel.textProperty().bind(settings.totalProperty.asString())
 
         hBox.children.addAll(
             serialNumberLabel,
