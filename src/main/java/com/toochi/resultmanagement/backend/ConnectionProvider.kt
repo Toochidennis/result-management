@@ -35,11 +35,12 @@ class ConnectionProvider(config: Config) {
             first_name VARCHAR(255),
             middle_name VARCHAR(255),
             last_name VARCHAR(255),
+            matric_number VARCHAR(25),
+            phone_number VARCHAR(25),
+            discipline VARCHAR(255),
             session VARCHAR(25),
             programme VARCHAR(25),
-            discipline VARCHAR(255),
-            date_of_birth VARCHAR(255),
-            phone_number VARCHAR(25),
+            date_of_birth VARCHAR(25),
             email VARCHAR(255),
             address VARCHAR(255)
         );
