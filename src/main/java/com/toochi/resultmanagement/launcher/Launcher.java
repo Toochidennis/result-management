@@ -1,7 +1,5 @@
 package com.toochi.resultmanagement.launcher;
 
-import com.toochi.resultmanagement.backend.ConnectionProvider;
-import com.toochi.resultmanagement.backend.Config;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Rectangle2D;
@@ -12,6 +10,8 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class Launcher extends Application {
+
+
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Launcher.class.getResource("/com/toochi/resultmanagement/dashboard/dashboard_view.fxml"));
@@ -29,7 +29,6 @@ public class Launcher extends Application {
     }
 
     public static void main(String[] args) {
-        new ConnectionProvider(new Config()).getConnection();
-        //launch();
+        launch();
     }
 }
