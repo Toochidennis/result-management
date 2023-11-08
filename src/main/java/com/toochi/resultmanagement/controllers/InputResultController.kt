@@ -1,6 +1,8 @@
 package com.toochi.resultmanagement.controllers
 
+import com.toochi.resultmanagement.backend.QueryExecutor.executeSelectWithConditionsQuery2
 import com.toochi.resultmanagement.models.Settings
+import com.toochi.resultmanagement.utils.Util.generateSemesters
 import javafx.fxml.FXML
 import javafx.geometry.Insets
 import javafx.geometry.Orientation
@@ -8,38 +10,17 @@ import javafx.scene.control.ComboBox
 import javafx.scene.control.Label
 import javafx.scene.control.Separator
 import javafx.scene.control.TextField
-import javafx.scene.input.MouseEvent
 import javafx.scene.layout.HBox
 import javafx.scene.layout.VBox
 
 class InputResultController {
 
-    @FXML
-    private lateinit var courseCodeLabel: Label
-
-    @FXML
-    private lateinit var courseNameLabel: Label
-
-    @FXML
-    private lateinit var courseUnitsLabel: Label
-
-    @FXML
-    private lateinit var gradeLaterTextField: TextField
-
-    @FXML
-    private lateinit var gradePontLabel: Label
-
-    @FXML
-    private lateinit var gradeTotalLabel: Label
-
-    @FXML
-    private lateinit var hBox: HBox
 
     @FXML
     private lateinit var searchTextField: TextField
 
     @FXML
-    private lateinit var semesterComboBox: ComboBox<Any>
+    private lateinit var semesterComboBox: ComboBox<String>
 
     @FXML
     private lateinit var studentNameLabel: Label
@@ -51,36 +32,86 @@ class InputResultController {
     private lateinit var vBox: VBox
 
     @FXML
-    fun searchBtn(event: MouseEvent) {
-
+    fun searchBtn() {
+        getStudent()
     }
-
-    @FXML
-    fun semesterComboBox(event: MouseEvent) {
-
-    }
-
 
     private val settingsList = mutableListOf<Settings>()
 
 
     @FXML
     fun submitBtn() {
-        //processFormSubmission()
+        processFormSubmission()
+    }
+
+    @FXML
+    fun semesterBtn() {
+        settingsList.clear()
+        vBox.children.clear()
+        getCourses()
     }
 
     @FXML
     fun initialize() {
+        createSemesters()
+    }
 
-        /*settingsList.forEach { courseData ->
-            val row = createRow(courseData)
-            vBox.children.addAll(row, Separator(Orientation.HORIZONTAL))
-        }*/
+    private fun createSemesters() {
+        semesterComboBox.items = generateSemesters()
+    }
+
+    private var programme: String? = null
+    private fun getStudent() {
+        val matricNumber = searchTextField.text
+        val condition = hashMapOf<String, Any>().apply {
+            put("matric_number", matricNumber)
+        }
+
+        val resultSet = executeSelectWithConditionsQuery2("students", condition)
+        resultSet?.next()
+        resultSet?.use {
+            val studentId = it.getString("student_id")
+            val studentName = "${it.getString("last_name")} ${it.getString("first_name")}"
+            programme = it.getString("programme")
+
+            studentNameLabel.text = studentName
+            studentProgrammeLabel.text = programme
+        }
 
     }
 
+    private fun getCourses() {
+        val semester = semesterComboBox.value
 
-    private fun createRow(settings: Settings): HBox {
+        if (semester.isNotBlank() && programme?.isNotBlank() == true) {
+            val condition = hashMapOf<String, Any>().apply {
+                put("semester", semester)
+                put("programme", programme ?: "")
+            }
+            val resultSet = executeSelectWithConditionsQuery2("settings", condition)
+
+            while (resultSet?.next() == true) {
+                with(resultSet) {
+                    settingsList.add(
+                        Settings(
+                            0, getInt("course_id"),
+                            getString("course_name"), getString("course_code"),
+                            getInt("course_units")
+                        )
+                    )
+                }
+            }
+
+            settingsList.forEach { courseData ->
+                val row = createCourseRow(courseData)
+                vBox.children.addAll(row, Separator(Orientation.HORIZONTAL))
+            }
+
+        }
+    }
+
+
+    private fun createCourseRow(settings: Settings): HBox {
         val hBox = HBox().apply {
             spacing = 50.0
             prefHeight = 80.0
@@ -141,24 +172,18 @@ class InputResultController {
         return hBox
     }
 
-}
+    private fun processFormSubmission() {
+        settingsList.forEach { courseData ->
+            val serialNumber = courseData.serialNumber
+            val courseName = courseData.courseName
+            val courseCode = courseData.courseCode
+            val gradeLater = courseData.gradeLaterProperty.get()
+            val gradePoint = courseData.gradePointProperty.get()
+            val total = courseData.totalProperty.get()
 
+            println("Serial: $serialNumber, Name: $courseName, Code: $courseCode, Grade Later: $gradeLater, Grade Point: $gradePoint, Total: $total")
+        }
 
-/*
-
-
-private fun processFormSubmission() {
-    for (courseData in courseList) {
-        val serialNumber = courseData.serialNumber
-        val courseName = courseData.courseName
-        val courseCode = courseData.courseCode
-        val gradeLater = courseData.gradeLaterProperty.get()
-        val gradePoint = courseData.gradePointProperty.get()
-        val total = courseData.totalProperty.get()
-
-        // Now you can process or save these values to the database
-        // Example: Insert into a database
-        // insertIntoDatabase(serialNumber, courseName, courseCode, gradeLater, gradePoint, total)
-        println("Serial: $serialNumber, Name: $courseName, Code: $courseCode, Grade Later: $gradeLater, Grade Point: $gradePoint, Total: $total")
     }
-}*/
+
+}
