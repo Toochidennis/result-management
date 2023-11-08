@@ -20,19 +20,18 @@ class ConnectionProvider(config: Config) {
 
     private val createSettingsTableSQL = """
         CREATE TABLE IF NOT EXISTS $databaseName.$settingsTable (   
-            course_id INT PRIMARY KEY,
+            course_id INT AUTO_INCREMENT PRIMARY KEY,
             course_name VARCHAR(255),
             course_code VARCHAR(10),
             course_units INT,
             programme VARCHAR(25),
-            session VARCHAR(25),
             semester VARCHAR(25)
         );
     """
 
     private val createStudentsTableSQL = """
         CREATE TABLE IF NOT EXISTS $databaseName.$studentsTable (
-            student_id INT PRIMARY KEY,
+            student_id INT AUTO_INCREMENT PRIMARY KEY,
             first_name VARCHAR(255),
             middle_name VARCHAR(255),
             last_name VARCHAR(255),
@@ -42,16 +41,13 @@ class ConnectionProvider(config: Config) {
             date_of_birth VARCHAR(255),
             phone_number VARCHAR(25),
             email VARCHAR(255),
-            address VARCHAR(255),
-            
-            FOREIGN KEY (session) REFERENCES $databaseName.$settingsTable(session),
-            FOREIGN KEY (programme) REFERENCES $databaseName.$settingsTable(programme)
+            address VARCHAR(255)
         );
     """
 
     private val createResultsTableSQL = """
         CREATE TABLE IF NOT EXISTS $databaseName.$resultsTable (
-            result_id INT PRIMARY KEY,
+            result_id INT AUTO_INCREMENT PRIMARY KEY,
             student_id INT,
             course_id INT,
             grade_later VARCHAR(2),
@@ -69,12 +65,13 @@ class ConnectionProvider(config: Config) {
             val queries =
                 listOf(createDatabaseSQL, createSettingsTableSQL, createStudentsTableSQL, createResultsTableSQL)
 
-            connection.use { conn ->
+            connection.run {
                 for (query in queries) {
-                    conn.prepareStatement(query).use { preparedStatement ->
+                    prepareStatement(query).use { preparedStatement ->
                         preparedStatement.executeUpdate()
                     }
                 }
+                prepareStatement("USE $databaseName").executeUpdate()
             }
 
             connection
