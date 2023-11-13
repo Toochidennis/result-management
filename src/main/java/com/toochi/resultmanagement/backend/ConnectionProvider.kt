@@ -32,17 +32,23 @@ class ConnectionProvider(config: Config) {
     private val createStudentsTableSQL = """
         CREATE TABLE IF NOT EXISTS $databaseName.$studentsTable (
             student_id INT AUTO_INCREMENT PRIMARY KEY,
+            surname VARCHAR(255),
             first_name VARCHAR(255),
-            middle_name VARCHAR(255),
-            last_name VARCHAR(255),
-            matric_number VARCHAR(25),
-            phone_number VARCHAR(25),
-            discipline VARCHAR(255),
-            session VARCHAR(25),
-            programme VARCHAR(25),
+            other_name VARCHAR(255),
+            registration_number VARCHAR(25),
+            phone_number VARCHAR(20),
             date_of_birth VARCHAR(25),
+            address VARCHAR(255),
             email VARCHAR(255),
-            address VARCHAR(255)
+            gender VARCHAR(20),
+            passport LONGBLOB,
+            next_of_kin_name VARCHAR(255),
+            next_of_kin_phone_number VARCHAR(20),
+            next_of_kin_address VARCHAR(255),
+            session VARCHAR(25),
+            programme VARCHAR(255),
+            discipline VARCHAR(255),
+            supervisor VARCHAR(255)
         );
     """
 
@@ -64,7 +70,12 @@ class ConnectionProvider(config: Config) {
         return try {
             val connection = DriverManager.getConnection(url, user, password)
             val queries =
-                listOf(createDatabaseSQL, createSettingsTableSQL, createStudentsTableSQL, createResultsTableSQL)
+                listOf(
+                    createDatabaseSQL,
+                    createSettingsTableSQL,
+                    createStudentsTableSQL,
+                    createResultsTableSQL
+                )
 
             connection.run {
                 for (query in queries) {
