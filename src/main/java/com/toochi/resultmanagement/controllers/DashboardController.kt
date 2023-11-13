@@ -9,14 +9,20 @@ class DashboardController {
     @FXML
     private lateinit var borderPane: BorderPane
 
+
     @FXML
     fun studentBtn() {
         loadFXMLScene(borderPane, "student/student_view.fxml")
     }
 
     @FXML
-    fun resultBtn() {
-        loadFXMLScene(borderPane, "result/result_input_view.fxml")
+    fun inputResultBtn() {
+        loadFXMLScene(borderPane, "result/input_result.fxml")
+    }
+
+    @FXML
+    fun viewResultBtn() {
+        loadFXMLScene(borderPane, "result/result_list.fxml")
     }
 
     @FXML
