@@ -1,6 +1,7 @@
 package com.toochi.resultmanagement.controllers
 
 import com.toochi.resultmanagement.backend.QueryExecutor.executeInsertQuery
+import com.toochi.resultmanagement.backend.QueryExecutor.executeSelectAllQuery
 import com.toochi.resultmanagement.models.Settings
 import com.toochi.resultmanagement.utils.Util.generateProgrammes
 import com.toochi.resultmanagement.utils.Util.generateSemesters
@@ -57,6 +58,8 @@ class SettingsController {
     fun initialize() {
         createProgrammes()
         createSemesters()
+
+        existingSettings()
     }
 
     private fun createProgrammes() {
@@ -68,12 +71,14 @@ class SettingsController {
     }
 
 
-    private fun createCourseTable() {
+    private fun createCourseTable(settings: Settings) {
         courseNameColumn.setCellValueFactory { SimpleStringProperty(it.value.courseName) }
         courseCodeColumn.setCellValueFactory { SimpleStringProperty(it.value.courseCode) }
         courseUnitsColumn.setCellValueFactory { SimpleIntegerProperty(it.value.courseUnits) }
         programmeColumn.setCellValueFactory { SimpleStringProperty(it.value.programme) }
         semesterColumn.setCellValueFactory { SimpleStringProperty(it.value.semester) }
+
+        tableView.items.add(settings)
     }
 
     private fun prepareCourse() {
@@ -86,33 +91,44 @@ class SettingsController {
         val settings = Settings(
             0, 0,
             courseName, courseCode,
-            courseUnits.toInt(), programme,
-            semester
+            courseUnits.toInt(),
+            programme, semester
         )
 
-        tableView.items.add(settings)
-
-        createCourseTable()
+        createCourseTable(settings)
 
         insertCourse(settings)
     }
 
     private fun insertCourse(settings: Settings) {
-        val values = hashMapOf<String, Any>().apply {
-            put("course_name", settings.courseName)
-            put("course_code", settings.courseCode)
-            put("course_units", settings.courseUnits)
-            put("programme", settings.programme)
-            put("semester", settings.semester)
-        }
+        val values = hashMapOf<String, Any>(
+            "course_name" to settings.courseName,
+            "course_code" to settings.courseCode,
+            "course_units" to settings.courseUnits,
+            "programme" to settings.programme,
+            "semester" to settings.semester
+        )
 
-        val rows = executeInsertQuery("settings", values)
-
-        println("Affected rows $rows")
+        executeInsertQuery("settings", values)
     }
 
-    private fun getExistingSettings(){
+    private fun existingSettings() {
+        val settingsResultSet = executeSelectAllQuery("settings")
 
+        while (settingsResultSet?.next() == true) {
+            with(settingsResultSet) {
+                val settings = Settings(
+                    0, getInt("course_id"),
+                    getString("course_name"),
+                    getString("course_code"),
+                    getInt("course_units"),
+                    getString("programme"),
+                    getString("semester")
+                )
+
+                createCourseTable(settings)
+            }
+        }
     }
 
 }
