@@ -1,8 +1,11 @@
 package com.toochi.resultmanagement.controllers
 
+import com.toochi.resultmanagement.backend.QueryExecutor.executeInsertQuery
 import com.toochi.resultmanagement.backend.QueryExecutor.executeSelectWithConditionsQuery2
+import com.toochi.resultmanagement.backend.QueryExecutor.executeUpdateQuery
 import com.toochi.resultmanagement.models.Settings
 import com.toochi.resultmanagement.utils.Util.generateSemesters
+import javafx.beans.property.StringProperty
 import javafx.fxml.FXML
 import javafx.geometry.Insets
 import javafx.geometry.Orientation
@@ -23,21 +26,20 @@ class InputResultController {
     private lateinit var semesterComboBox: ComboBox<String>
 
     @FXML
-    private lateinit var studentNameLabel: Label
+    private lateinit var studentProgrammeTextField: TextField
 
     @FXML
-    private lateinit var studentProgrammeLabel: Label
+    private lateinit var studentNameTextField: TextField
 
     @FXML
     private lateinit var vBox: VBox
+
+    private val settingsList = mutableListOf<Settings>()
 
     @FXML
     fun searchBtn() {
         getStudent()
     }
-
-    private val settingsList = mutableListOf<Settings>()
-
 
     @FXML
     fun submitBtn() {
@@ -61,21 +63,23 @@ class InputResultController {
     }
 
     private var programme: String? = null
+    private var studentId: String? = null
+
     private fun getStudent() {
         val matricNumber = searchTextField.text
         val condition = hashMapOf<String, Any>().apply {
-            put("matric_number", matricNumber)
+            put("registration_number", matricNumber)
         }
 
         val resultSet = executeSelectWithConditionsQuery2("students", condition)
         resultSet?.next()
         resultSet?.use {
-            val studentId = it.getString("student_id")
-            val studentName = "${it.getString("last_name")} ${it.getString("first_name")}"
+            studentId = it.getString("student_id")
+            val studentName = "${it.getString("surname")} ${it.getString("first_name")}"
             programme = it.getString("programme")
 
-            studentNameLabel.text = studentName
-            studentProgrammeLabel.text = programme
+            studentNameTextField.text = studentName
+            studentProgrammeTextField.text = programme
         }
 
     }
@@ -89,17 +93,42 @@ class InputResultController {
                 put("programme", programme ?: "")
             }
             val resultSet = executeSelectWithConditionsQuery2("settings", condition)
+            var count = 1
 
             while (resultSet?.next() == true) {
                 with(resultSet) {
+                    val existingRecordCondition = hashMapOf<String, Any>().apply {
+                        put("course_id", getInt("course_id"))
+                        put("student_id", studentId ?: 0)
+                    }
+
+                    val existingRecordResultSet =
+                        executeSelectWithConditionsQuery2("results", existingRecordCondition)
+                    var gradeLater = ""
+                    var gradePoint = 0.0
+                    var total = 0.0
+
+                    while (existingRecordResultSet?.next() == true) {
+                        with(existingRecordResultSet) {
+                            gradeLater = getString("grade_later")
+                            gradePoint = getDouble("grade_point")
+                            total = getDouble("total")
+                        }
+                    }
+
                     settingsList.add(
                         Settings(
-                            0, getInt("course_id"),
-                            getString("course_name"), getString("course_code"),
-                            getInt("course_units")
+                            count, getInt("course_id"),
+                            getString("course_name"),
+                            getString("course_code"),
+                            getInt("course_units"),
+                            "", "",
+                            gradeLater, gradePoint, total
                         )
                     )
                 }
+
+                count++
             }
 
             settingsList.forEach { courseData ->
@@ -113,50 +142,23 @@ class InputResultController {
 
     private fun createCourseRow(settings: Settings): HBox {
         val hBox = HBox().apply {
-            spacing = 50.0
+            spacing = 20.0
             prefHeight = 80.0
             padding = Insets(20.0, 0.0, 0.0, 0.0)
         }
 
-        val serialNumberLabel = Label(settings.serialNumber.toString()).apply {
-            prefHeight = 100.0
-            prefWidth = 40.0
-            padding = Insets(0.0, 0.0, 0.0, 50.0)
-        }
+        val serialNumberLabel = createLabel(
+            settings.serialNumber.toString(),
+            100.0, 40.0, 0.0, 20.0
+        )
+        val courseNameLabel = createLabel(settings.courseName, 240.0, 40.0)
+        val courseCodeLabel = createLabel(settings.courseCode, 100.0, 40.0)
+        val courseUnitsLabel = createLabel(settings.courseUnits.toString(), 100.0, 40.0)
+        val gradeLaterTextField = createTextField(settings.gradeLaterProperty)
+        val gradePointLabel = createLabel("", 100.0, 40.0)
+        val totalLabel = createLabel("", 100.0, 40.0, 20.0)
 
-        val courseNameLabel = Label(settings.courseName).apply {
-            prefHeight = 40.0
-            prefWidth = 240.0
-            wrapTextProperty()
-        }
-
-        val courseCodeLabel = Label(settings.courseCode).apply {
-            prefHeight = 40.0
-            prefWidth = 100.0
-        }
-
-        val courseUnitsLabel = Label(settings.courseUnits.toString()).apply {
-            prefHeight = 40.0
-            prefWidth = 100.0
-        }
-
-        val gradeLaterTextField = TextField().apply {
-            prefHeight = 40.0
-            prefWidth = 100.0
-        }
-        gradeLaterTextField.textProperty().bindBidirectional(settings.gradeLaterProperty)
-
-        val gradePointLabel = Label().apply {
-            prefHeight = 40.0
-            prefWidth = 100.0
-        }
         gradePointLabel.textProperty().bind(settings.gradePointProperty.asString())
-
-        val totalLabel = Label().apply {
-            prefHeight = 40.0
-            prefWidth = 100.0
-            padding = Insets(0.0, 50.0, 0.0, 0.0)
-        }
         totalLabel.textProperty().bind(settings.totalProperty.asString())
 
         hBox.children.addAll(
@@ -172,18 +174,85 @@ class InputResultController {
         return hBox
     }
 
+    private fun createLabel(
+        text: String,
+        width: Double,
+        height: Double,
+        paddingRight: Double = 0.0,
+        paddingLeft: Double = 0.0
+    ): Label {
+        return Label(text).apply {
+            prefWidth = width
+            prefHeight = height
+            padding = Insets(0.0, paddingRight, 0.0, paddingLeft)
+        }
+    }
+
+    private fun createTextField(binding: StringProperty): TextField {
+        val textField = TextField().apply {
+            prefWidth = 100.0
+            prefHeight = 40.0
+        }
+        textField.textProperty().bindBidirectional(binding)
+        return textField
+    }
+
     private fun processFormSubmission() {
         settingsList.forEach { courseData ->
-            val serialNumber = courseData.serialNumber
-            val courseName = courseData.courseName
-            val courseCode = courseData.courseCode
+            val courseId = courseData.courseId
             val gradeLater = courseData.gradeLaterProperty.get()
             val gradePoint = courseData.gradePointProperty.get()
             val total = courseData.totalProperty.get()
 
-            println("Serial: $serialNumber, Name: $courseName, Code: $courseCode, Grade Later: $gradeLater, Grade Point: $gradePoint, Total: $total")
-        }
+            val studentIdInt = studentId?.toInt() ?: 0
 
+            val existingRecordCondition = hashMapOf<String, Any>(
+                "course_id" to courseId,
+                "student_id" to studentIdInt
+            )
+
+            if (recordExists(existingRecordCondition)) {
+                updateRecord(existingRecordCondition, gradeLater, gradePoint, total)
+            } else {
+                insertRecord(studentIdInt, courseId, gradeLater, gradePoint, total)
+            }
+        }
+    }
+
+    private fun recordExists(condition: HashMap<String, Any>): Boolean {
+        val resultSet = executeSelectWithConditionsQuery2("results", condition)
+        return resultSet?.next() == true
+    }
+
+    private fun updateRecord(
+        condition: HashMap<String, Any>,
+        gradeLater: String,
+        gradePoint: Double,
+        total: Double
+    ) {
+        val updateValues = hashMapOf<String, Any>(
+            "grade_later" to gradeLater,
+            "grade_point" to gradePoint,
+            "total" to total
+        )
+        executeUpdateQuery("results", updateValues, condition)
+    }
+
+    private fun insertRecord(
+        studentId: Int,
+        courseId: Int,
+        gradeLater: String,
+        gradePoint: Double,
+        total: Double
+    ) {
+        val values = hashMapOf<String, Any>(
+            "student_id" to studentId,
+            "course_id" to courseId,
+            "grade_later" to gradeLater,
+            "grade_point" to gradePoint,
+            "total" to total
+        )
+        executeInsertQuery("results", values)
     }
 
 }
