@@ -1,60 +1,78 @@
+import org.jetbrains.kotlin.gradle.dsl.jvm.JvmTargetValidationMode
+import org.jetbrains.kotlin.gradle.tasks.KotlinJvmCompile
+
 plugins {
-  id 'java'
-  id 'application'
-  id 'org.javamodularity.moduleplugin' version '1.8.12'
-  id 'org.openjfx.javafxplugin' version '0.0.13'
-  id 'org.beryx.jlink' version '2.25.0'
-  id 'org.jetbrains.kotlin.jvm' version '1.9.20'
+    id 'java'
+    id 'application'
+    id 'org.javamodularity.moduleplugin' version '1.8.12'
+    id 'org.openjfx.javafxplugin' version '0.0.13'
+    id 'org.beryx.jlink' version '2.25.0'
+    id 'org.jetbrains.kotlin.jvm' version '1.9.20'
 }
 
 group 'com.toochi'
 version '1.0-SNAPSHOT'
 
 repositories {
-  mavenCentral()
+    mavenCentral()
 }
 
 ext {
-  junitVersion = '5.9.2'
+    junitVersion = '5.9.2'
 }
 
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+}
 
-tasks.withType(JavaCompile) {
-  options.encoding = 'UTF-8'
+tasks.withType(KotlinJvmCompile).configureEach {
+    jvmTargetValidationMode.set(JvmTargetValidationMode.WARNING)
 }
 
 application {
-  mainModule = 'com.toochi.resultmanagement'
-  mainClass = 'com.toochi.resultmanagement.HelloApplication'
+    mainModule = "com.toochi.resultmanagement"
+    mainClass = "com.toochi.resultmanagement.MainApp"
 }
 
 javafx {
-  version = '17.0.6'
-  modules = ['javafx.controls', 'javafx.fxml']
+    version = '17.0.6'
+    modules = ['javafx.controls', 'javafx.fxml']
 }
+
+/*jar {
+    from { configurations.compileClasspath.collect { it.isDirectory() ? it : zipTree(it) } }
+    manifest {
+        attributes(
+                'Main-Class': 'com.toochi.resultmanagement.MainApp'
+        )
+        duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+    }
+}*/
+
 
 dependencies {
-//  implementation 'mysql:mysql-connector-java:8.0.28'
-  implementation 'org.mariadb.jdbc:mariadb-java-client:2.7.1'
-  testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
-  testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
-  implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+    implementation 'org.mariadb.jdbc:mariadb-java-client:2.7.1'
+    implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.9.20'
+    testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
 }
 
+
 test {
-useJUnitPlatform()}
+    useJUnitPlatform()
+}
 
 jlink {
-  imageZip = project.file("${buildDir}/distributions/app-${javafx.platform.classifier}.zip")
-  options = ['--strip-debug', '--compress', '2', '--no-header-files', '--no-man-pages']
-  launcher {
-    name = 'app'
-  }
+    imageZip = project.file("${buildDir}/distributions/app-${javafx.platform.classifier}.zip")
+    options = ['--strip-debug', '--compress', '2', '--no-header-files', '--no-man-pages']
+    launcher {
+        name = 'app'
+    }
 }
 
 jlinkZip {
-  group = 'distribution'
+    group = 'distribution'
 }
 kotlin {
-  jvmToolchain(17)
+    jvmToolchain(17)
 }
