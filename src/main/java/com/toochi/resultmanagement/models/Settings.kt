@@ -10,11 +10,14 @@ class Settings(
     val courseCode: String,
     val courseUnits: Int,
     val programme: String = "",
-    val semester: String = ""
+    val semester: String = "",
+    gradeLater: String = "",
+    gradePoint: Double = 0.0,
+    total: Double = 0.0
 ) {
-    val gradeLaterProperty = SimpleStringProperty()
-    val gradePointProperty = SimpleDoubleProperty()
-    val totalProperty = SimpleDoubleProperty()
+    val gradeLaterProperty = SimpleStringProperty(gradeLater)
+    val gradePointProperty = SimpleDoubleProperty(gradePoint)
+    val totalProperty = SimpleDoubleProperty(total)
 
     init {
         gradeLaterProperty.addListener { _, _, _ ->
