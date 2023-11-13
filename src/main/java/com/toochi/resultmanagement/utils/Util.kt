@@ -2,9 +2,13 @@ package com.toochi.resultmanagement.utils
 
 import javafx.collections.FXCollections
 import javafx.collections.ObservableList
+import javafx.concurrent.ScheduledService
+import javafx.concurrent.Task
 import javafx.fxml.FXMLLoader
+import javafx.scene.control.Alert
 import javafx.scene.layout.AnchorPane
 import javafx.scene.layout.BorderPane
+import javafx.util.Duration
 import java.time.Year
 
 object Util {
@@ -42,5 +46,46 @@ object Util {
     @JvmStatic
     fun generateProgrammes(): ObservableList<String> =
         FXCollections.observableArrayList("PGD", "MBA", "MSC")
+
+    @JvmStatic
+    fun generateGender(): ObservableList<String> =
+        FXCollections.observableArrayList("Male", "Female", "Prefer not to say")
+
+
+    @JvmStatic
+    fun showSuccessDialog(message: String) {
+        val alert = Alert(Alert.AlertType.INFORMATION)
+        alert.title = "Success"
+        alert.headerText = null
+        alert.contentText = message
+        alert.showAndWait()
+    }
+
+    @JvmStatic
+    fun showErrorDialog(errorMessage: String) {
+        val alert = Alert(Alert.AlertType.ERROR)
+        alert.title = "Error"
+        alert.headerText = null
+        alert.contentText = errorMessage
+        alert.showAndWait()
+    }
+
+    @JvmStatic
+    fun refreshService(function: () -> Unit) {
+        object : ScheduledService<Unit>() {
+
+            init {
+                period = Duration.minutes(1.0)
+            }
+
+            override fun createTask(): Task<Unit> {
+                return object : Task<Unit>() {
+                    override fun call() {
+                        function()
+                    }
+                }
+            }
+        }.start()
+    }
 
 }
