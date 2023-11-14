@@ -1,11 +1,13 @@
 package com.toochi.resultmanagement.controllers
 
+import com.jfoenix.controls.JFXButton
 import com.toochi.resultmanagement.backend.QueryExecutor.executeInsertQuery
 import com.toochi.resultmanagement.backend.QueryExecutor.executeSelectWithConditionsQuery2
 import com.toochi.resultmanagement.backend.QueryExecutor.executeUpdateQuery
 import com.toochi.resultmanagement.backend.QueryExecutor.searchStudentByLastDigits
 import com.toochi.resultmanagement.models.Settings
 import com.toochi.resultmanagement.utils.Util.generateSemesters
+import com.toochi.resultmanagement.utils.Util.showMessageDialog
 import javafx.beans.property.StringProperty
 import javafx.fxml.FXML
 import javafx.geometry.Insets
@@ -14,11 +16,20 @@ import javafx.scene.control.ComboBox
 import javafx.scene.control.Label
 import javafx.scene.control.Separator
 import javafx.scene.control.TextField
+import javafx.scene.input.KeyCode
+import javafx.scene.layout.AnchorPane
 import javafx.scene.layout.HBox
+import javafx.scene.layout.StackPane
 import javafx.scene.layout.VBox
 
 class InputResultController {
 
+
+    @FXML
+    private lateinit var anchorPane: AnchorPane
+
+    @FXML
+    private lateinit var rootPane: StackPane
 
     @FXML
     private lateinit var searchTextField: TextField
@@ -39,7 +50,6 @@ class InputResultController {
 
     @FXML
     fun searchBtn() {
-        vBox.children.clear()
         searchStudent()
     }
 
@@ -57,6 +67,13 @@ class InputResultController {
 
     @FXML
     fun initialize() {
+
+        searchTextField.setOnKeyPressed {
+            if (it.code == KeyCode.ENTER) {
+                searchStudent()
+            }
+        }
+
         createSemesters()
     }
 
@@ -72,7 +89,9 @@ class InputResultController {
         val searchResult = searchStudentByLastDigits(matricNumber)
 
         with(searchResult) {
-            while (this?.next() == true) {
+            if (this?.next() == true) {
+                clearFields()
+
                 studentId = getString("student_id")
                 val studentName = getString("surname") + " " +
                         getString("other_name") + " " +
@@ -81,8 +100,25 @@ class InputResultController {
 
                 studentNameTextField.text = studentName
                 studentProgrammeTextField.text = programme
+            } else {
+                showMessageDialog(
+                    rootPane,
+                    anchorPane,
+                    listOf(JFXButton("Okay, I'll check")),
+                    "Error",
+                    "Student with id ${searchTextField.text} does not exist"
+                )
             }
         }
+    }
+
+
+    private fun clearFields() {
+        vBox.children.clear()
+        studentNameTextField.clear()
+        studentProgrammeTextField.clear()
+        semesterComboBox.selectionModel.clearSelection()
+        semesterComboBox.promptTextProperty().value = "Semester"
     }
 
     private fun getCourses() {
@@ -193,6 +229,7 @@ class InputResultController {
         val textField = TextField().apply {
             prefWidth = 100.0
             prefHeight = 40.0
+            promptTextProperty().value = "Grade"
         }
         textField.textProperty().bindBidirectional(binding)
         return textField
@@ -236,7 +273,13 @@ class InputResultController {
             "grade_point" to gradePoint,
             "total" to total
         )
-        executeUpdateQuery("results", updateValues, condition)
+        val affectedRows = executeUpdateQuery("results", updateValues, condition)
+
+        if (affectedRows == 1) {
+            showMessage("success")
+        } else {
+            showMessage("error")
+        }
     }
 
     private fun insertRecord(
@@ -253,7 +296,37 @@ class InputResultController {
             "grade_point" to gradePoint,
             "total" to total
         )
-        executeInsertQuery("results", values)
+        val affectedRows = executeInsertQuery("results", values)
+
+        if (affectedRows == 1) {
+            showMessage("success")
+        } else {
+            showMessage("error")
+        }
+    }
+
+    private fun showMessage(messageType: String) {
+        when (messageType) {
+            "success" -> {
+                showMessageDialog(
+                    rootPane,
+                    anchorPane,
+                    listOf(JFXButton("Okay")),
+                    "Success",
+                    "Result saved successfully"
+                )
+            }
+
+            else -> {
+                showMessageDialog(
+                    rootPane,
+                    anchorPane,
+                    listOf(JFXButton("Okay, I'll check")),
+                    "Error!",
+                    "Oops! Something went wrong, please try again"
+                )
+            }
+        }
     }
 
 }
