@@ -20,9 +20,9 @@
           AnchorPane.topAnchor="0.0">
         <Pane prefHeight="239.0" prefWidth="1000.0" style="-fx-background-color: #fff;">
             <TextField fx:id="searchTextField" layoutX="283.0" layoutY="108.0" prefHeight="40.0" prefWidth="448.0"
-                       promptText="Search here"/>
-            <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="700.0" layoutY="116.0" onMouseClicked="#searchBtn"
-                       pickOnBounds="true" preserveRatio="true">
+                       promptText="Search..."/>
+            <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="700.0" layoutY="116.0" pickOnBounds="true"
+                       preserveRatio="true">
                 <Image url="@../assets/icons/search.png"/>
             </ImageView>
             <Label layoutX="21.0" layoutY="24.0" prefHeight="35.0" prefWidth="163.0" text="Results">
