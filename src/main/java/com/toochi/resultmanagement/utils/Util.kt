@@ -1,15 +1,19 @@
 package com.toochi.resultmanagement.utils
 
+import com.jfoenix.controls.JFXButton
+import com.jfoenix.controls.JFXDialog
+import com.jfoenix.controls.JFXDialogLayout
 import javafx.collections.FXCollections
 import javafx.collections.ObservableList
 import javafx.concurrent.ScheduledService
 import javafx.concurrent.Task
 import javafx.fxml.FXMLLoader
-import javafx.scene.control.Alert
-import javafx.scene.layout.AnchorPane
+import javafx.scene.Node
+import javafx.scene.control.Label
+import javafx.scene.effect.BoxBlur
 import javafx.scene.layout.BorderPane
+import javafx.scene.layout.StackPane
 import javafx.util.Duration
-import java.time.Year
 
 object Util {
 
@@ -18,7 +22,7 @@ object Util {
         try {
             val loader =
                 FXMLLoader(javaClass.getResource("/com/toochi/resultmanagement/$fxmlFileName"))
-            val layout = loader.load<AnchorPane>()
+            val layout = loader.load<Node>()
             root.center = layout
         } catch (e: Exception) {
             e.printStackTrace()
@@ -51,24 +55,42 @@ object Util {
     fun generateGender(): ObservableList<String> =
         FXCollections.observableArrayList("Male", "Female", "Prefer not to say")
 
-
     @JvmStatic
-    fun showSuccessDialog(message: String) {
-        val alert = Alert(Alert.AlertType.INFORMATION)
-        alert.title = "Success"
-        alert.headerText = null
-        alert.contentText = message
-        alert.showAndWait()
+    fun showMessageDialog(
+        rootPane: StackPane,
+        nodeToBlur: Node,
+        controls: List<JFXButton>,
+        header: String,
+        body: String = ""
+    ) {
+        val blurEffect = BoxBlur(3.0, 3.0, 3)
+        nodeToBlur.effect = blurEffect
+
+        val jfxDialogLayout = JFXDialogLayout()
+        val jfxDialog = JFXDialog(rootPane, jfxDialogLayout, JFXDialog.DialogTransition.TOP)
+
+        jfxDialog.setOnDialogClosed {
+            nodeToBlur.effect = null
+        }
+
+        controls.forEach { jfxButton ->
+            jfxButton.styleClass.add("dialog-button")
+            jfxButton.setOnAction { jfxDialog.close() }
+        }
+
+        with(jfxDialogLayout) {
+            setActions(controls)
+            setHeading(Label(header).apply {
+                styleClass.add("dialog-header")
+            })
+            setBody(Label(body).apply {
+                styleClass.add("dialog-body")
+            })
+        }
+
+        jfxDialog.show()
     }
 
-    @JvmStatic
-    fun showErrorDialog(errorMessage: String) {
-        val alert = Alert(Alert.AlertType.ERROR)
-        alert.title = "Error"
-        alert.headerText = null
-        alert.contentText = errorMessage
-        alert.showAndWait()
-    }
 
     @JvmStatic
     fun refreshService(function: () -> Unit) {
