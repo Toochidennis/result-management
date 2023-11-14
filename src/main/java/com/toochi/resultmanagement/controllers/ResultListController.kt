@@ -57,11 +57,6 @@ class ResultListController {
     private val studentList = FXCollections.observableArrayList<Student>()
 
     @FXML
-    fun searchBtn() {
-
-    }
-
-    @FXML
     fun initialize() {
         databaseRefresh()
         viewStudentResult()
@@ -120,10 +115,13 @@ class ResultListController {
         tableView.setOnMouseClicked {
             try {
                 val selectedStudent = tableView.selectionModel.selectedItem
-                val studentId = selectedStudent?.studentId ?: -1
+                println(selectedStudent)
+
                 Preferences.userNodeForPackage(ResultListController::class.java).apply {
-                    put("student_id", studentId.toString())
+                    put("student_id", (selectedStudent?.studentId ?: -1).toString())
                 }
+
+                tableView.selectionModel.clearSelection()
 
                 val fxmlLoader = FXMLLoader(
                     javaClass.getResource("/com/toochi/resultmanagement/result/view_result.fxml")
@@ -162,5 +160,4 @@ class ResultListController {
             }
         }
     }
-
 }
