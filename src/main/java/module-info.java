@@ -6,6 +6,7 @@ module com.toochi.resultmanagement {
     requires kotlin.stdlib;
     requires org.mariadb.jdbc;
     requires java.prefs;
+    requires com.jfoenix;
 
 
     opens com.toochi.resultmanagement to javafx.fxml;
