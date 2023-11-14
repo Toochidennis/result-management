@@ -51,6 +51,7 @@ javafx {
 
 
 dependencies {
+    implementation 'com.jfoenix:jfoenix:9.0.10'
     implementation 'org.mariadb.jdbc:mariadb-java-client:2.7.1'
     implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.9.20'
     testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
