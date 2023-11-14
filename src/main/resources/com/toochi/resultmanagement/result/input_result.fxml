@@ -34,14 +34,14 @@
                     <Insets left="40.0"/>
                 </padding>
             </Button>
-            <TextField fx:id="searchTextField" layoutX="258.0" layoutY="36.0" prefHeight="40.0"
-                       prefWidth="448.0" promptText="Search here..">
+            <TextField fx:id="searchTextField" layoutX="258.0" layoutY="36.0" prefHeight="40.0" prefWidth="448.0"
+                       promptText="Search...">
                 <padding>
                     <Insets left="20.0"/>
                 </padding>
             </TextField>
-            <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="673.0" layoutY="44.0"
-                       onMouseClicked="#searchBtn" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="673.0" layoutY="44.0" onMouseClicked="#searchBtn"
+                       pickOnBounds="true" preserveRatio="true">
                 <Image url="@../assets/icons/search.png"/>
             </ImageView>
             <Label layoutX="20.0" layoutY="28.0" text="Input result">
@@ -60,8 +60,8 @@
                     <Insets left="20.0"/>
                 </HBox.margin>
             </TextField>
-            <TextField fx:id="studentProgrammeTextField" disable="true" layoutX="60.0" layoutY="60.0"
-                       prefHeight="40.0" prefWidth="300.0" promptText="Programme"/>
+            <TextField fx:id="studentProgrammeTextField" disable="true" layoutX="60.0" layoutY="60.0" prefHeight="40.0"
+                       prefWidth="300.0" promptText="Programme"/>
             <ComboBox fx:id="semesterComboBox" onAction="#semesterBtn" prefHeight="40.0" prefWidth="300.0"
                       promptText="Semester"/>
         </HBox>
@@ -69,9 +69,9 @@
         <ScrollPane prefHeight="459.0" prefWidth="1002.0">
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1200.0" prefWidth="986.0"
                         style="-fx-background-color: #fff;">
-                <VBox fx:id="vBox" layoutX="201.0" layoutY="-0.6666666666666666" prefHeight="1201.0"
-                      prefWidth="986.0" style="-fx-background-color: #fff;" AnchorPane.bottomAnchor="0.0"
-                      AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-1.0"/>
+                <VBox fx:id="vBox" layoutX="201.0" layoutY="-0.6666666666666666" prefHeight="1201.0" prefWidth="986.0"
+                      style="-fx-background-color: #fff;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+                      AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-1.0"/>
             </AnchorPane>
         </ScrollPane>
     </VBox>
