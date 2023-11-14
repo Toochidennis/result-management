@@ -3,6 +3,7 @@ package com.toochi.resultmanagement.controllers
 import com.toochi.resultmanagement.backend.QueryExecutor.executeInsertQuery
 import com.toochi.resultmanagement.backend.QueryExecutor.executeSelectWithConditionsQuery2
 import com.toochi.resultmanagement.backend.QueryExecutor.executeUpdateQuery
+import com.toochi.resultmanagement.backend.QueryExecutor.searchStudentByLastDigits
 import com.toochi.resultmanagement.models.Settings
 import com.toochi.resultmanagement.utils.Util.generateSemesters
 import javafx.beans.property.StringProperty
@@ -38,7 +39,8 @@ class InputResultController {
 
     @FXML
     fun searchBtn() {
-        getStudent()
+        vBox.children.clear()
+        searchStudent()
     }
 
     @FXML
@@ -65,23 +67,22 @@ class InputResultController {
     private var programme: String? = null
     private var studentId: String? = null
 
-    private fun getStudent() {
+    private fun searchStudent() {
         val matricNumber = searchTextField.text
-        val condition = hashMapOf<String, Any>().apply {
-            put("registration_number", matricNumber)
+        val searchResult = searchStudentByLastDigits(matricNumber)
+
+        with(searchResult) {
+            while (this?.next() == true) {
+                studentId = getString("student_id")
+                val studentName = getString("surname") + " " +
+                        getString("other_name") + " " +
+                        getString("first_name")
+                programme = getString("programme")
+
+                studentNameTextField.text = studentName
+                studentProgrammeTextField.text = programme
+            }
         }
-
-        val resultSet = executeSelectWithConditionsQuery2("students", condition)
-        resultSet?.next()
-        resultSet?.use {
-            studentId = it.getString("student_id")
-            val studentName = "${it.getString("surname")} ${it.getString("first_name")}"
-            programme = it.getString("programme")
-
-            studentNameTextField.text = studentName
-            studentProgrammeTextField.text = programme
-        }
-
     }
 
     private fun getCourses() {
