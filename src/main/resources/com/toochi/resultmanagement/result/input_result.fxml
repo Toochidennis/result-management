@@ -12,67 +12,70 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="700.0" prefWidth="1002.0" style="-fx-background-color: #fff;"
-            stylesheets="@../assets/css/style.css" xmlns="http://javafx.com/javafx/17"
-            xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.toochi.resultmanagement.controllers.InputResultController">
-    <VBox prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
-          AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-        <Pane prefHeight="120.0" prefWidth="200.0">
-            <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" layoutX="804.0" layoutY="36.0"
-                    mnemonicParsing="false" onMouseClicked="#submitBtn" prefHeight="45.0" prefWidth="147.0"
-                    stylesheets="@../assets/css/style.css" text="Save">
-                <graphic>
-                    <ImageView fitHeight="25.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
-                        <Image url="@../assets/icons/save.png"/>
-                    </ImageView>
-                </graphic>
+
+<StackPane fx:id="rootPane" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="com.toochi.resultmanagement.controllers.InputResultController"
+           stylesheets="@../assets/css/style.css">
+    <AnchorPane fx:id="anchorPane" prefHeight="700.0" prefWidth="1002.0" style="-fx-background-color: #fff;">
+        <VBox prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+              AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <Pane prefHeight="120.0" prefWidth="200.0">
+                <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" layoutX="804.0" layoutY="36.0"
+                        mnemonicParsing="false" onMouseClicked="#submitBtn" prefHeight="45.0" prefWidth="147.0"
+                        stylesheets="@../assets/css/style.css" text="Save">
+                    <graphic>
+                        <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                            <Image url="@../assets/icons/save.png"/>
+                        </ImageView>
+                    </graphic>
+                    <padding>
+                        <Insets left="40.0"/>
+                    </padding>
+                </Button>
+                <TextField fx:id="searchTextField" layoutX="258.0" layoutY="36.0" prefHeight="40.0" prefWidth="448.0"
+                           promptText="Search...">
+                    <padding>
+                        <Insets left="20.0"/>
+                    </padding>
+                </TextField>
+                <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="673.0" layoutY="44.0" onMouseClicked="#searchBtn"
+                           pickOnBounds="true" preserveRatio="true">
+                    <Image url="@../assets/icons/search.png"/>
+                </ImageView>
+                <Label layoutX="20.0" layoutY="28.0" text="Input result">
+                    <font>
+                        <Font size="24.0"/>
+                    </font>
+                </Label>
+            </Pane>
+            <HBox prefHeight="83.0" prefWidth="1002.0" spacing="20.0">
                 <padding>
-                    <Insets left="40.0"/>
+                    <Insets top="20.0"/>
                 </padding>
-            </Button>
-            <TextField fx:id="searchTextField" layoutX="258.0" layoutY="36.0" prefHeight="40.0" prefWidth="448.0"
-                       promptText="Search...">
-                <padding>
-                    <Insets left="20.0"/>
-                </padding>
-            </TextField>
-            <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="673.0" layoutY="44.0" onMouseClicked="#searchBtn"
-                       pickOnBounds="true" preserveRatio="true">
-                <Image url="@../assets/icons/search.png"/>
-            </ImageView>
-            <Label layoutX="20.0" layoutY="28.0" text="Input result">
-                <font>
-                    <Font size="24.0"/>
-                </font>
-            </Label>
-        </Pane>
-        <HBox prefHeight="83.0" prefWidth="1002.0" spacing="20.0">
-            <padding>
-                <Insets top="20.0"/>
-            </padding>
-            <TextField fx:id="studentNameTextField" disable="true" prefHeight="40.0" prefWidth="300.0"
-                       promptText="Student name">
-                <HBox.margin>
-                    <Insets left="20.0"/>
-                </HBox.margin>
-            </TextField>
-            <TextField fx:id="studentProgrammeTextField" disable="true" layoutX="60.0" layoutY="60.0" prefHeight="40.0"
-                       prefWidth="300.0" promptText="Programme"/>
-            <ComboBox fx:id="semesterComboBox" onAction="#semesterBtn" prefHeight="40.0" prefWidth="300.0"
-                      promptText="Semester"/>
-        </HBox>
-        <Separator prefHeight="22.0" prefWidth="1002.0" VBox.vgrow="ALWAYS"/>
-        <ScrollPane prefHeight="459.0" prefWidth="1002.0">
-            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1200.0" prefWidth="986.0"
-                        style="-fx-background-color: #fff;">
-                <VBox fx:id="vBox" layoutX="201.0" layoutY="-0.6666666666666666" prefHeight="1201.0" prefWidth="986.0"
-                      style="-fx-background-color: #fff;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
-                      AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-1.0"/>
-            </AnchorPane>
-        </ScrollPane>
-    </VBox>
-</AnchorPane>
+                <TextField fx:id="studentNameTextField" disable="true" prefHeight="40.0" prefWidth="300.0"
+                           promptText="Student name">
+                    <HBox.margin>
+                        <Insets left="20.0"/>
+                    </HBox.margin>
+                </TextField>
+                <TextField fx:id="studentProgrammeTextField" disable="true" layoutX="60.0" layoutY="60.0"
+                           prefHeight="40.0" prefWidth="300.0" promptText="Programme"/>
+                <ComboBox fx:id="semesterComboBox" onAction="#semesterBtn" prefHeight="40.0" prefWidth="300.0"
+                          promptText="Semester"/>
+            </HBox>
+            <Separator prefHeight="22.0" prefWidth="1002.0" VBox.vgrow="ALWAYS"/>
+            <ScrollPane prefHeight="459.0" prefWidth="1002.0">
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1200.0" prefWidth="986.0"
+                            style="-fx-background-color: #fff;">
+                    <VBox fx:id="vBox" layoutX="201.0" layoutY="-0.6666666666666666" prefHeight="1201.0"
+                          prefWidth="986.0" style="-fx-background-color: #fff;" AnchorPane.bottomAnchor="0.0"
+                          AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-1.0"/>
+                </AnchorPane>
+            </ScrollPane>
+        </VBox>
+    </AnchorPane>
+</StackPane>
