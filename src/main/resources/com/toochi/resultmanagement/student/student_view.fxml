@@ -27,9 +27,9 @@
             <Font size="24.0"/>
         </font>
     </Label>
-    <TabPane fx:id="tabPane" layoutX="185.0" layoutY="78.0" prefHeight="522.0" prefWidth="1044.0"
-             style="-fx-background-color: #fff;" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0"
-             AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="78.0">
+    <TabPane layoutX="185.0" layoutY="78.0" prefHeight="522.0" prefWidth="1044.0" style="-fx-background-color: #fff;"
+             tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+             AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="78.0">
         <Tab text="Register student">
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                 <ScrollPane prefHeight="513.0" prefWidth="1044.0" AnchorPane.bottomAnchor="0.0"
@@ -120,8 +120,8 @@
                                 <padding>
                                     <Insets top="20.0"/>
                                 </padding>
-                                <TextField fx:id="passportTextField" prefHeight="40.0" prefWidth="400.0"
-                                           promptText="Passport" disable="true">
+                                <TextField fx:id="passportTextField" disable="true" prefHeight="40.0" prefWidth="400.0"
+                                           promptText="Passport">
                                     <HBox.margin>
                                         <Insets left="20.0"/>
                                     </HBox.margin>
@@ -220,9 +220,9 @@
         </Tab>
         <Tab onSelectionChanged="#viewStudentTab" text="View students">
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                <TableView fx:id="tableView" layoutX="41.0" layoutY="1.3333333333333333" prefHeight="449.0"
+                <TableView fx:id="tableView" layoutX="41.0" layoutY="93.33333333333333" prefHeight="377.0"
                            prefWidth="1044.0" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="0.0"
-                           AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="1.0">
+                           AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="93.0">
                     <columns>
                         <TableColumn fx:id="studentIdColumn" prefWidth="38.66666221618652" text="S/N"/>
                         <TableColumn fx:id="surnameColumn" prefWidth="148.6666717529297" text="Surname"/>
@@ -235,9 +235,22 @@
                         <TableColumn fx:id="phoneNumberColumn" prefWidth="161.333251953125" text="Phone number"/>
                     </columns>
                     <padding>
-                        <Insets left="20.0" right="20.0"/>
+                        <Insets right="1.0"/>
                     </padding>
                 </TableView>
+                <TextField fx:id="searchTextField" layoutX="290.0" layoutY="27.0" prefHeight="40.0" prefWidth="448.0"
+                           promptText="Search...">
+                    <padding>
+                        <Insets left="20.0"/>
+                    </padding>
+                </TextField>
+                <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="704.0" layoutY="35.0" pickOnBounds="true"
+                           preserveRatio="true">
+                    <Image url="@../assets/icons/search.png"/>
+                </ImageView>
+                <padding>
+                    <Insets left="20.0" right="20.0"/>
+                </padding>
             </AnchorPane>
         </Tab>
     </TabPane>
