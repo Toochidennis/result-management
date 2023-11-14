@@ -1,13 +1,13 @@
 package com.toochi.resultmanagement.controllers
 
+import com.jfoenix.controls.JFXButton
 import com.toochi.resultmanagement.backend.QueryExecutor.executeInsertQuery
 import com.toochi.resultmanagement.backend.QueryExecutor.executeSelectAllQuery
 import com.toochi.resultmanagement.models.Student
 import com.toochi.resultmanagement.utils.Util.generateGender
 import com.toochi.resultmanagement.utils.Util.generateProgrammes
 import com.toochi.resultmanagement.utils.Util.generateSessions
-import com.toochi.resultmanagement.utils.Util.showErrorDialog
-import com.toochi.resultmanagement.utils.Util.showSuccessDialog
+import com.toochi.resultmanagement.utils.Util.showMessageDialog
 import javafx.beans.property.SimpleIntegerProperty
 import javafx.beans.property.SimpleStringProperty
 import javafx.collections.FXCollections
@@ -16,12 +16,19 @@ import javafx.collections.transformation.FilteredList
 import javafx.collections.transformation.SortedList
 import javafx.fxml.FXML
 import javafx.scene.control.*
+import javafx.scene.layout.AnchorPane
+import javafx.scene.layout.StackPane
 import javafx.stage.FileChooser
 import javafx.stage.Stage
 import java.io.File
 
 class StudentController {
 
+    @FXML
+    private lateinit var anchorPane: AnchorPane
+
+    @FXML
+    private lateinit var rootPane: StackPane
 
     // First tab
     @FXML
@@ -132,7 +139,27 @@ class StudentController {
         selectedFile = chooseImageFile()
 
         if (selectedFile != null) {
-            passportTextField.text = selectedFile?.name
+            val maxSize = 1024L
+            val fileSize = selectedFile?.length()?.div(1024)
+            val button = JFXButton("Okay")
+            val header = "Error!"
+            val body = "File must not be greater than 1MB!"
+
+            fileSize?.let {
+                if (it > maxSize) {
+                    showMessageDialog(rootPane, anchorPane, listOf(button), header, body)
+                    selectedFile = null
+                } else {
+                    passportTextField.text = selectedFile?.name
+                    showMessageDialog(
+                        rootPane,
+                        anchorPane,
+                        listOf(button),
+                        "Success",
+                        "File uploaded!"
+                    )
+                }
+            }
         }
     }
 
@@ -200,10 +227,22 @@ class StudentController {
         val affectedRows = executeInsertQuery("students", values)
 
         if (affectedRows == 1) {
-            showSuccessDialog("Student registered successfully!")
+            showMessageDialog(
+                rootPane,
+                anchorPane,
+                listOf(JFXButton("Okay")),
+                "Success",
+                "Student registered successfully!"
+            )
             clearFields()
         } else {
-            showErrorDialog("Oops! Something went wrong, please check your connection and try again")
+            showMessageDialog(
+                rootPane,
+                anchorPane,
+                listOf(JFXButton("Okay, I'll check")),
+                "Error!",
+                "Oops! Something went wrong, please try again"
+            )
         }
     }
 
@@ -284,6 +323,20 @@ class StudentController {
         for (view in viewList) {
             view.clear()
         }
+
+        clearComboBox("Gender", genderComboBox)
+        clearComboBox("Session", sessionComboBox)
+        clearComboBox("Programme", programmeComboBox)
+
+    }
+
+    private fun clearComboBox(prompt: String, comboBox: ComboBox<String>) {
+        comboBox.apply {
+            selectionModel.clearSelection()
+            promptText = prompt
+            isEditable = true
+        }
+
     }
 
 
