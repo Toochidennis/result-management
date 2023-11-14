@@ -1,6 +1,5 @@
 package com.toochi.resultmanagement.controllers
 
-import com.toochi.resultmanagement.backend.QueryExecutor
 import com.toochi.resultmanagement.backend.QueryExecutor.executeStudentsWithResultQuery
 import com.toochi.resultmanagement.models.Student
 import com.toochi.resultmanagement.utils.Util.refreshService
@@ -8,11 +7,15 @@ import javafx.beans.property.SimpleIntegerProperty
 import javafx.beans.property.SimpleStringProperty
 import javafx.collections.FXCollections
 import javafx.collections.ObservableList
+import javafx.collections.transformation.FilteredList
+import javafx.collections.transformation.SortedList
 import javafx.fxml.FXML
 import javafx.fxml.FXMLLoader
-import javafx.scene.Parent
 import javafx.scene.Scene
-import javafx.scene.control.*
+import javafx.scene.control.SelectionMode
+import javafx.scene.control.TableColumn
+import javafx.scene.control.TableView
+import javafx.scene.control.TextField
 import javafx.stage.Modality
 import javafx.stage.Stage
 import javafx.stage.StageStyle
@@ -51,6 +54,8 @@ class ResultListController {
     @FXML
     private lateinit var tableView: TableView<Student>
 
+    private val studentList = FXCollections.observableArrayList<Student>()
+
     @FXML
     fun searchBtn() {
 
@@ -59,14 +64,12 @@ class ResultListController {
     @FXML
     fun initialize() {
         databaseRefresh()
-
         viewStudentResult()
     }
 
 
     private fun getStudents(): ObservableList<Student> {
         val studentsResultSet = executeStudentsWithResultQuery("students")
-        val studentList = FXCollections.observableArrayList<Student>()
 
         while (studentsResultSet?.next() == true) {
             with(studentsResultSet) {
@@ -103,6 +106,8 @@ class ResultListController {
         registrationNumberColumn.setCellValueFactory { SimpleStringProperty(it.value.registrationNumber) }
 
         tableView.items = getStudents()
+
+        filterStudents()
     }
 
     private fun databaseRefresh() {
@@ -110,7 +115,7 @@ class ResultListController {
     }
 
     private fun viewStudentResult() {
-        //tableView.selectionModel.selectionMode = SelectionMode.SINGLE
+        tableView.selectionModel.selectionMode = SelectionMode.SINGLE
 
         tableView.setOnMouseClicked {
             try {
@@ -134,6 +139,26 @@ class ResultListController {
 
             } catch (e: Exception) {
                 e.printStackTrace()
+            }
+        }
+    }
+
+    private fun filterStudents() {
+        val filteredList = FilteredList(studentList)
+        val sortedList = SortedList(filteredList)
+
+        sortedList.comparatorProperty().bind(tableView.comparatorProperty())
+        tableView.items = sortedList
+
+        searchTextField.textProperty().addListener { _, _, newValue ->
+            filteredList.setPredicate {
+                if (newValue == null || newValue.isEmpty()) {
+                    return@setPredicate true
+                }
+
+                // Filter based on your criteria, for example, name
+                it.registrationNumber.contains(newValue, ignoreCase = true) or
+                        it.surname.contains(newValue, ignoreCase = true)
             }
         }
     }
