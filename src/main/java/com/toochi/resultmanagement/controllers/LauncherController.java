@@ -4,10 +4,9 @@ import javafx.animation.PauseTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.geometry.Rectangle2D;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
-import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
@@ -42,6 +41,7 @@ public class LauncherController implements Initializable {
             Scene scene = new Scene(fxmlLoader.load());
 
             stage.setTitle("Result management");
+            stage.getIcons().add(new Image("/com/toochi/resultmanagement/assets/icons/logo.png"));
             stage.setScene(scene);
             stage.show();
 
