@@ -3,6 +3,54 @@ package com.toochi.resultmanagement.backend
 import java.sql.Connection
 import java.sql.DriverManager
 
+/**
+ * Package Documentation: `com.toochi.resultmanagement.backend`
+ *
+ * Overview
+ * ------------
+ * The `com.toochi.resultmanagement.backend` package includes a `ConnectionProvider` class responsible for managing
+ * database connections and initializing the required database and tables.
+ *
+ * Classes and Methods
+ * --------------------------
+ *
+ * ### `ConnectionProvider`
+ *
+ * This class manages database connections and initializes the necessary database and tables.
+ *
+ * #### Constructor:
+ *
+ * - **`ConnectionProvider(config: Config)`**
+ *   - Purpose: Constructs a `ConnectionProvider` instance with the provided configuration.
+ *   - Parameters:
+ *     - `config` (Config): An instance of the `Config` class containing database configuration parameters.
+ *
+ * #### Methods:
+ *
+ * 1. **`getConnection`**
+ *    - Purpose: Establishes a connection to the database and initializes the database and tables if not already created.
+ *    - Returns: A `Connection` object representing the established database connection or `null` if an error occurs.
+ *
+ * Usage Example
+ * -------------------
+ *
+ * #### Creating a Database Connection
+ *
+ * ```kotlin
+ * val config = Config()
+ * val connectionProvider = ConnectionProvider(config)
+ * val connection = connectionProvider.getConnection()
+ * ```
+ *
+ * Note
+ * --------
+ * - The `Config` class should be properly configured with the necessary database connection details before using the `ConnectionProvider`.
+ * - The `createDatabaseSQL`, `createSettingsTableSQL`, `createStudentsTableSQL`, and `createResultsTableSQL` properties
+ *   contain SQL statements for creating the database and tables if they do not already exist.
+ * - The `getConnection` method ensures that the necessary database and tables are created before returning the connection.
+ * - Ensure that the database connection details and SQL statements are appropriately configured for your application.
+ */
+
 class ConnectionProvider(config: Config) {
 
     // Configurations
