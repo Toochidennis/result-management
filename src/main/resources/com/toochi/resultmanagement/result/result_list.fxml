@@ -18,10 +18,10 @@
     <VBox layoutX="114.0" layoutY="40.0" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #fff;"
           AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
           AnchorPane.topAnchor="0.0">
-        <Pane prefHeight="160.0" prefWidth="1000.0" style="-fx-background-color: #fff;">
-            <TextField fx:id="searchTextField" layoutX="283.0" layoutY="58.0" prefHeight="40.0" prefWidth="448.0"
+        <Pane prefHeight="239.0" prefWidth="1000.0" style="-fx-background-color: #fff;">
+            <TextField fx:id="searchTextField" layoutX="283.0" layoutY="108.0" prefHeight="40.0" prefWidth="448.0"
                        promptText="Search here"/>
-            <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="700.0" layoutY="66.0" onMouseClicked="#searchBtn"
+            <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="700.0" layoutY="116.0" onMouseClicked="#searchBtn"
                        pickOnBounds="true" preserveRatio="true">
                 <Image url="@../assets/icons/search.png"/>
             </ImageView>
@@ -31,7 +31,7 @@
                 </font>
             </Label>
         </Pane>
-        <TableView fx:id="tableView" prefHeight="578.0" prefWidth="1000.0">
+        <TableView fx:id="tableView" prefHeight="510.0" prefWidth="960.0">
             <columns>
                 <TableColumn fx:id="studentIdColumn" prefWidth="58.6666898727417" text="S/N"/>
                 <TableColumn fx:id="surnameColumn" prefWidth="145.33330535888672" text="Surname"/>
