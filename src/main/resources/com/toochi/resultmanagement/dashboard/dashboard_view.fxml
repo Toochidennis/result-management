@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="borderPane" prefHeight="650.0" prefWidth="1200.0" style="-fx-background-color: #fff;"
+<BorderPane fx:id="borderPane" prefHeight="650.0" prefWidth="1250.0" style="-fx-background-color: #fff;"
             stylesheets="@../assets/css/style.css" xmlns="http://javafx.com/javafx/17"
             xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="com.toochi.resultmanagement.controllers.DashboardController">
