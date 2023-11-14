@@ -30,15 +30,11 @@
             <AnchorPane fx:id="anchorPane" minHeight="0.0" minWidth="0.0" prefHeight="1167.0" prefWidth="830.0">
 
                 <HBox layoutX="20.0" layoutY="20.0">
-
                     <HBox prefHeight="218.0" prefWidth="553.0">
-
                         <Separator orientation="VERTICAL" prefHeight="200.0"/>
                         <VBox prefHeight="252.0" prefWidth="445.0" HBox.hgrow="ALWAYS">
-
                             <Separator prefWidth="200.0"/>
                             <HBox nodeOrientation="LEFT_TO_RIGHT" prefHeight="30.0" prefWidth="392.0" spacing="10.0">
-
                                 <Label prefHeight="30.0" prefWidth="61.0" text="Name:" wrapText="true">
                                     <font>
                                         <Font name="System Bold" size="16.0"/>
@@ -50,11 +46,9 @@
                                         <Font size="16.0"/>
                                     </font>
                                 </Label>
-
                             </HBox>
                             <Separator prefWidth="445.0" VBox.vgrow="ALWAYS"/>
                             <HBox prefHeight="30.0" prefWidth="611.0" spacing="10.0">
-
                                 <Label prefHeight="27.0" prefWidth="190.0" text="Registration No:">
                                     <font>
                                         <Font name="System Bold" size="16.0"/>
@@ -66,11 +60,9 @@
                                         <Font size="16.0"/>
                                     </font>
                                 </Label>
-
                             </HBox>
                             <Separator prefWidth="445.0"/>
                             <HBox layoutX="10.0" layoutY="50.0" prefHeight="30.0" prefWidth="611.0" spacing="10.0">
-
                                 <Label text="Programme:">
                                     <font>
                                         <Font name="System Bold" size="16.0"/>
@@ -82,11 +74,9 @@
                                         <Font size="16.0"/>
                                     </font>
                                 </Label>
-
                             </HBox>
                             <Separator prefWidth="445.0"/>
                             <HBox layoutX="10.0" layoutY="90.0" prefHeight="30.0" prefWidth="611.0" spacing="10.0">
-
                                 <Label text="Area of Specialization:">
                                     <font>
                                         <Font name="System Bold" size="16.0"/>
@@ -98,11 +88,9 @@
                                         <Font size="16.0"/>
                                     </font>
                                 </Label>
-
                             </HBox>
                             <Separator prefWidth="445.0"/>
                             <HBox layoutX="10.0" layoutY="130.0" prefHeight="30.0" prefWidth="611.0" spacing="10.0">
-
                                 <Label text="Supervisor (s):">
                                     <font>
                                         <Font name="System Bold" size="16.0"/>
@@ -114,11 +102,9 @@
                                         <Font size="16.0"/>
                                     </font>
                                 </Label>
-
                             </HBox>
                             <Separator prefWidth="445.0"/>
                             <HBox layoutX="10.0" layoutY="170.0" prefHeight="30.0" prefWidth="377.0" spacing="10.0">
-
                                 <Label text="Session:">
                                     <font>
                                         <Font name="System Bold" size="16.0"/>
@@ -147,7 +133,6 @@
                             </HBox>
                             <Separator prefWidth="200.0"/>
                             <HBox layoutX="10.0" layoutY="136.0" prefHeight="30.0" prefWidth="611.0" spacing="10.0">
-
                                 <Label text="CGPA:">
                                     <font>
                                         <Font name="System Bold" size="16.0"/>
@@ -169,14 +154,12 @@
                         <HBox.margin>
                             <Insets left="20.0"/>
                         </HBox.margin>
-                        <Image url="@../assets/icons/user.png"/>
                     </ImageView>
                 </HBox>
                 <Separator layoutY="281.3333333333333" prefWidth="200.0" AnchorPane.leftAnchor="0.0"
                            AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="281.3333333333333"/>
                 <VBox layoutY="285.0">
                     <VBox alignment="TOP_CENTER" prefHeight="370.0" prefWidth="830.0">
-
                         <Label fx:id="firstSemesterLabel" text="First semester 2022/2023">
                             <VBox.margin>
                                 <Insets top="20.0"/>
@@ -204,7 +187,6 @@
                             </VBox.margin>
                         </TableView>
                         <HBox prefHeight="23.0" prefWidth="790.0" spacing="200.0">
-
                             <Label prefHeight="27.0" prefWidth="85.0" text="Total">
                                 <font>
                                     <Font name="System Bold" size="18.0"/>
@@ -225,7 +207,6 @@
                                     <Font name="System Bold" size="18.0"/>
                                 </font>
                             </Label>
-
                             <VBox.margin>
                                 <Insets top="10.0"/>
                             </VBox.margin>
@@ -254,13 +235,11 @@
                                 </font>
                             </Label>
                         </HBox>
-
                         <padding>
                             <Insets left="20.0" right="20.0"/>
                         </padding>
                     </VBox>
                     <VBox alignment="TOP_CENTER" prefHeight="370.0" prefWidth="830.0">
-
                         <Label fx:id="secondSemesterLabel" text="Second semester 2022/2023">
                             <VBox.margin>
                                 <Insets top="20.0"/>
@@ -288,7 +267,6 @@
                             </VBox.margin>
                         </TableView>
                         <HBox prefHeight="23.0" prefWidth="790.0" spacing="200.0">
-
                             <Label prefHeight="27.0" prefWidth="85.0" text="Total">
                                 <font>
                                     <Font name="System Bold" size="18.0"/>
@@ -309,7 +287,6 @@
                                     <Font name="System Bold" size="18.0"/>
                                 </font>
                             </Label>
-
                             <VBox.margin>
                                 <Insets top="10.0"/>
                             </VBox.margin>
@@ -338,14 +315,11 @@
                                 </font>
                             </Label>
                         </HBox>
-
                         <padding>
                             <Insets left="20.0" right="20.0"/>
                         </padding>
                     </VBox>
-
                 </VBox>
-
             </AnchorPane>
         </ScrollPane>
     </VBox>
