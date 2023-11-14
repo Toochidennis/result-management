@@ -106,3 +106,34 @@
     -fx-pref-height: 45px;
     -fx-background-color: WHITE;
 }
+
+.dialog-button{
+    -fx-background-color: #EBE8F9;
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+    -fx-text-fill: BLACK;
+    -fx-label-padding: 5 15 5 15 ;
+    -fx-font-size: 14;
+}
+
+.dialog-button:hover {
+    -fx-background-color: #23A455;
+    -fx-background-radius: 10;
+    -fx-text-fill: WHITE;
+}
+
+.dialog-button:pressed{
+    -fx-background-color: #096C3A;
+    -fx-text-fill: WHITE;
+}
+
+.dialog-header{
+    -fx-font-size: 18px; /* Specify the unit (e.g., px or pt) */
+    -fx-font-family: 'Montserrat'; /* Use fx-font-family for font family */
+}
+
+.dialog-body{
+    -fx-font-size: 16px; /* Specify the unit (e.g., px or pt) */
+    -fx-font-family: 'Montserrat';
+    -fx-text-fill: #096C3A;
+}
