@@ -4,14 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="86b210cd-bb51-447a-8238-63849e379964" name="Changes" comment="Update LauncherController.java">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/toochi/resultmanagement/assets/icons/close.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/toochi/resultmanagement/assets/icons/input.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/toochi/resultmanagement/launcher/launcher.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/toochi/resultmanagement/result/input_result.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.2/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2/checksums/checksums.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.2/checksums/md5-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2/checksums/md5-checksums.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.2/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2/checksums/sha1-checksums.bin" afterDir="false" />
+    <list default="true" id="86b210cd-bb51-447a-8238-63849e379964" name="Changes" comment="files">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/toochi/resultmanagement/assets/icons/icon_16.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/toochi/resultmanagement/assets/icons/icon_32.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/toochi/resultmanagement/assets/icons/icon_48.ico" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.2/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.2/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.2/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2/fileHashes/fileHashes.bin" afterDir="false" />
@@ -22,11 +18,17 @@
       <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/toochi/resultmanagement/controllers/DashboardController.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/toochi/resultmanagement/controllers/DashboardController.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/toochi/resultmanagement/backend/ConnectionProvider.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/toochi/resultmanagement/backend/ConnectionProvider.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/toochi/resultmanagement/backend/QueryExecutor.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/toochi/resultmanagement/backend/QueryExecutor.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/toochi/resultmanagement/controllers/InputResultController.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/toochi/resultmanagement/controllers/InputResultController.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/toochi/resultmanagement/controllers/LauncherController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/toochi/resultmanagement/controllers/LauncherController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/toochi/resultmanagement/controllers/SettingsController.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/toochi/resultmanagement/controllers/SettingsController.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/toochi/resultmanagement/controllers/ResultListController.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/toochi/resultmanagement/controllers/ResultListController.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/toochi/resultmanagement/controllers/StudentController.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/toochi/resultmanagement/controllers/StudentController.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/toochi/resultmanagement/dashboard/dashboard_view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/toochi/resultmanagement/dashboard/dashboard_view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/toochi/resultmanagement/result/input_result.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/toochi/resultmanagement/result/input_result.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/toochi/resultmanagement/result/result_list.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/toochi/resultmanagement/result/result_list.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/toochi/resultmanagement/student/student_view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/toochi/resultmanagement/student/student_view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -172,7 +174,7 @@
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "preferences.sourceCode.Kotlin",
+    "settings.editor.selected.configurable": "settings.sync",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -328,95 +330,7 @@
       <workItem from="1699658369388" duration="8028000" />
       <workItem from="1699687022778" duration="6110000" />
       <workItem from="1699785158262" duration="30327000" />
-      <workItem from="1699877115432" duration="24244000" />
-    </task>
-    <task id="LOCAL-00051" summary="made changes">
-      <option name="closed" value="true" />
-      <created>1699429282466</created>
-      <option name="number" value="00051" />
-      <option name="presentableId" value="LOCAL-00051" />
-      <option name="project" value="LOCAL" />
-      <updated>1699429282466</updated>
-    </task>
-    <task id="LOCAL-00052" summary="added functions for making queries">
-      <option name="closed" value="true" />
-      <created>1699429305694</created>
-      <option name="number" value="00052" />
-      <option name="presentableId" value="LOCAL-00052" />
-      <option name="project" value="LOCAL" />
-      <updated>1699429305694</updated>
-    </task>
-    <task id="LOCAL-00053" summary="added functions for making queries">
-      <option name="closed" value="true" />
-      <created>1699429358874</created>
-      <option name="number" value="00053" />
-      <option name="presentableId" value="LOCAL-00053" />
-      <option name="project" value="LOCAL" />
-      <updated>1699429358875</updated>
-    </task>
-    <task id="LOCAL-00054" summary="made changes to settings_view.fxml">
-      <option name="closed" value="true" />
-      <created>1699429421764</created>
-      <option name="number" value="00054" />
-      <option name="presentableId" value="LOCAL-00054" />
-      <option name="project" value="LOCAL" />
-      <updated>1699429421764</updated>
-    </task>
-    <task id="LOCAL-00055" summary="now functional">
-      <option name="closed" value="true" />
-      <created>1699429440549</created>
-      <option name="number" value="00055" />
-      <option name="presentableId" value="LOCAL-00055" />
-      <option name="project" value="LOCAL" />
-      <updated>1699429440549</updated>
-    </task>
-    <task id="LOCAL-00056" summary="added utils function">
-      <option name="closed" value="true" />
-      <created>1699429467541</created>
-      <option name="number" value="00056" />
-      <option name="presentableId" value="LOCAL-00056" />
-      <option name="project" value="LOCAL" />
-      <updated>1699429467541</updated>
-    </task>
-    <task id="LOCAL-00057" summary="files">
-      <option name="closed" value="true" />
-      <created>1699429480157</created>
-      <option name="number" value="00057" />
-      <option name="presentableId" value="LOCAL-00057" />
-      <option name="project" value="LOCAL" />
-      <updated>1699429480158</updated>
-    </task>
-    <task id="LOCAL-00058" summary="files">
-      <option name="closed" value="true" />
-      <created>1699486949255</created>
-      <option name="number" value="00058" />
-      <option name="presentableId" value="LOCAL-00058" />
-      <option name="project" value="LOCAL" />
-      <updated>1699486949255</updated>
-    </task>
-    <task id="LOCAL-00059" summary="Update ConnectionProvider.kt">
-      <option name="closed" value="true" />
-      <created>1699486982370</created>
-      <option name="number" value="00059" />
-      <option name="presentableId" value="LOCAL-00059" />
-      <option name="project" value="LOCAL" />
-      <updated>1699486982371</updated>
-    </task>
-    <task id="LOCAL-00060" summary="Update InputResultController.kt">
-      <option name="closed" value="true" />
-      <created>1699487014804</created>
-      <option name="number" value="00060" />
-      <option name="presentableId" value="LOCAL-00060" />
-      <option name="project" value="LOCAL" />
-      <updated>1699487014804</updated>
-    </task>
-    <task id="LOCAL-00061" summary="Update QueryExecutor.kt">
-      <option name="closed" value="true" />
-      <created>1699487037965</created>
-      <option name="number" value="00061" />
-      <option name="presentableId" value="LOCAL-00061" />
-      <option name="project" value="LOCAL" />
-      <updated>1699487037965</updated>
+      <workItem from="1699877115432" duration="32852000" />
     </task>
     <task id="LOCAL-00062" summary="Update Result.kt">
       <option name="closed" value="true" />
@@ -722,7 +636,95 @@
       <option name="project" value="LOCAL" />
       <updated>1699915578960</updated>
     </task>
-    <option name="localTasksCounter" value="100" />
+    <task id="LOCAL-00100" summary="Update LauncherController.java">
+      <option name="closed" value="true" />
+      <created>1699915604751</created>
+      <option name="number" value="00100" />
+      <option name="presentableId" value="LOCAL-00100" />
+      <option name="project" value="LOCAL" />
+      <updated>1699915604751</updated>
+    </task>
+    <task id="LOCAL-00101" summary="Update launcher.fxml">
+      <option name="closed" value="true" />
+      <created>1699915627314</created>
+      <option name="number" value="00101" />
+      <option name="presentableId" value="LOCAL-00101" />
+      <option name="project" value="LOCAL" />
+      <updated>1699915627314</updated>
+    </task>
+    <task id="LOCAL-00102" summary="Update InputResultController.kt">
+      <option name="closed" value="true" />
+      <created>1699915643376</created>
+      <option name="number" value="00102" />
+      <option name="presentableId" value="LOCAL-00102" />
+      <option name="project" value="LOCAL" />
+      <updated>1699915643376</updated>
+    </task>
+    <task id="LOCAL-00103" summary="Update input_result.fxml">
+      <option name="closed" value="true" />
+      <created>1699915666593</created>
+      <option name="number" value="00103" />
+      <option name="presentableId" value="LOCAL-00103" />
+      <option name="project" value="LOCAL" />
+      <updated>1699915666593</updated>
+    </task>
+    <task id="LOCAL-00104" summary="Update SettingsController.kt">
+      <option name="closed" value="true" />
+      <created>1699915687080</created>
+      <option name="number" value="00104" />
+      <option name="presentableId" value="LOCAL-00104" />
+      <option name="project" value="LOCAL" />
+      <updated>1699915687080</updated>
+    </task>
+    <task id="LOCAL-00105" summary="Update DashboardController.kt">
+      <option name="closed" value="true" />
+      <created>1699915704757</created>
+      <option name="number" value="00105" />
+      <option name="presentableId" value="LOCAL-00105" />
+      <option name="project" value="LOCAL" />
+      <updated>1699915704757</updated>
+    </task>
+    <task id="LOCAL-00106" summary="Update dashboard_view.fxml">
+      <option name="closed" value="true" />
+      <created>1699915719724</created>
+      <option name="number" value="00106" />
+      <option name="presentableId" value="LOCAL-00106" />
+      <option name="project" value="LOCAL" />
+      <updated>1699915719724</updated>
+    </task>
+    <task id="LOCAL-00107" summary="Add input.png">
+      <option name="closed" value="true" />
+      <created>1699915737693</created>
+      <option name="number" value="00107" />
+      <option name="presentableId" value="LOCAL-00107" />
+      <option name="project" value="LOCAL" />
+      <updated>1699915737693</updated>
+    </task>
+    <task id="LOCAL-00108" summary="Add close.png">
+      <option name="closed" value="true" />
+      <created>1699915748402</created>
+      <option name="number" value="00108" />
+      <option name="presentableId" value="LOCAL-00108" />
+      <option name="project" value="LOCAL" />
+      <updated>1699915748403</updated>
+    </task>
+    <task id="LOCAL-00109" summary="Update build.gradle">
+      <option name="closed" value="true" />
+      <created>1699915767607</created>
+      <option name="number" value="00109" />
+      <option name="presentableId" value="LOCAL-00109" />
+      <option name="project" value="LOCAL" />
+      <updated>1699915767607</updated>
+    </task>
+    <task id="LOCAL-00110" summary="files">
+      <option name="closed" value="true" />
+      <created>1699915787276</created>
+      <option name="number" value="00110" />
+      <option name="presentableId" value="LOCAL-00110" />
+      <option name="project" value="LOCAL" />
+      <updated>1699915787276</updated>
+    </task>
+    <option name="localTasksCounter" value="111" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -740,16 +742,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Update Util.kt" />
-    <MESSAGE value="Update QueryExecutor.kt" />
-    <MESSAGE value="Update ConnectionProvider.kt" />
-    <MESSAGE value="Deleted bookmark.png" />
-    <MESSAGE value="Deleted Result.kt" />
-    <MESSAGE value="Deleted synchronize.png" />
-    <MESSAGE value="Update style.css" />
-    <MESSAGE value="Add user.png" />
-    <MESSAGE value="Add upload.png" />
-    <MESSAGE value="Add students.png" />
     <MESSAGE value="Add settings.png" />
     <MESSAGE value="Add search.png" />
     <MESSAGE value="Add save.png" />
@@ -765,7 +757,17 @@
     <MESSAGE value="Update module-info.java" />
     <MESSAGE value="Update Launcher.java" />
     <MESSAGE value="Update LauncherController.java" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update LauncherController.java" />
+    <MESSAGE value="Update launcher.fxml" />
+    <MESSAGE value="Update InputResultController.kt" />
+    <MESSAGE value="Update input_result.fxml" />
+    <MESSAGE value="Update SettingsController.kt" />
+    <MESSAGE value="Update DashboardController.kt" />
+    <MESSAGE value="Update dashboard_view.fxml" />
+    <MESSAGE value="Add input.png" />
+    <MESSAGE value="Add close.png" />
+    <MESSAGE value="Update build.gradle" />
+    <MESSAGE value="files" />
+    <option name="LAST_COMMIT_MESSAGE" value="files" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -12,6 +12,8 @@ import javafx.beans.property.SimpleIntegerProperty
 import javafx.beans.property.SimpleStringProperty
 import javafx.collections.FXCollections
 import javafx.collections.ObservableList
+import javafx.collections.transformation.FilteredList
+import javafx.collections.transformation.SortedList
 import javafx.fxml.FXML
 import javafx.scene.control.*
 import javafx.stage.FileChooser
@@ -20,9 +22,6 @@ import java.io.File
 
 class StudentController {
 
-
-    @FXML
-    private lateinit var tabPane: TabPane
 
     // First tab
     @FXML
@@ -108,7 +107,11 @@ class StudentController {
     @FXML
     private lateinit var tableView: TableView<Student>
 
+    @FXML
+    private lateinit var searchTextField: TextField
+
     private var selectedFile: File? = null
+    private val studentList = FXCollections.observableArrayList<Student>()
 
 
     @FXML
@@ -116,8 +119,6 @@ class StudentController {
         createProgrammes()
         createSessions()
         createGender()
-
-//        tabPane.tabClosingPolicy = TabPane.TabClosingPolicy.UNAVAILABLE
 
     }
 
@@ -220,7 +221,6 @@ class StudentController {
 
     private fun getStudents(): ObservableList<Student> {
         val studentsResultSet = executeSelectAllQuery("students")
-        val studentList = FXCollections.observableArrayList<Student>()
 
         while (studentsResultSet?.next() == true) {
             with(studentsResultSet) {
@@ -258,6 +258,8 @@ class StudentController {
         phoneNumberColumn.setCellValueFactory { SimpleStringProperty(it.value.phoneNumber) }
 
         tableView.items = getStudents()
+
+        filterStudents()
     }
 
 
@@ -282,6 +284,27 @@ class StudentController {
         for (view in viewList) {
             view.clear()
         }
+    }
 
+
+    private fun filterStudents() {
+        val filteredList = FilteredList(studentList)
+        val sortedList = SortedList(filteredList)
+
+        sortedList.comparatorProperty().bind(tableView.comparatorProperty())
+        tableView.items = sortedList
+
+        searchTextField.textProperty().addListener { _, _, newValue ->
+            filteredList.setPredicate {
+                if (newValue == null || newValue.isEmpty()) {
+                    return@setPredicate true
+                }
+
+                // Filter based on your criteria, for example, name
+                it.registrationNumber.contains(newValue, ignoreCase = true) or
+                        it.surname.contains(newValue, ignoreCase = true)
+
+            }
+        }
     }
 }
