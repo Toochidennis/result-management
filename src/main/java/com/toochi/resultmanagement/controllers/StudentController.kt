@@ -169,7 +169,7 @@ class StudentController {
     }
 
     private fun createProgrammes() {
-        programmeComboBox.items = generateProgrammes()
+        generateProgrammes(programmeComboBox)
     }
 
     private fun createSessions() {
