@@ -72,10 +72,10 @@ class ConnectionProvider(config: Config) {
             course_name VARCHAR(255),
             course_code VARCHAR(10),
             course_units INT,
-            programme VARCHAR(25),
+            programme VARCHAR(255),
             semester VARCHAR(25)
         );
-    """
+    """.trimIndent()
 
     private val createStudentsTableSQL = """
         CREATE TABLE IF NOT EXISTS $databaseName.$studentsTable (

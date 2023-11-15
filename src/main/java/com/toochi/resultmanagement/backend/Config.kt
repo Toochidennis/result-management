@@ -18,4 +18,5 @@ class Config {
     val dbSettingsTable: String by properties
     val dbStudentsTable: String by properties
     val dbResultsTable: String by properties
+
 }

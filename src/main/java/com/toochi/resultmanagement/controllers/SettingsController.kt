@@ -18,6 +18,7 @@ import javafx.fxml.FXML
 import javafx.scene.control.*
 import javafx.scene.layout.AnchorPane
 import javafx.scene.layout.StackPane
+import java.io.File
 
 class SettingsController {
 
@@ -74,7 +75,7 @@ class SettingsController {
 
     @FXML
     fun initialize() {
-        createProgrammes()
+        generateProgrammes(programmeComboBox)
         createSemesters()
 
         existingRecord()
@@ -83,9 +84,6 @@ class SettingsController {
         autoRefresh()
     }
 
-    private fun createProgrammes() {
-        programmeComboBox.items = generateProgrammes()
-    }
 
     private fun createSemesters() {
         semesterComboBox.items = generateSemesters()
@@ -186,8 +184,6 @@ class SettingsController {
         }
 
         createCourseTable(settingsList)
-
-        println("I the refresh")
     }
 
     private fun onEditRecord() {
