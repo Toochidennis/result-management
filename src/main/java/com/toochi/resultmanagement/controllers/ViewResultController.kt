@@ -2,19 +2,28 @@ package com.toochi.resultmanagement.controllers
 
 import com.toochi.resultmanagement.backend.QueryExecutor.executeAllTablesQuery
 import com.toochi.resultmanagement.models.Settings
+import com.toochi.resultmanagement.utils.Util.openFileChooser
 import javafx.beans.property.SimpleIntegerProperty
 import javafx.beans.property.SimpleStringProperty
 import javafx.collections.FXCollections
+import javafx.embed.swing.SwingFXUtils
 import javafx.fxml.FXML
+import javafx.print.PrinterJob
 import javafx.scene.Node
+import javafx.scene.SnapshotParameters
 import javafx.scene.control.Label
 import javafx.scene.control.TableColumn
 import javafx.scene.control.TableView
 import javafx.scene.image.Image
 import javafx.scene.image.ImageView
+import javafx.scene.image.WritableImage
 import javafx.scene.layout.AnchorPane
+import javafx.stage.FileChooser
 import javafx.stage.Stage
-import org.w3c.dom.events.MouseEvent
+import org.apache.pdfbox.pdmodel.PDDocument
+import org.apache.pdfbox.pdmodel.PDPage
+import org.apache.pdfbox.pdmodel.PDPageContentStream
+import org.apache.pdfbox.pdmodel.graphics.image.LosslessFactory
 import java.io.ByteArrayInputStream
 import java.sql.ResultSet
 import java.util.*
@@ -23,6 +32,8 @@ import java.util.prefs.Preferences
 class ViewResultController {
 
 
+    @FXML
+    private lateinit var rootPane: AnchorPane
 
     @FXML
     private lateinit var nameLabel: Label
@@ -129,10 +140,10 @@ class ViewResultController {
     private lateinit var secondGPALabel: Label
 
     @FXML
-    private lateinit var anchorPane: AnchorPane
+    private lateinit var exitImageView: ImageView
 
     @FXML
-    private  lateinit var exitImageView: ImageView
+    private lateinit var printImageView: ImageView
 
     private val firstSemesterResultList = FXCollections.observableArrayList<Settings>()
     private val secondSemesterResultList = FXCollections.observableArrayList<Settings>()
@@ -151,12 +162,11 @@ class ViewResultController {
         val studentId = preferences.get("student_id", "")
 
         if (studentId == "-1") {
-            anchorPane.isVisible = false
+            rootPane.isVisible = false
         } else {
             val resultSet = executeAllTablesQuery(studentId.toInt())
             parseResultSet(resultSet)
         }
-
     }
 
 
@@ -308,4 +318,64 @@ class ViewResultController {
         stage.close()
     }
 
+    @FXML
+    fun printBtn() {
+        val printerJob = PrinterJob.createPrinterJob()
+        val window = printImageView.scene.window
+
+        if (printerJob.showPageSetupDialog(window)) {
+            if (printerJob.showPrintDialog(window)) {
+                printerJob.printPage(rootPane)
+                printerJob.endJob()
+            }
+        }
+    }
+
+    @FXML
+    fun saveAsPDF() {
+        val filters = FileChooser.ExtensionFilter("PDF Files (*.pdf)", "*.pdf")
+        val file =openFileChooser(rootPane.scene.window, filters, "Downloads", "Save")
+
+        if (file != null) {
+            val filePath = file.absolutePath
+            generatePdf(rootPane, filePath)
+            println("PDF saved successfully at: $filePath")
+        }
+    }
+
+    private fun generatePdf(root: Node, filePath: String) {
+        val document = PDDocument()
+        val page = PDPage()
+        document.addPage(page)
+
+        val contentStream = PDPageContentStream(document, page)
+
+        val scaleX = 0.75
+        val scaleY = 0.75
+
+        val snapshot = SnapshotParameters()
+        //   snapshot.transform = Transform.scale(scaleX, scaleY)
+        val writableImage =
+            WritableImage(root.boundsInLocal.width.toInt(), root.boundsInLocal.height.toInt())
+        root.snapshot(snapshot, writableImage)
+
+        val bufferedImage = SwingFXUtils.fromFXImage(writableImage, null)
+        val pdImageXObject = LosslessFactory.createFromImage(document, bufferedImage)
+
+        val width = bufferedImage.width * scaleX
+        val height = bufferedImage.height * scaleY
+
+        contentStream.drawImage(
+            pdImageXObject,
+            0f,
+            (page.cropBox.upperRightY - height).toFloat(),
+            width.toFloat(),
+            height.toFloat()
+        )
+
+        contentStream.close()
+
+        document.save(filePath)
+        document.close()
+    }
 }
