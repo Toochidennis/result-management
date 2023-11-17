@@ -51,6 +51,8 @@ javafx {
 
 
 dependencies {
+    implementation files('lib/javafx.swing.jar')
+    implementation 'org.apache.pdfbox:pdfbox:2.0.29'
     implementation 'com.jfoenix:jfoenix:9.0.10'
     implementation 'org.mariadb.jdbc:mariadb-java-client:2.7.1'
     implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.9.20'
