@@ -4,8 +4,30 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="86b210cd-bb51-447a-8238-63849e379964" name="Changes" comment="Update StudentController.kt, ConnectionProvider.kt, and Config.kt">
+    <list default="true" id="86b210cd-bb51-447a-8238-63849e379964" name="Changes" comment="files">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/toochi/resultmanagement/assets/icons/print.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.2/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2/checksums/checksums.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.2/checksums/md5-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2/checksums/md5-checksums.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.2/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2/checksums/sha1-checksums.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.2/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.2/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.2/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.2/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.2/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2/fileHashes/resourceHashesCache.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/toochi/resultmanagement/backend/QueryExecutor.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/toochi/resultmanagement/backend/QueryExecutor.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/toochi/resultmanagement/controllers/ResultListController.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/toochi/resultmanagement/controllers/ResultListController.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/toochi/resultmanagement/controllers/SettingsController.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/toochi/resultmanagement/controllers/SettingsController.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/toochi/resultmanagement/controllers/StudentController.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/toochi/resultmanagement/controllers/StudentController.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/toochi/resultmanagement/controllers/ViewResultController.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/toochi/resultmanagement/controllers/ViewResultController.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/toochi/resultmanagement/utils/Util.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/toochi/resultmanagement/utils/Util.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/toochi/resultmanagement/assets/icons/icon_48.ico" beforeDir="false" afterPath="$PROJECT_DIR$/build/libs/icon_48.ico" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/toochi/resultmanagement/result/view_result.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/toochi/resultmanagement/result/view_result.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -135,41 +157,42 @@
     <option name="openDirectoriesWithSingleClick" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;dev__branch&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/tooch/IdeaProjects/result-management/src/main/resources/com/toochi/resultmanagement/assets/icons&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;settings.sync&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "dev__branch",
+    "last_opened_file_path": "C:/Users/tooch/IdeaProjects/result-management/lib",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "settings.sync",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mysql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\tooch\IdeaProjects\result-management\lib" />
       <recent name="C:\Users\tooch\IdeaProjects\result-management\src\main\resources\com\toochi\resultmanagement\assets\icons" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\tooch\IdeaProjects\result-management\src\main\resources\com\toochi\resultmanagement\assets\icons" />
+      <recent name="C:\Users\tooch\IdeaProjects\result-management\build\libs" />
       <recent name="C:\Users\tooch\IdeaProjects\result-management" />
       <recent name="C:\Users\tooch\IdeaProjects\result-management\src\main\resources\com\toochi\resultmanagement\config" />
       <recent name="C:\Users\tooch\IdeaProjects\result-management\src\main\java\com\toochi\resultmanagement\assets\icons" />
-      <recent name="C:\Users\tooch\IdeaProjects\result-management\src\main\resources\com\toochi\resultmanagement\dashboard" />
     </key>
     <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
       <recent name="com.toochi.resultmanagement.backend" />
@@ -273,10 +296,17 @@
       <RunAsTest>false</RunAsTest>
       <method v="2" />
     </configuration>
+    <list>
+      <item itemvalue="Application.Launcher" />
+      <item itemvalue="Application.MainApp" />
+      <item itemvalue="Gradle.result-management [clean]" />
+      <item itemvalue="Gradle.result-management [createDelegatingModules]" />
+      <item itemvalue="Gradle.result-management [jlink]" />
+    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.result-management [clean]" />
         <item itemvalue="Gradle.result-management [jlink]" />
+        <item itemvalue="Gradle.result-management [clean]" />
         <item itemvalue="Gradle.result-management [createDelegatingModules]" />
         <item itemvalue="Application.MainApp" />
         <item itemvalue="Application.Launcher" />
@@ -309,14 +339,9 @@
       <workItem from="1699785158262" duration="30327000" />
       <workItem from="1699877115432" duration="54664000" />
       <workItem from="1700040692145" duration="919000" />
-    </task>
-    <task id="LOCAL-00094" summary="Update settings_view.fxml">
-      <option name="closed" value="true" />
-      <created>1699915482274</created>
-      <option name="number" value="00094" />
-      <option name="presentableId" value="LOCAL-00094" />
-      <option name="project" value="LOCAL" />
-      <updated>1699915482274</updated>
+      <workItem from="1700048957133" duration="824000" />
+      <workItem from="1700156075462" duration="2278000" />
+      <workItem from="1700166133584" duration="13986000" />
     </task>
     <task id="LOCAL-00095" summary="Update settings_view.fxml">
       <option name="closed" value="true" />
@@ -702,7 +727,15 @@
       <option name="project" value="LOCAL" />
       <updated>1700007959542</updated>
     </task>
-    <option name="localTasksCounter" value="143" />
+    <task id="LOCAL-00143" summary="files">
+      <option name="closed" value="true" />
+      <created>1700049075045</created>
+      <option name="number" value="00143" />
+      <option name="presentableId" value="LOCAL-00143" />
+      <option name="project" value="LOCAL" />
+      <updated>1700049075047</updated>
+    </task>
+    <option name="localTasksCounter" value="144" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -722,7 +755,6 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Add input.png" />
     <MESSAGE value="Add close.png" />
-    <MESSAGE value="files" />
     <MESSAGE value="Update build.gradle" />
     <MESSAGE value="Update dashboard_view.fxml" />
     <MESSAGE value="Update ConnectionProvider.kt" />
@@ -745,7 +777,8 @@
     <MESSAGE value="Update Config.kt" />
     <MESSAGE value="Update StudentController.kt" />
     <MESSAGE value="Update StudentController.kt, ConnectionProvider.kt, and Config.kt" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update StudentController.kt, ConnectionProvider.kt, and Config.kt" />
+    <MESSAGE value="files" />
+    <option name="LAST_COMMIT_MESSAGE" value="files" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
