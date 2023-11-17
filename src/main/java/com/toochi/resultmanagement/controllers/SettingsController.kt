@@ -75,7 +75,7 @@ class SettingsController {
 
     @FXML
     fun initialize() {
-        generateProgrammes(programmeComboBox)
+        createProgrammes()
         createSemesters()
 
         existingRecord()
@@ -87,6 +87,10 @@ class SettingsController {
 
     private fun createSemesters() {
         semesterComboBox.items = generateSemesters()
+    }
+
+    private fun createProgrammes() {
+        programmeComboBox.items = generateProgrammes()
     }
 
 

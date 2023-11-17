@@ -7,6 +7,7 @@ import com.toochi.resultmanagement.models.Student
 import com.toochi.resultmanagement.utils.Util.generateGender
 import com.toochi.resultmanagement.utils.Util.generateProgrammes
 import com.toochi.resultmanagement.utils.Util.generateSessions
+import com.toochi.resultmanagement.utils.Util.openFileChooser
 import com.toochi.resultmanagement.utils.Util.showMessageDialog
 import javafx.beans.property.SimpleIntegerProperty
 import javafx.beans.property.SimpleStringProperty
@@ -19,7 +20,6 @@ import javafx.scene.control.*
 import javafx.scene.layout.AnchorPane
 import javafx.scene.layout.StackPane
 import javafx.stage.FileChooser
-import javafx.stage.Stage
 import java.io.File
 
 class StudentController {
@@ -136,14 +136,19 @@ class StudentController {
 
     @FXML
     fun uploadImageBtn() {
-        selectedFile = chooseImageFile()
+        val filterExtension = FileChooser.ExtensionFilter(
+            "Image Files",
+            "*.png", "*.jpg", "*.jpeg", "*.gif"
+        )
+        selectedFile =
+            openFileChooser(rootPane.scene.window, filterExtension, "Pictures", "Choose Image file")
 
         if (selectedFile != null) {
             val maxSize = 1024L
             val fileSize = selectedFile?.length()?.div(1024)
             val button = JFXButton("Okay")
             val header = "Error!"
-            val body = "File must not be greater than 1MB!"
+            val body = "File size must not be greater than 1MB!"
 
             fileSize?.let {
                 if (it > maxSize) {
@@ -169,7 +174,7 @@ class StudentController {
     }
 
     private fun createProgrammes() {
-        generateProgrammes(programmeComboBox)
+        programmeComboBox.items = generateProgrammes()
     }
 
     private fun createSessions() {
@@ -244,18 +249,6 @@ class StudentController {
                 "Oops! Something went wrong, please try again"
             )
         }
-    }
-
-    private fun chooseImageFile(): File? {
-        return FileChooser().apply {
-            title = "Choose Image File"
-            extensionFilters.addAll(
-                FileChooser.ExtensionFilter(
-                    "Image Files",
-                    "*.png", "*.jpg", "*.jpeg", "*.gif"
-                )
-            )
-        }.showOpenDialog(Stage())
     }
 
     private fun getStudents(): ObservableList<Student> {
@@ -356,7 +349,6 @@ class StudentController {
                 // Filter based on your criteria, for example, name
                 it.registrationNumber.contains(newValue, ignoreCase = true) or
                         it.surname.contains(newValue, ignoreCase = true)
-
             }
         }
     }

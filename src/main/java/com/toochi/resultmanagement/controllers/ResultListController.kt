@@ -115,7 +115,6 @@ class ResultListController {
         tableView.setOnMouseClicked {
             try {
                 val selectedStudent = tableView.selectionModel.selectedItem
-                println(selectedStudent)
 
                 Preferences.userNodeForPackage(ResultListController::class.java).apply {
                     put("student_id", (selectedStudent?.studentId ?: -1).toString())
