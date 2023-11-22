@@ -21,7 +21,7 @@ public class LauncherController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        long splashDuration = 5000L;
+        long splashDuration = 1000L;
         PauseTransition pauseTransition = new PauseTransition(Duration.millis(splashDuration));
         pauseTransition.setOnFinished(event -> {
             Stage stage = (Stage) anchorPane.getScene().getWindow();
