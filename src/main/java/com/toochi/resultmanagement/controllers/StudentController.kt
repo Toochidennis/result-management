@@ -2,21 +2,15 @@ package com.toochi.resultmanagement.controllers
 
 import com.jfoenix.controls.JFXButton
 import com.toochi.resultmanagement.backend.QueryExecutor.executeInsertQuery
-import com.toochi.resultmanagement.backend.QueryExecutor.executeSelectAllQuery
-import com.toochi.resultmanagement.models.Student
 import com.toochi.resultmanagement.utils.Util.generateGender
 import com.toochi.resultmanagement.utils.Util.generateProgrammes
 import com.toochi.resultmanagement.utils.Util.generateSessions
 import com.toochi.resultmanagement.utils.Util.openFileChooser
 import com.toochi.resultmanagement.utils.Util.showMessageDialog
-import javafx.beans.property.SimpleIntegerProperty
-import javafx.beans.property.SimpleStringProperty
-import javafx.collections.FXCollections
-import javafx.collections.ObservableList
-import javafx.collections.transformation.FilteredList
-import javafx.collections.transformation.SortedList
 import javafx.fxml.FXML
-import javafx.scene.control.*
+import javafx.scene.control.ComboBox
+import javafx.scene.control.DatePicker
+import javafx.scene.control.TextField
 import javafx.scene.layout.AnchorPane
 import javafx.scene.layout.StackPane
 import javafx.stage.FileChooser
@@ -24,13 +18,13 @@ import java.io.File
 
 class StudentController {
 
+
     @FXML
     private lateinit var anchorPane: AnchorPane
 
     @FXML
     private lateinit var rootPane: StackPane
 
-    // First tab
     @FXML
     private lateinit var firstNameTextField: TextField
 
@@ -82,43 +76,7 @@ class StudentController {
     @FXML
     private lateinit var supervisorTextField: TextField
 
-
-    //Second tab
-    @FXML
-    private lateinit var studentIdColumn: TableColumn<Student, Number>
-
-    @FXML
-    private lateinit var firstNameColumn: TableColumn<Student, String>
-
-    @FXML
-    private lateinit var otherNameColumn: TableColumn<Student, String>
-
-    @FXML
-    private lateinit var surnameColumn: TableColumn<Student, String>
-
-    @FXML
-    private lateinit var sessionColumn: TableColumn<Student, String>
-
-    @FXML
-    private lateinit var programmeColumn: TableColumn<Student, String>
-
-    @FXML
-    private lateinit var disciplineColumn: TableColumn<Student, String>
-
-    @FXML
-    private lateinit var registrationNumberColumn: TableColumn<Student, String>
-
-    @FXML
-    private lateinit var phoneNumberColumn: TableColumn<Student, String>
-
-    @FXML
-    private lateinit var tableView: TableView<Student>
-
-    @FXML
-    private lateinit var searchTextField: TextField
-
     private var selectedFile: File? = null
-    private val studentList = FXCollections.observableArrayList<Student>()
 
 
     @FXML
@@ -131,7 +89,7 @@ class StudentController {
 
     @FXML
     fun submitBtn() {
-        processSubmissionForm()
+        validateInput
     }
 
     @FXML
@@ -168,10 +126,6 @@ class StudentController {
         }
     }
 
-    @FXML
-    fun viewStudentTab() {
-        createTableItems()
-    }
 
     private fun createProgrammes() {
         programmeComboBox.items = generateProgrammes()
@@ -251,47 +205,58 @@ class StudentController {
         }
     }
 
-    private fun getStudents(): ObservableList<Student> {
-        val studentsResultSet = executeSelectAllQuery("students")
+    private val validateInput: Unit
+        get() {
+            when {
+                surnameTextField.text.isBlank() -> {
+                    showValidationMessage("Please provide surname")
+                }
 
-        while (studentsResultSet?.next() == true) {
-            with(studentsResultSet) {
-                studentList.add(
-                    Student(
-                        getInt("student_id"),
-                        getString("surname"),
-                        getString("first_name"),
-                        getString("other_name"),
-                        getString("registration_number"),
-                        getString("phone_number"),
-                        getString("discipline"),
-                        getString("session"),
-                        getString("programme"),
-                        getString("date_of_birth"),
-                        getString("email"),
-                        getString("address")
-                    )
-                )
+                firstNameTextField.text.isBlank() -> {
+                    showValidationMessage("Please provide firstname")
+                }
+
+                registrationNumberTextField.text.isBlank() -> {
+                    showValidationMessage("Please provide registration number")
+                }
+
+                phoneNumberTextField.text.isBlank() -> {
+                    showValidationMessage("Please provide phone number")
+                }
+
+                addressTextField.text.isBlank() -> {
+                    showValidationMessage("Please provide address")
+                }
+
+                nextOfKinNameTextField.text.isBlank() -> {
+                    showValidationMessage("Please provide next of kin name")
+                }
+
+                nextOfKinPhoneNumberTextField.text.isNullOrBlank() -> {
+                    showValidationMessage("Please provide next of kin phone number")
+                }
+
+                sessionComboBox.value.isNullOrBlank() -> {
+                    showValidationMessage("Please select a session")
+                }
+
+                programmeComboBox.value.isNullOrBlank() -> {
+                    showValidationMessage("Please select a programme")
+                }
+
+                else -> processSubmissionForm()
             }
         }
 
-        return studentList
-    }
 
-    private fun createTableItems() {
-        studentIdColumn.setCellValueFactory { SimpleIntegerProperty(it.value.studentId) }
-        surnameColumn.setCellValueFactory { SimpleStringProperty(it.value.surname) }
-        firstNameColumn.setCellValueFactory { SimpleStringProperty(it.value.firstName) }
-        otherNameColumn.setCellValueFactory { SimpleStringProperty(it.value.otherName) }
-        programmeColumn.setCellValueFactory { SimpleStringProperty(it.value.programme) }
-        disciplineColumn.setCellValueFactory { SimpleStringProperty(it.value.discipline) }
-        sessionColumn.setCellValueFactory { SimpleStringProperty(it.value.session) }
-        registrationNumberColumn.setCellValueFactory { SimpleStringProperty(it.value.registrationNumber) }
-        phoneNumberColumn.setCellValueFactory { SimpleStringProperty(it.value.phoneNumber) }
-
-        tableView.items = getStudents()
-
-        filterStudents()
+    private fun showValidationMessage(message: String) {
+        showMessageDialog(
+            rootPane,
+            anchorPane,
+            listOf(JFXButton("Okay")),
+            "Warning!",
+            message
+        )
     }
 
 
@@ -320,7 +285,6 @@ class StudentController {
         clearComboBox("Gender", genderComboBox)
         clearComboBox("Session", sessionComboBox)
         clearComboBox("Programme", programmeComboBox)
-
     }
 
     private fun clearComboBox(prompt: String, comboBox: ComboBox<String>) {
@@ -332,24 +296,4 @@ class StudentController {
 
     }
 
-
-    private fun filterStudents() {
-        val filteredList = FilteredList(studentList)
-        val sortedList = SortedList(filteredList)
-
-        sortedList.comparatorProperty().bind(tableView.comparatorProperty())
-        tableView.items = sortedList
-
-        searchTextField.textProperty().addListener { _, _, newValue ->
-            filteredList.setPredicate {
-                if (newValue == null || newValue.isEmpty()) {
-                    return@setPredicate true
-                }
-
-                // Filter based on your criteria, for example, name
-                it.registrationNumber.contains(newValue, ignoreCase = true) or
-                        it.surname.contains(newValue, ignoreCase = true)
-            }
-        }
-    }
 }
