@@ -105,8 +105,8 @@ class ConnectionProvider(config: Config) {
             result_id INT AUTO_INCREMENT PRIMARY KEY,
             student_id INT,
             course_id INT,
-            grade_later VARCHAR(2),
-            grade_point DOUBLE,
+            grade_letter VARCHAR(2),
+            grade_point INT,
             total DOUBLE,
             
             FOREIGN KEY (student_id) REFERENCES $databaseName.$studentsTable(student_id),
