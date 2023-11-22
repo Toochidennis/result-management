@@ -31,7 +31,7 @@
                 </font>
             </Label>
         </Pane>
-        <TableView fx:id="tableView" prefHeight="510.0" prefWidth="960.0">
+        <TableView fx:id="tableView" prefHeight="510.0" prefWidth="960.0" onMouseClicked="#resultDetails">
             <columns>
                 <TableColumn fx:id="studentIdColumn" prefWidth="58.6666898727417" text="S/N"/>
                 <TableColumn fx:id="surnameColumn" prefWidth="145.33330535888672" text="Surname"/>
