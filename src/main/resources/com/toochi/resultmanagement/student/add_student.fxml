@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<StackPane fx:id="rootPane" prefHeight="600.0" prefWidth="1000.0" stylesheets="@../assets/css/style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.toochi.resultmanagement.controllers.StudentController">
+    <AnchorPane fx:id="anchorPane" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: #fff;">
+      <ScrollPane prefHeight="600.0" prefWidth="1000.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <content>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="900.0" prefWidth="1027.0">
+               <children>
+                  <VBox prefHeight="756.0" prefWidth="1027.0" spacing="10.0" style="-fx-background-color: #fff;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <Label prefHeight="37.0" prefWidth="445.0" text="Personal details">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="20.0" top="20.0" />
+                           </VBox.margin>
+                        </Label>
+                        <HBox prefHeight="80.0" prefWidth="1027.0" spacing="20.0" style="-fx-background-color: #fff;">
+                           <padding>
+                              <Insets top="20.0" />
+                           </padding>
+                           <children>
+                              <TextField fx:id="surnameTextField" prefHeight="40.0" prefWidth="400.0" promptText="Surname">
+                                 <HBox.margin>
+                                    <Insets left="20.0" />
+                                 </HBox.margin>
+                              </TextField>
+                              <TextField fx:id="firstNameTextField" prefHeight="40.0" prefWidth="400.0" promptText="First name">
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                              </TextField>
+                              <TextField fx:id="otherNameTextField" prefHeight="40.0" prefWidth="400.0" promptText="Other name">
+                                 <HBox.margin>
+                                    <Insets right="20.0" />
+                                 </HBox.margin>
+                              </TextField>
+                           </children>
+                        </HBox>
+                        <HBox layoutX="10.0" layoutY="130.0" prefHeight="80.0" prefWidth="1044.0" spacing="20.0">
+                           <padding>
+                              <Insets top="20.0" />
+                           </padding>
+                           <children>
+                              <TextField fx:id="registrationNumberTextField" prefHeight="40.0" prefWidth="400.0" promptText="Registration number">
+                                 <HBox.margin>
+                                    <Insets left="20.0" />
+                                 </HBox.margin>
+                              </TextField>
+                              <TextField fx:id="phoneNumberTextField" prefHeight="40.0" prefWidth="400.0" promptText="phone number">
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                              </TextField>
+                              <DatePicker fx:id="dateOfBirthPicker" prefHeight="40.0" prefWidth="400.0" promptText="dob">
+                                 <HBox.margin>
+                                    <Insets right="20.0" />
+                                 </HBox.margin>
+                              </DatePicker>
+                           </children>
+                        </HBox>
+                        <HBox layoutX="10.0" layoutY="223.0" prefHeight="80.0" prefWidth="1044.0" spacing="20.0">
+                           <padding>
+                              <Insets top="20.0" />
+                           </padding>
+                           <children>
+                              <TextField fx:id="addressTextField" prefHeight="40.0" prefWidth="400.0" promptText="address">
+                                 <HBox.margin>
+                                    <Insets left="20.0" />
+                                 </HBox.margin>
+                              </TextField>
+                              <TextField fx:id="emailTextField" prefHeight="40.0" prefWidth="400.0" promptText="email">
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                              </TextField>
+                              <ComboBox fx:id="genderComboBox" prefHeight="40.0" prefWidth="400.0" promptText="Gender">
+                                 <HBox.margin>
+                                    <Insets right="20.0" />
+                                 </HBox.margin>
+                              </ComboBox>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="80.0" prefWidth="200.0" spacing="20.0">
+                           <padding>
+                              <Insets top="20.0" />
+                           </padding>
+                           <children>
+                              <TextField fx:id="passportTextField" disable="true" prefHeight="40.0" prefWidth="400.0" promptText="Passport Max size of 1MB">
+                                 <HBox.margin>
+                                    <Insets left="20.0" />
+                                 </HBox.margin>
+                              </TextField>
+                              <Button graphicTextGap="10.0" mnemonicParsing="false" onMouseClicked="#uploadImageBtn" prefHeight="40.0" prefWidth="150.0" text="Upload image">
+                                 <graphic>
+                                    <ImageView fitHeight="25.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../assets/icons/upload.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                           </children>
+                        </HBox>
+                        <Label prefHeight="37.0" prefWidth="449.0" text="Next of kin details">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                           <padding>
+                              <Insets left="20.0" />
+                           </padding>
+                        </Label>
+                        <HBox layoutX="10.0" layoutY="317.0" prefHeight="80.0" prefWidth="1044.0" spacing="20.0">
+                           <padding>
+                              <Insets top="20.0" />
+                           </padding>
+                           <children>
+                              <TextField fx:id="nextOfKinNameTextField" prefHeight="40.0" prefWidth="400.0" promptText="Name">
+                                 <HBox.margin>
+                                    <Insets left="20.0" />
+                                 </HBox.margin>
+                              </TextField>
+                              <TextField fx:id="nextOfKinPhoneNumberTextField" layoutX="30.0" layoutY="30.0" prefHeight="40.0" prefWidth="400.0" promptText="Phone number" />
+                              <TextField fx:id="nextOfKinAddressTextField" layoutX="450.0" layoutY="30.0" prefHeight="40.0" prefWidth="400.0" promptText="Address">
+                                 <HBox.margin>
+                                    <Insets right="20.0" />
+                                 </HBox.margin>
+                              </TextField>
+                           </children>
+                        </HBox>
+                        <Label prefHeight="37.0" prefWidth="393.0" text="Professional details">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="20.0" />
+                           </VBox.margin>
+                        </Label>
+                        <HBox layoutX="10.0" layoutY="410.0" prefHeight="80.0" prefWidth="1044.0" spacing="20.0">
+                           <padding>
+                              <Insets top="20.0" />
+                           </padding>
+                           <children>
+                              <ComboBox fx:id="sessionComboBox" prefHeight="40.0" prefWidth="400.0" promptText="Session">
+                                 <HBox.margin>
+                                    <Insets left="20.0" />
+                                 </HBox.margin>
+                              </ComboBox>
+                              <ComboBox fx:id="programmeComboBox" prefHeight="40.0" prefWidth="400.0" promptText="Programme" />
+                              <TextField fx:id="disciplineTextField" prefHeight="40.0" prefWidth="400.0" promptText="Area of specialisations">
+                                 <HBox.margin>
+                                    <Insets right="20.0" />
+                                 </HBox.margin>
+                              </TextField>
+                           </children>
+                        </HBox>
+                        <HBox layoutX="10.0" layoutY="330.0" prefHeight="80.0" prefWidth="1044.0" spacing="50.0">
+                           <padding>
+                              <Insets top="20.0" />
+                           </padding>
+                           <children>
+                              <TextField fx:id="supervisorTextField" prefHeight="37.0" prefWidth="987.0" promptText="Supervisor(s)">
+                                 <HBox.margin>
+                                    <Insets left="20.0" right="20.0" />
+                                 </HBox.margin>
+                              </TextField>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER_RIGHT" layoutX="10.0" layoutY="641.0" prefHeight="100.0" prefWidth="1044.0" spacing="50.0">
+                           <padding>
+                              <Insets top="20.0" />
+                           </padding>
+                           <children>
+                              <Button mnemonicParsing="false" onMouseClicked="#submitBtn" prefHeight="50.0" prefWidth="170.0" text="Save">
+                                 <HBox.margin>
+                                    <Insets right="100.0" />
+                                 </HBox.margin>
+                              </Button>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children>
+            </AnchorPane>
+         </content>
+      </ScrollPane>
+    </AnchorPane>
+</StackPane>
