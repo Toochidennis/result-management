@@ -137,3 +137,25 @@
     -fx-font-family: 'Montserrat';
     -fx-text-fill: #096C3A;
 }
+
+/*.table-view{
+    -fx-table-cell-border-color: derive(-fx-control-inner-background, -30%);
+}
+
+.table-row-cell{
+    -fx-background-color: transparent;
+    -fx-background-insets: 0;
+}
+
+.table-view .scroll-bar:vertical,
+.table-view .scroll-bar:horizontal{
+    -fx-opacity: 0;
+}
+
+.table-view .column-header-background{
+    -fx-background-color: transparent;
+}
+
+.table-row-cell:empty{
+    -fx-background-color: transparent;
+}*/
