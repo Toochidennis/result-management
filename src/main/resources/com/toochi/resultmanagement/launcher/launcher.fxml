@@ -22,10 +22,10 @@
             <Font name="Franklin Gothic Medium" size="40.0"/>
         </font>
     </Label>
-    <Label layoutX="51.0" layoutY="171.0" prefHeight="58.0" prefWidth="557.0" text="Department of Health Science"
+    <Label layoutX="51.0" layoutY="171.0" prefHeight="58.0" prefWidth="557.0" text="Department of Health Administration and Management"
            textFill="#096c3a">
         <font>
-            <Font name="Franklin Gothic Medium" size="40.0"/>
+            <Font name="FontAwesome Regular" size="20.0"/>
         </font>
     </Label>
 </AnchorPane>
