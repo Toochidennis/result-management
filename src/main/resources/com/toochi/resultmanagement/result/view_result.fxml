@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.geometry.Rectangle2D?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Separator?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -14,298 +14,198 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="650.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.toochi.resultmanagement.controllers.ViewResultController">
-    <VBox prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-        <Pane prefHeight="50.0" prefWidth="835.0">
-
-            <ImageView fx:id="exitImageView" fitHeight="24.0" fitWidth="24.0" layoutX="786.0" layoutY="16.0" onMouseClicked="#exitBtn" pickOnBounds="true" preserveRatio="true">
-                <Image url="@../assets/icons/close.png" />
-            </ImageView>
-         <ImageView fx:id="printImageView" fitHeight="24.0" fitWidth="24.0" layoutX="725.0" layoutY="16.0" onMouseClicked="#printBtn" pickOnBounds="true" preserveRatio="true">
-            <image>
-               <Image url="@../assets/icons/print.png" />
-            </image>
-         </ImageView>
-         <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="679.0" layoutY="16.0" onMouseClicked="#saveAsPDF" pickOnBounds="true" preserveRatio="true">
-            <image>
-               <Image url="@../assets/icons/save.png" />
-            </image>
-         </ImageView>
-        </Pane>
-        <ScrollPane pannable="true" prefHeight="600.0" prefWidth="835.0">
-            <AnchorPane fx:id="rootPane" minHeight="0.0" minWidth="0.0" prefHeight="1167.0" prefWidth="830.0">
-
-                <HBox layoutX="20.0" layoutY="20.0">
-                    <HBox prefHeight="218.0" prefWidth="553.0">
-                        <Separator orientation="VERTICAL" prefHeight="200.0" />
+<AnchorPane prefHeight="650.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.toochi.resultmanagement.controllers.ViewResultController">
+    <Pane prefHeight="50.0" prefWidth="835.0" AnchorPane.rightAnchor="0.0">
+        <Button contentDisplay="GRAPHIC_ONLY" layoutX="776.0" layoutY="9.0" mnemonicParsing="false"
+                onMouseClicked="#exitBtn" prefHeight="24.0" prefWidth="24.0" text="Button">
+            <graphic>
+                <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                    <Image url="@../assets/icons/close.png"/>
+                </ImageView>
+            </graphic>
+        </Button>
+        <Button contentDisplay="GRAPHIC_ONLY" layoutX="718.0" layoutY="9.0" mnemonicParsing="false"
+                onMouseClicked="#printBtn" prefHeight="24.0" prefWidth="24.0" text="Button">
+            <graphic>
+                <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                    <Image url="@../assets/icons/print.png"/>
+                </ImageView>
+            </graphic>
+        </Button>
+        <Button contentDisplay="GRAPHIC_ONLY" layoutX="662.0" layoutY="9.0" mnemonicParsing="false"
+                onMouseClicked="#saveBtn" prefHeight="24.0" prefWidth="24.0" text="Button">
+            <graphic>
+                <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                    <Image url="@../assets/icons/save.png"/>
+                </ImageView>
+            </graphic>
+        </Button>
+    </Pane>
+    <ScrollPane layoutY="46.0" pannable="true" prefHeight="604.0" prefWidth="835.0" AnchorPane.rightAnchor="0.0">
+        <AnchorPane fx:id="resultPane" minHeight="0.0" minWidth="0.0" prefHeight="1400.0" prefWidth="835.0">
+            <VBox alignment="TOP_CENTER" layoutX="299.0" layoutY="20.0" prefHeight="1147.0" prefWidth="835.0"
+                  AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+                  AnchorPane.topAnchor="0.0">
+                <padding>
+                    <Insets top="20.0"/>
+                </padding>
+                <Label text="UNIVERSITY OF NIGERIA, ENUGU CAMPUS">
+                    <font>
+                        <Font name="System Bold" size="16.0"/>
+                    </font>
+                </Label>
+                <Label text="STUDENT RESULTS">
+                    <font>
+                        <Font name="System Bold" size="16.0"/>
+                    </font>
+                </Label>
+                <Label fx:id="academicSessionLabel" prefHeight="31.0" prefWidth="309.0"
+                       text="2021/2022 ACADEMIC SESSION RESULTS">
+                    <font>
+                        <Font name="System Bold" size="16.0"/>
+                    </font>
+                    <VBox.margin>
+                        <Insets top="40.0"/>
+                    </VBox.margin>
+                </Label>
+                <AnchorPane prefHeight="227.0" prefWidth="785.0">
+                    <VBox.margin>
+                        <Insets left="50.0" right="50.0"/>
+                    </VBox.margin>
+                    <HBox layoutX="46.0" layoutY="7.0" prefHeight="218.0" prefWidth="729.0" AnchorPane.leftAnchor="0.0"
+                          AnchorPane.rightAnchor="0.0">
+                        <Separator orientation="VERTICAL" prefHeight="218.0" prefWidth="0.0"/>
                         <VBox prefHeight="252.0" prefWidth="445.0" HBox.hgrow="ALWAYS">
-                            <Separator prefWidth="200.0" />
+                            <Separator prefWidth="200.0"/>
                             <HBox nodeOrientation="LEFT_TO_RIGHT" prefHeight="30.0" prefWidth="392.0" spacing="10.0">
-                                <Label prefHeight="25.0" prefWidth="164.0" text="Name:" wrapText="true">
+                                <Label prefHeight="25.0" prefWidth="283.0" text="Name:" wrapText="true">
                                     <font>
-                                        <Font name="System Bold" size="16.0" />
+                                        <Font size="16.0"/>
                                     </font>
                                 </Label>
-                                <Label fx:id="nameLabel" layoutX="10.0" layoutY="10.0" prefHeight="27.0" prefWidth="475.0" text="Toochukwu Samuel Dennis" HBox.hgrow="ALWAYS">
+                                <Label fx:id="nameLabel" layoutX="10.0" layoutY="10.0" prefHeight="25.0"
+                                       prefWidth="481.0" text="Toochukwu Samuel Dennis" HBox.hgrow="ALWAYS">
                                     <font>
-                                        <Font size="16.0" />
+                                        <Font size="16.0"/>
                                     </font>
-                           <HBox.margin>
-                              <Insets left="40.0" />
-                           </HBox.margin>
+                                    <HBox.margin>
+                                        <Insets/>
+                                    </HBox.margin>
                                 </Label>
                             </HBox>
-                            <Separator prefWidth="445.0" VBox.vgrow="ALWAYS" />
+                            <Separator prefWidth="445.0" VBox.vgrow="ALWAYS"/>
                             <HBox prefHeight="30.0" prefWidth="611.0" spacing="10.0">
-                                <Label prefHeight="27.0" prefWidth="190.0" text="Registration No:">
+                                <Label prefHeight="25.0" prefWidth="272.0" text="Registration number:">
                                     <font>
-                                        <Font name="System Bold" size="16.0" />
+                                        <Font size="16.0"/>
                                     </font>
                                 </Label>
-                                <Label fx:id="registrationNumberLabel" layoutX="10.0" layoutY="10.0" prefHeight="25.0" prefWidth="462.0" text="PAS/CSC/17/09">
+                                <Label fx:id="registrationNumberLabel" layoutX="10.0" layoutY="10.0" prefHeight="25.0"
+                                       prefWidth="465.0" text="PAS/CSC/17/09">
                                     <font>
-                                        <Font size="16.0" />
+                                        <Font size="16.0"/>
                                     </font>
                                 </Label>
                             </HBox>
-                            <Separator prefWidth="445.0" />
+                            <Separator prefWidth="445.0"/>
                             <HBox layoutX="10.0" layoutY="170.0" prefHeight="30.0" prefWidth="377.0" spacing="10.0">
-                                <Label prefHeight="25.0" prefWidth="205.0" text="Faculty:">
+                                <Label prefHeight="25.0" prefWidth="291.0" text="Faculty:">
                                     <font>
-                                        <Font name="System Bold" size="16.0" />
+                                        <Font size="16.0"/>
                                     </font>
                                 </Label>
-                                <Label fx:id="sessionLabel" layoutX="10.0" layoutY="10.0" prefHeight="25.0" prefWidth="484.0" text="Faculty of Health and Administration">
+                                <Label layoutX="10.0" layoutY="10.0" prefHeight="25.0" prefWidth="484.0"
+                                       text="Faculty of Health Sciences and Technology">
                                     <font>
-                                        <Font size="16.0" />
+                                        <Font size="16.0"/>
                                     </font>
                                 </Label>
                             </HBox>
+                            <Separator prefWidth="445.0"/>
+                            <HBox layoutX="10.0" layoutY="71.0" prefHeight="30.0" prefWidth="377.0" spacing="10.0">
+                                <Label prefHeight="25.0" prefWidth="288.0" text="Department:">
+                                    <font>
+                                        <Font size="16.0"/>
+                                    </font>
+                                </Label>
+                                <Label layoutX="10.0" layoutY="10.0" prefHeight="25.0" prefWidth="484.0"
+                                       text="Health Administration and Management">
+                                    <font>
+                                        <Font size="16.0"/>
+                                    </font>
+                                </Label>
+                            </HBox>
+                            <Separator prefWidth="200.0"/>
                             <HBox layoutX="10.0" layoutY="50.0" prefHeight="30.0" prefWidth="611.0" spacing="10.0">
-                                <Label prefHeight="25.0" prefWidth="164.0" text="Programme:">
+                                <Label prefHeight="25.0" prefWidth="243.0" text="Programme:">
                                     <font>
-                                        <Font name="System Bold" size="16.0" />
+                                        <Font size="16.0"/>
                                     </font>
                                 </Label>
-                                <Label fx:id="programmeLabel" layoutX="10.0" layoutY="10.0" prefHeight="25.0" prefWidth="439.0" text="Post graduate ">
+                                <Label fx:id="programmeLabel" layoutX="10.0" layoutY="10.0" prefHeight="25.0"
+                                       prefWidth="439.0" text="Postgraduate Diploma (PGD)">
                                     <font>
-                                        <Font size="16.0" />
+                                        <Font size="16.0"/>
                                     </font>
                                 </Label>
                             </HBox>
-                            <Separator prefWidth="445.0" />
+                            <Separator prefWidth="445.0"/>
                             <HBox layoutX="10.0" layoutY="90.0" prefHeight="30.0" prefWidth="611.0" spacing="10.0">
-                                <Label text="Area of Specialization:">
+                                <Label prefHeight="25.0" prefWidth="206.0" text="Area of Specialization:">
                                     <font>
-                                        <Font name="System Bold" size="16.0" />
+                                        <Font size="16.0"/>
                                     </font>
                                 </Label>
-                                <Label fx:id="disciplineLabel" layoutX="10.0" layoutY="10.0" prefHeight="27.0" prefWidth="337.0" text="Health Science">
+                                <Label fx:id="disciplineLabel" layoutX="10.0" layoutY="10.0" prefHeight="25.0"
+                                       prefWidth="400.0" text="Health Science">
                                     <font>
-                                        <Font size="16.0" />
-                                    </font>
-                                </Label>
-                            </HBox>
-                            <Separator prefWidth="445.0" />
-                            <HBox layoutX="10.0" layoutY="130.0" prefHeight="30.0" prefWidth="611.0" spacing="10.0">
-                                <Label text="Supervisor (s):">
-                                    <font>
-                                        <Font name="System Bold" size="16.0" />
-                                    </font>
-                                </Label>
-                                <Label fx:id="supervisorLabel" layoutX="10.0" layoutY="10.0" prefHeight="27.0" prefWidth="417.0" text="Toochi Dennis">
-                                    <font>
-                                        <Font size="16.0" />
+                                        <Font size="16.0"/>
                                     </font>
                                 </Label>
                             </HBox>
-                            <Separator prefWidth="445.0" />
-                            <Separator prefWidth="200.0" />
-                            <HBox layoutX="10.0" layoutY="193.0" prefHeight="30.0" prefWidth="377.0" spacing="10.0">
-                                <Label text="Gender">
-                                    <font>
-                                        <Font name="System Bold" size="16.0" />
-                                    </font>
-                                </Label>
-                                <Label fx:id="genderLabel" layoutX="10.0" layoutY="10.0" prefHeight="27.0" prefWidth="333.0" text="Male">
-                                    <font>
-                                        <Font size="16.0" />
-                                    </font>
-                                </Label>
-                            </HBox>
-                            <Separator prefWidth="200.0" />
+                            <Separator prefWidth="200.0"/>
                             <HBox layoutX="10.0" layoutY="136.0" prefHeight="30.0" prefWidth="611.0" spacing="10.0">
-                                <Label text="CGPA:">
+                                <Label prefHeight="25.0" prefWidth="208.0" text="CGPA:">
                                     <font>
-                                        <Font name="System Bold" size="16.0" />
+                                        <Font name="System Bold" size="16.0"/>
                                     </font>
                                 </Label>
-                                <Label fx:id="cgpaLabel" layoutX="10.0" layoutY="10.0" prefHeight="27.0" prefWidth="417.0" text="4.89">
+                                <Label fx:id="cgpaLabel" layoutX="10.0" layoutY="10.0" prefHeight="25.0"
+                                       prefWidth="374.0" text="4.89" textAlignment="CENTER">
                                     <font>
-                                        <Font size="16.0" />
+                                        <Font name="System Bold" size="16.0"/>
                                     </font>
                                 </Label>
                             </HBox>
-                            <Separator layoutX="10.0" layoutY="225.0" prefWidth="200.0" />
+                            <Separator layoutX="10.0" layoutY="225.0" prefWidth="200.0"/>
                         </VBox>
-                        <Separator orientation="VERTICAL" prefHeight="200.0" />
+                        <Separator orientation="VERTICAL" prefHeight="213.0" prefWidth="6.0"/>
+                        <VBox alignment="CENTER" prefHeight="180.0" prefWidth="150.0">
+                            <ImageView fx:id="passportImageView" fitHeight="180.0" fitWidth="150.0" pickOnBounds="true"
+                                       preserveRatio="true">
+                                <viewport>
+                                    <Rectangle2D/>
+                                </viewport>
+                                <Image url="@../assets/icons/logo.png"/>
+                            </ImageView>
+                        </VBox>
+                        <Separator orientation="VERTICAL" prefHeight="200.0"/>
                     </HBox>
-                    <ImageView fx:id="passportImageView" fitHeight="234.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-                        <HBox.margin>
-                            <Insets left="20.0" />
-                        </HBox.margin>
-                    </ImageView>
-                </HBox>
-                <Separator layoutY="281.3333333333333" prefWidth="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="281.3333333333333" />
-                <VBox layoutY="285.0">
-                    <VBox alignment="TOP_CENTER" prefHeight="370.0" prefWidth="830.0">
-                        <Label fx:id="firstSemesterLabel" text="First semester 2022/2023">
-                            <VBox.margin>
-                                <Insets top="20.0" />
-                            </VBox.margin>
-                            <font>
-                                <Font size="18.0" />
-                            </font>
-                        </Label>
-                        <TableView fx:id="firstTableView" prefHeight="222.0" prefWidth="790.0">
-                            <columns>
-                                <TableColumn fx:id="firstSerialNumberColumn" prefWidth="46.6666259765625" text="S/N" />
-                                <TableColumn fx:id="firstCourseNameColumn" prefWidth="257.3333435058594" text="Course name" />
-                                <TableColumn fx:id="firstCourseCodeColumn" prefWidth="98.6666259765625" text="Course code" />
-                                <TableColumn fx:id="firstCourseUnitsColumn" prefWidth="88.66668701171875" text="Course units" />
-                                <TableColumn fx:id="firstGradeLaterColumn" prefWidth="100.0" text="Grade letter" />
-                                <TableColumn fx:id="firstGradePointColumn" prefWidth="94.0" text="Grade point" />
-                                <TableColumn fx:id="firstCumulativeColumn" prefWidth="112.66668701171875" text="Cumulative" />
-                            </columns>
-                            <VBox.margin>
-                                <Insets top="20.0" />
-                            </VBox.margin>
-                        </TableView>
-                        <HBox prefHeight="23.0" prefWidth="790.0" spacing="200.0">
-                            <Label prefHeight="27.0" prefWidth="85.0" text="Total">
-                                <font>
-                                    <Font name="System Bold" size="18.0" />
-                                </font>
-                            </Label>
-                            <Label fx:id="firstUnitsLabel" layoutX="10.0" layoutY="10.0" prefHeight="27.0" prefWidth="85.0" text="23">
-                                <font>
-                                    <Font name="System Bold" size="18.0" />
-                                </font>
-                                <HBox.margin>
-                                    <Insets left="150.0" />
-                                </HBox.margin>
-                            </Label>
-                            <Label fx:id="firstCumulativeLabel" layoutX="295.0" layoutY="10.0" prefHeight="27.0" prefWidth="85.0" text="123">
-                                <font>
-                                    <Font name="System Bold" size="18.0" />
-                                </font>
-                            </Label>
-                            <VBox.margin>
-                                <Insets top="10.0" />
-                            </VBox.margin>
-                        </HBox>
-                        <HBox layoutX="30.0" layoutY="309.0" prefHeight="23.0" prefWidth="790.0" spacing="200.0">
-                            <VBox.margin>
-                                <Insets top="10.0" />
-                            </VBox.margin>
-                            <Label prefHeight="27.0" prefWidth="85.0" text="GPA">
-                                <font>
-                                    <Font name="System Bold" size="18.0" />
-                                </font>
-                            </Label>
-                            <Label layoutX="10.0" layoutY="10.0" prefHeight="27.0" prefWidth="85.0">
-                                <font>
-                                    <Font name="System Bold" size="18.0" />
-                                </font>
-                                <HBox.margin>
-                                    <Insets left="150.0" />
-                                </HBox.margin>
-                            </Label>
-                            <Label fx:id="firstGPALabel" layoutX="295.0" layoutY="10.0" prefHeight="27.0" prefWidth="85.0" text="123">
-                                <font>
-                                    <Font name="System Bold" size="18.0" />
-                                </font>
-                            </Label>
-                        </HBox>
-                        <padding>
-                            <Insets left="20.0" right="20.0" />
-                        </padding>
-                    </VBox>
-                    <VBox alignment="TOP_CENTER" prefHeight="370.0" prefWidth="830.0">
-                        <Label fx:id="secondSemesterLabel" text="Second semester 2022/2023">
-                            <VBox.margin>
-                                <Insets top="20.0" />
-                            </VBox.margin>
-                            <font>
-                                <Font size="18.0" />
-                            </font>
-                        </Label>
-                        <TableView fx:id="secondTableView" prefHeight="222.0" prefWidth="790.0">
-                            <columns>
-                                <TableColumn fx:id="secondSerialNumberColumn" prefWidth="46.6666259765625" text="S/N" />
-                                <TableColumn fx:id="secondCourseNameColumn" prefWidth="257.3333435058594" text="Course name" />
-                                <TableColumn fx:id="secondCourseCodeColumn" prefWidth="98.6666259765625" text="Course code" />
-                                <TableColumn fx:id="secondCourseUnitsColumn" prefWidth="88.66668701171875" text="Course units" />
-                                <TableColumn fx:id="secondGradeLaterColumn" prefWidth="100.0" text="Grade letter" />
-                                <TableColumn fx:id="secondGradePointColumn" prefWidth="94.0" text="Grade point" />
-                                <TableColumn fx:id="secondCumulativeColumn" prefWidth="112.66668701171875" text="Cumulative" />
-                            </columns>
-                            <VBox.margin>
-                                <Insets top="20.0" />
-                            </VBox.margin>
-                        </TableView>
-                        <HBox prefHeight="23.0" prefWidth="790.0" spacing="200.0">
-                            <Label prefHeight="27.0" prefWidth="85.0" text="Total">
-                                <font>
-                                    <Font name="System Bold" size="18.0" />
-                                </font>
-                            </Label>
-                            <Label fx:id="secondUnitsLabel" layoutX="10.0" layoutY="10.0" prefHeight="27.0" prefWidth="85.0" text="23">
-                                <font>
-                                    <Font name="System Bold" size="18.0" />
-                                </font>
-                                <HBox.margin>
-                                    <Insets left="150.0" />
-                                </HBox.margin>
-                            </Label>
-                            <Label fx:id="secondCumulativeLabel" layoutX="295.0" layoutY="10.0" prefHeight="27.0" prefWidth="85.0" text="123">
-                                <font>
-                                    <Font name="System Bold" size="18.0" />
-                                </font>
-                            </Label>
-                            <VBox.margin>
-                                <Insets top="10.0" />
-                            </VBox.margin>
-                        </HBox>
-                        <HBox layoutX="30.0" layoutY="309.0" prefHeight="23.0" prefWidth="790.0" spacing="200.0">
-                            <VBox.margin>
-                                <Insets top="10.0" />
-                            </VBox.margin>
-                            <Label prefHeight="27.0" prefWidth="85.0" text="GPA">
-                                <font>
-                                    <Font name="System Bold" size="18.0" />
-                                </font>
-                            </Label>
-                            <Label layoutX="10.0" layoutY="10.0" prefHeight="27.0" prefWidth="85.0">
-                                <font>
-                                    <Font name="System Bold" size="18.0" />
-                                </font>
-                                <HBox.margin>
-                                    <Insets left="150.0" top="10.0" />
-                                </HBox.margin>
-                            </Label>
-                            <Label fx:id="secondGPALabel" layoutX="295.0" layoutY="10.0" prefHeight="27.0" prefWidth="85.0" text="3.7">
-                                <font>
-                                    <Font name="System Bold" size="18.0" />
-                                </font>
-                            </Label>
-                        </HBox>
-                        <padding>
-                            <Insets left="20.0" right="20.0" />
-                        </padding>
-                    </VBox>
+                    <Separator layoutX="627.0" layoutY="8.0" prefHeight="3.0" prefWidth="157.0"/>
+                    <Separator layoutX="621.0" layoutY="221.0" prefHeight="5.0" prefWidth="157.0"/>
+                </AnchorPane>
+                <Separator prefWidth="200.0">
+                    <VBox.margin>
+                        <Insets top="10.0"/>
+                    </VBox.margin>
+                </Separator>
+                <VBox fx:id="resultVBox" prefHeight="200.0" prefWidth="100.0">
+                    <VBox.margin>
+                        <Insets left="60.0" right="60.0" top="20.0"/>
+                    </VBox.margin>
                 </VBox>
-            </AnchorPane>
-        </ScrollPane>
-    </VBox>
+            </VBox>
+        </AnchorPane>
+    </ScrollPane>
 </AnchorPane>
