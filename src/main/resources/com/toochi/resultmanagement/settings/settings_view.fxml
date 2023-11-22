@@ -44,7 +44,7 @@
                           promptText="Semester"/>
             </HBox>
             <HBox prefHeight="63.0" prefWidth="935.0" spacing="20.0">
-                <TextField fx:id="courseNameTextField" prefHeight="40.0" prefWidth="240.0" promptText="Course name">
+                <TextField fx:id="courseNameTextField" prefHeight="40.0" prefWidth="240.0" promptText="Course title">
                     <HBox.margin>
                         <Insets left="20.0"/>
                     </HBox.margin>
@@ -72,7 +72,7 @@
             <TableView fx:id="tableView" prefHeight="363.0" prefWidth="930.0">
                 <columns>
                     <TableColumn fx:id="courseIdColumn" prefWidth="50.6666361093521" text="S/N" visible="false"/>
-                    <TableColumn fx:id="courseNameColumn" prefWidth="372.6666361093521" text="Course name"/>
+                    <TableColumn fx:id="courseNameColumn" prefWidth="372.6666361093521" text="Course title"/>
                     <TableColumn fx:id="courseCodeColumn" minWidth="0.0" prefWidth="114.66665649414062"
                                  text="Course code"/>
                     <TableColumn fx:id="courseUnitsColumn" prefWidth="89.33343505859375" text="Course units"/>
