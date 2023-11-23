@@ -14,10 +14,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="650.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+<AnchorPane prefHeight="650.0" prefWidth="800.0" stylesheets="@../assets/css/style.css"
+            xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="com.toochi.resultmanagement.controllers.ViewResultController">
     <Pane prefHeight="50.0" prefWidth="835.0" AnchorPane.rightAnchor="0.0">
-        <Button contentDisplay="GRAPHIC_ONLY" layoutX="776.0" layoutY="9.0" mnemonicParsing="false"
+        <Button id="exit-btn" contentDisplay="GRAPHIC_ONLY" layoutX="776.0" layoutY="9.0" mnemonicParsing="false"
                 onMouseClicked="#exitBtn" prefHeight="24.0" prefWidth="24.0" text="Button">
             <graphic>
                 <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
@@ -25,7 +26,7 @@
                 </ImageView>
             </graphic>
         </Button>
-        <Button contentDisplay="GRAPHIC_ONLY" layoutX="718.0" layoutY="9.0" mnemonicParsing="false"
+        <Button id="results-btn" contentDisplay="GRAPHIC_ONLY" layoutX="718.0" layoutY="9.0" mnemonicParsing="false"
                 onMouseClicked="#printBtn" prefHeight="24.0" prefWidth="24.0" text="Button">
             <graphic>
                 <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
@@ -33,11 +34,11 @@
                 </ImageView>
             </graphic>
         </Button>
-        <Button contentDisplay="GRAPHIC_ONLY" layoutX="662.0" layoutY="9.0" mnemonicParsing="false"
+        <Button id="results-btn" contentDisplay="GRAPHIC_ONLY" layoutX="662.0" layoutY="9.0" mnemonicParsing="false"
                 onMouseClicked="#saveBtn" prefHeight="24.0" prefWidth="24.0" text="Button">
             <graphic>
                 <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
-                    <Image url="@../assets/icons/save.png"/>
+                    <Image url="@../assets/icons/download.png"/>
                 </ImageView>
             </graphic>
         </Button>
