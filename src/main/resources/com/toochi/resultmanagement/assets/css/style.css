@@ -1,14 +1,17 @@
-#dashboardBtn{
-    -fx-background-color: #EBE8F9;
+#dashboardBtn {
+    -fx-background-color: #23A455;
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+    -fx-font-size: 16;
 }
 
 
-#dashboardBtn:pressed{
-    -fx-background-color: #e9e9e9;
+#dashboardBtn:pressed {
+    -fx-background-color: #096C3A;
 }
 
-#dashboardBtn:hover{
-    -fx-background-color: #9C9AA6;
+#dashboardBtn:hover {
+    -fx-background-color: yellow;
 }
 
 .button {
@@ -24,7 +27,7 @@
     -fx-text-fill: WHITE;
 }
 
-.button:pressed{
+.button:pressed {
     -fx-background-color: #096C3A;
 }
 
@@ -61,7 +64,6 @@
     -fx-min-height: 1.3em;
     -fx-max-height: 1.3em;
 }
-
 
 .tab-pane .tab-header-area .control-buttons-tab .rippler {
     -rippler-fill: WHITE;
@@ -107,12 +109,12 @@
     -fx-background-color: WHITE;
 }
 
-.dialog-button{
+.dialog-button {
     -fx-background-color: #EBE8F9;
     -fx-background-radius: 10;
     -fx-border-radius: 10;
     -fx-text-fill: BLACK;
-    -fx-label-padding: 5 15 5 15 ;
+    -fx-label-padding: 5 15 5 15;
     -fx-font-size: 14;
 }
 
@@ -122,20 +124,65 @@
     -fx-text-fill: WHITE;
 }
 
-.dialog-button:pressed{
+.dialog-button:pressed {
     -fx-background-color: #096C3A;
     -fx-text-fill: WHITE;
 }
 
-.dialog-header{
+.dialog-header {
     -fx-font-size: 18px; /* Specify the unit (e.g., px or pt) */
     -fx-font-family: 'Montserrat'; /* Use fx-font-family for font family */
 }
 
-.dialog-body{
+.dialog-body {
     -fx-font-size: 16px; /* Specify the unit (e.g., px or pt) */
     -fx-font-family: 'Montserrat';
     -fx-text-fill: #096C3A;
+}
+
+.menu-button {
+    -fx-background-color: #23A455;
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+    -fx-text-fill: white;
+    -fx-font-size: 16;
+}
+
+.menu-button:hover {
+    -fx-background-color: yellow;
+}
+
+.menu-button:pressed {
+    -fx-background-color: #096C3A;
+}
+
+.menu-item:hover {
+    -fx-background-color: #23A455;
+    -fx-text-fill: black;
+}
+
+#results-btn {
+    -fx-background-color: transparent;
+}
+
+#results-btn:hover {
+    -fx-background-color: #EBE8F9;
+}
+
+#results-btn:pressed {
+    -fx-background-color: #23A455;
+}
+
+#exit-btn {
+    -fx-background-color: transparent;
+}
+
+#exit-btn:hover {
+    -fx-background-color: red;
+}
+
+#exit-btn:pressed {
+    -fx-background-color: #D11967;
 }
 
 /*.table-view{
