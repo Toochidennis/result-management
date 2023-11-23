@@ -410,8 +410,6 @@ class ViewResultController {
 
     @FXML
     fun exitBtn() {
-
-        println("What")
         val stage = resultPane.scene.window as Stage
         stage.close()
     }
