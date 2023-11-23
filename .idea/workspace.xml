@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="86b210cd-bb51-447a-8238-63849e379964" name="Changes" comment="Updated" />
+    <list default="true" id="86b210cd-bb51-447a-8238-63849e379964" name="Changes" comment="Updated">
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -179,7 +181,7 @@
       <recent name="com.toochi.resultmanagement" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.MainApp">
+  <component name="RunManager" selected="Gradle.result-management [jlink]">
     <configuration name="Launcher" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.toochi.resultmanagement.launcher.Launcher" />
       <module name="result-management.main" />
@@ -281,8 +283,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.MainApp" />
         <item itemvalue="Gradle.result-management [jlink]" />
+        <item itemvalue="Application.MainApp" />
         <item itemvalue="Gradle.result-management [clean]" />
         <item itemvalue="Gradle.result-management [createDelegatingModules]" />
         <item itemvalue="Application.Launcher" />
@@ -320,15 +322,7 @@
       <workItem from="1700166133584" duration="18665000" />
       <workItem from="1700390200459" duration="25990000" />
       <workItem from="1700660080493" duration="5095000" />
-      <workItem from="1700678983741" duration="13802000" />
-    </task>
-    <task id="LOCAL-00152" summary="Updated view_result.fxml">
-      <option name="closed" value="true" />
-      <created>1700251383954</created>
-      <option name="number" value="00152" />
-      <option name="presentableId" value="LOCAL-00152" />
-      <option name="project" value="LOCAL" />
-      <updated>1700251383954</updated>
+      <workItem from="1700678983741" duration="13885000" />
     </task>
     <task id="LOCAL-00153" summary="Updated Util">
       <option name="closed" value="true" />
@@ -714,7 +708,15 @@
       <option name="project" value="LOCAL" />
       <updated>1700750235878</updated>
     </task>
-    <option name="localTasksCounter" value="201" />
+    <task id="LOCAL-00201" summary="Updated">
+      <option name="closed" value="true" />
+      <created>1700750256430</created>
+      <option name="number" value="00201" />
+      <option name="presentableId" value="LOCAL-00201" />
+      <option name="project" value="LOCAL" />
+      <updated>1700750256430</updated>
+    </task>
+    <option name="localTasksCounter" value="202" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
