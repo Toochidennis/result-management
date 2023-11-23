@@ -140,7 +140,6 @@ object QueryExecutor {
     private fun connection() = ConnectionProvider(Config()).getConnection()
     private var resultSet: ResultSet? = null
 
-    @JvmStatic
     fun executeInsertQuery(tableName: String, values: HashMap<String, Any>): Int {
         val sql = generateInsertQuery(tableName, values)
         var affectedRows = 0
@@ -155,7 +154,7 @@ object QueryExecutor {
         return affectedRows
     }
 
-    @JvmStatic
+
     fun executeSelectWithConditionsQuery2(
         tableName: String,
         conditions: HashMap<String, Any>
@@ -173,7 +172,6 @@ object QueryExecutor {
     }
 
 
-    @JvmStatic
     fun executeSelectAllQuery(tableName: String): ResultSet? {
         val sql = "SELECT * FROM $tableName"
 
@@ -184,7 +182,7 @@ object QueryExecutor {
         return resultSet
     }
 
-    @JvmStatic
+
     fun executeUpdateQuery(
         tableName: String,
         values: HashMap<String, Any>,
@@ -204,7 +202,7 @@ object QueryExecutor {
         return affectedRows
     }
 
-    @JvmStatic
+
     fun executeAllTablesQuery(studentId: Int): ResultSet? {
         val sql = generateAllTablesQuery()
 
@@ -218,7 +216,7 @@ object QueryExecutor {
         return resultSet
     }
 
-    @JvmStatic
+
     fun executeStudentsWithResultQuery(tableName: String): ResultSet? {
         val sql = generateStudentsWithResultQuery(tableName)
 
@@ -232,7 +230,6 @@ object QueryExecutor {
     }
 
 
-    @JvmStatic
     fun searchStudentByLastDigits(lastDigits: String): ResultSet? {
         val sql = generateSearchQuery()
         val likePattern = "%/$lastDigits"

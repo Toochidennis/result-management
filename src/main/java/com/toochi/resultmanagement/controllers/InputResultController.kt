@@ -47,6 +47,7 @@ class InputResultController {
     private lateinit var vBox: VBox
 
     private val settingsList = mutableListOf<Settings>()
+    private var isFinished = 0
 
     @FXML
     fun searchBtn() {
@@ -142,13 +143,13 @@ class InputResultController {
                     val existingRecordResultSet =
                         executeSelectWithConditionsQuery2("results", existingRecordCondition)
                     var gradeLater = ""
-                    var gradePoint = 0.0
+                    var gradePoint = 0
                     var total = 0.0
 
                     while (existingRecordResultSet?.next() == true) {
                         with(existingRecordResultSet) {
-                            gradeLater = getString("grade_later")
-                            gradePoint = getDouble("grade_point")
+                            gradeLater = getString("grade_letter")
+                            gradePoint = getInt("grade_point")
                             total = getDouble("total")
                         }
                     }
@@ -172,7 +173,6 @@ class InputResultController {
                 val row = createCourseRow(courseData)
                 vBox.children.addAll(row, Separator(Orientation.HORIZONTAL))
             }
-
         }
     }
 
@@ -186,13 +186,13 @@ class InputResultController {
 
         val serialNumberLabel = createLabel(
             settings.serialNumber.toString(),
-            100.0, 40.0, 0.0, 20.0
+            40.0, 40.0, 0.0, 20.0
         )
-        val courseNameLabel = createLabel(settings.courseName, 240.0, 40.0)
+        val courseNameLabel = createLabel(settings.courseName, 500.0, 40.0)
         val courseCodeLabel = createLabel(settings.courseCode, 100.0, 40.0)
-        val courseUnitsLabel = createLabel(settings.courseUnits.toString(), 100.0, 40.0)
+        val courseUnitsLabel = createLabel(settings.courseUnits.toString(), 40.0, 40.0)
         val gradeLaterTextField = createTextField(settings.gradeLaterProperty)
-        val gradePointLabel = createLabel("", 100.0, 40.0)
+        val gradePointLabel = createLabel("", 80.0, 40.0)
         val totalLabel = createLabel("", 100.0, 40.0, 20.0)
 
         gradePointLabel.textProperty().bind(settings.gradePointProperty.asString())
@@ -222,6 +222,7 @@ class InputResultController {
             prefWidth = width
             prefHeight = height
             padding = Insets(0.0, paddingRight, 0.0, paddingLeft)
+            style = "-fx-font-size: 16;"
         }
     }
 
@@ -229,6 +230,9 @@ class InputResultController {
         val textField = TextField().apply {
             prefWidth = 100.0
             prefHeight = 40.0
+            style = "-fx-font-size: 16;" +
+                    "-fx-font-weight: bold;"
+
             promptTextProperty().value = "Grade"
         }
         textField.textProperty().bindBidirectional(binding)
@@ -265,43 +269,51 @@ class InputResultController {
     private fun updateRecord(
         condition: HashMap<String, Any>,
         gradeLater: String,
-        gradePoint: Double,
+        gradePoint: Int,
         total: Double
     ) {
         val updateValues = hashMapOf<String, Any>(
-            "grade_later" to gradeLater,
+            "grade_letter" to gradeLater,
             "grade_point" to gradePoint,
             "total" to total
         )
+        isFinished++
         val affectedRows = executeUpdateQuery("results", updateValues, condition)
 
-        if (affectedRows == 1) {
-            showMessage("success")
-        } else {
-            showMessage("error")
+        if (settingsList.size - 1 == isFinished) {
+            if (affectedRows == 1) {
+                showMessage("success")
+            } else {
+                showMessage("error")
+            }
         }
+
     }
 
     private fun insertRecord(
         studentId: Int,
         courseId: Int,
         gradeLater: String,
-        gradePoint: Double,
+        gradePoint: Int,
         total: Double
     ) {
         val values = hashMapOf<String, Any>(
             "student_id" to studentId,
             "course_id" to courseId,
-            "grade_later" to gradeLater,
+            "grade_letter" to gradeLater,
             "grade_point" to gradePoint,
             "total" to total
         )
+        isFinished++
+
         val affectedRows = executeInsertQuery("results", values)
 
-        if (affectedRows == 1) {
-            showMessage("success")
-        } else {
-            showMessage("error")
+        if (settingsList.size - 1 == isFinished) {
+            if (affectedRows == 1) {
+                showMessage("success")
+            } else {
+                showMessage("error")
+            }
         }
     }
 

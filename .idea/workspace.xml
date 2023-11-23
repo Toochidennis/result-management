@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="86b210cd-bb51-447a-8238-63849e379964" name="Changes" comment="Update StudentController.kt, ConnectionProvider.kt, and Config.kt">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="86b210cd-bb51-447a-8238-63849e379964" name="Changes" comment="Updated">
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,11 +36,11 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Kotlin File" />
+        <option value="CSS File" />
+        <option value="Class" />
         <option value="Kotlin Data Class" />
         <option value="FxmlFile" />
         <option value="Kotlin Class" />
-        <option value="CSS File" />
-        <option value="Class" />
       </list>
     </option>
   </component>
@@ -141,7 +141,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;dev__branch&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/tooch/IdeaProjects/result-management/src/main/resources/com/toochi/resultmanagement/assets/icons&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/tooch/IdeaProjects/result-management/lib&quot;,
     &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -162,14 +162,15 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\tooch\IdeaProjects\result-management\lib" />
       <recent name="C:\Users\tooch\IdeaProjects\result-management\src\main\resources\com\toochi\resultmanagement\assets\icons" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\tooch\IdeaProjects\result-management\src\main\resources\com\toochi\resultmanagement\assets\icons" />
+      <recent name="C:\Users\tooch\IdeaProjects\result-management\build\libs" />
       <recent name="C:\Users\tooch\IdeaProjects\result-management" />
       <recent name="C:\Users\tooch\IdeaProjects\result-management\src\main\resources\com\toochi\resultmanagement\config" />
       <recent name="C:\Users\tooch\IdeaProjects\result-management\src\main\java\com\toochi\resultmanagement\assets\icons" />
-      <recent name="C:\Users\tooch\IdeaProjects\result-management\src\main\resources\com\toochi\resultmanagement\dashboard" />
     </key>
     <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
       <recent name="com.toochi.resultmanagement.backend" />
@@ -180,7 +181,7 @@
       <recent name="com.toochi.resultmanagement" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.MainApp">
+  <component name="RunManager" selected="Gradle.result-management [jlink]">
     <configuration name="Launcher" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.toochi.resultmanagement.launcher.Launcher" />
       <module name="result-management.main" />
@@ -273,12 +274,19 @@
       <RunAsTest>false</RunAsTest>
       <method v="2" />
     </configuration>
+    <list>
+      <item itemvalue="Application.Launcher" />
+      <item itemvalue="Application.MainApp" />
+      <item itemvalue="Gradle.result-management [clean]" />
+      <item itemvalue="Gradle.result-management [createDelegatingModules]" />
+      <item itemvalue="Gradle.result-management [jlink]" />
+    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.result-management [clean]" />
         <item itemvalue="Gradle.result-management [jlink]" />
-        <item itemvalue="Gradle.result-management [createDelegatingModules]" />
         <item itemvalue="Application.MainApp" />
+        <item itemvalue="Gradle.result-management [clean]" />
+        <item itemvalue="Gradle.result-management [createDelegatingModules]" />
         <item itemvalue="Application.Launcher" />
       </list>
     </recent_temporary>
@@ -309,400 +317,406 @@
       <workItem from="1699785158262" duration="30327000" />
       <workItem from="1699877115432" duration="54664000" />
       <workItem from="1700040692145" duration="919000" />
+      <workItem from="1700048957133" duration="824000" />
+      <workItem from="1700156075462" duration="2278000" />
+      <workItem from="1700166133584" duration="18665000" />
+      <workItem from="1700390200459" duration="25990000" />
+      <workItem from="1700660080493" duration="5095000" />
+      <workItem from="1700678983741" duration="13885000" />
     </task>
-    <task id="LOCAL-00094" summary="Update settings_view.fxml">
+    <task id="LOCAL-00153" summary="Updated Util">
       <option name="closed" value="true" />
-      <created>1699915482274</created>
-      <option name="number" value="00094" />
-      <option name="presentableId" value="LOCAL-00094" />
+      <created>1700251422925</created>
+      <option name="number" value="00153" />
+      <option name="presentableId" value="LOCAL-00153" />
       <option name="project" value="LOCAL" />
-      <updated>1699915482274</updated>
+      <updated>1700251422925</updated>
     </task>
-    <task id="LOCAL-00095" summary="Update settings_view.fxml">
+    <task id="LOCAL-00154" summary="Updated class">
       <option name="closed" value="true" />
-      <created>1699915488395</created>
-      <option name="number" value="00095" />
-      <option name="presentableId" value="LOCAL-00095" />
+      <created>1700684868020</created>
+      <option name="number" value="00154" />
+      <option name="presentableId" value="LOCAL-00154" />
       <option name="project" value="LOCAL" />
-      <updated>1699915488395</updated>
+      <updated>1700684868021</updated>
     </task>
-    <task id="LOCAL-00096" summary="Deleted result_input_view.fxml">
+    <task id="LOCAL-00155" summary="Updated ViewResultController">
       <option name="closed" value="true" />
-      <created>1699915507650</created>
-      <option name="number" value="00096" />
-      <option name="presentableId" value="LOCAL-00096" />
+      <created>1700684893800</created>
+      <option name="number" value="00155" />
+      <option name="presentableId" value="LOCAL-00155" />
       <option name="project" value="LOCAL" />
-      <updated>1699915507650</updated>
+      <updated>1700684893800</updated>
     </task>
-    <task id="LOCAL-00097" summary="Deleted launcher_view.fxml">
+    <task id="LOCAL-00156" summary="Updated StudentController.kt">
       <option name="closed" value="true" />
-      <created>1699915534971</created>
-      <option name="number" value="00097" />
-      <option name="presentableId" value="LOCAL-00097" />
+      <created>1700684912477</created>
+      <option name="number" value="00156" />
+      <option name="presentableId" value="LOCAL-00156" />
       <option name="project" value="LOCAL" />
-      <updated>1699915534971</updated>
+      <updated>1700684912477</updated>
     </task>
-    <task id="LOCAL-00098" summary="Update module-info.java">
+    <task id="LOCAL-00157" summary="Updated Settings.kt">
       <option name="closed" value="true" />
-      <created>1699915556017</created>
-      <option name="number" value="00098" />
-      <option name="presentableId" value="LOCAL-00098" />
+      <created>1700684938168</created>
+      <option name="number" value="00157" />
+      <option name="presentableId" value="LOCAL-00157" />
       <option name="project" value="LOCAL" />
-      <updated>1699915556017</updated>
+      <updated>1700684938168</updated>
     </task>
-    <task id="LOCAL-00099" summary="Update Launcher.java">
+    <task id="LOCAL-00158" summary="Updated Settings.kt">
       <option name="closed" value="true" />
-      <created>1699915578960</created>
-      <option name="number" value="00099" />
-      <option name="presentableId" value="LOCAL-00099" />
+      <created>1700684951935</created>
+      <option name="number" value="00158" />
+      <option name="presentableId" value="LOCAL-00158" />
       <option name="project" value="LOCAL" />
-      <updated>1699915578960</updated>
+      <updated>1700684951935</updated>
     </task>
-    <task id="LOCAL-00100" summary="Update LauncherController.java">
+    <task id="LOCAL-00159" summary="Updated Result.kt">
       <option name="closed" value="true" />
-      <created>1699915604751</created>
-      <option name="number" value="00100" />
-      <option name="presentableId" value="LOCAL-00100" />
+      <created>1700684975561</created>
+      <option name="number" value="00159" />
+      <option name="presentableId" value="LOCAL-00159" />
       <option name="project" value="LOCAL" />
-      <updated>1699915604751</updated>
+      <updated>1700684975562</updated>
     </task>
-    <task id="LOCAL-00101" summary="Update launcher.fxml">
+    <task id="LOCAL-00160" summary="Updated LauncherController.java">
       <option name="closed" value="true" />
-      <created>1699915627314</created>
-      <option name="number" value="00101" />
-      <option name="presentableId" value="LOCAL-00101" />
+      <created>1700685013328</created>
+      <option name="number" value="00160" />
+      <option name="presentableId" value="LOCAL-00160" />
       <option name="project" value="LOCAL" />
-      <updated>1699915627314</updated>
+      <updated>1700685013329</updated>
     </task>
-    <task id="LOCAL-00102" summary="Update InputResultController.kt">
+    <task id="LOCAL-00161" summary="Updated ConnectionProvider.kt">
       <option name="closed" value="true" />
-      <created>1699915643376</created>
-      <option name="number" value="00102" />
-      <option name="presentableId" value="LOCAL-00102" />
+      <created>1700685033313</created>
+      <option name="number" value="00161" />
+      <option name="presentableId" value="LOCAL-00161" />
       <option name="project" value="LOCAL" />
-      <updated>1699915643376</updated>
+      <updated>1700685033313</updated>
     </task>
-    <task id="LOCAL-00103" summary="Update input_result.fxml">
+    <task id="LOCAL-00162" summary="Updated dashboard_view.fxml">
       <option name="closed" value="true" />
-      <created>1699915666593</created>
-      <option name="number" value="00103" />
-      <option name="presentableId" value="LOCAL-00103" />
+      <created>1700685059435</created>
+      <option name="number" value="00162" />
+      <option name="presentableId" value="LOCAL-00162" />
       <option name="project" value="LOCAL" />
-      <updated>1699915666593</updated>
+      <updated>1700685059436</updated>
     </task>
-    <task id="LOCAL-00104" summary="Update SettingsController.kt">
+    <task id="LOCAL-00163" summary="Updated DashboardController">
       <option name="closed" value="true" />
-      <created>1699915687080</created>
-      <option name="number" value="00104" />
-      <option name="presentableId" value="LOCAL-00104" />
+      <created>1700685083543</created>
+      <option name="number" value="00163" />
+      <option name="presentableId" value="LOCAL-00163" />
       <option name="project" value="LOCAL" />
-      <updated>1699915687080</updated>
+      <updated>1700685083544</updated>
     </task>
-    <task id="LOCAL-00105" summary="Update DashboardController.kt">
+    <task id="LOCAL-00164" summary="Updated InputResultController.kt">
       <option name="closed" value="true" />
-      <created>1699915704757</created>
-      <option name="number" value="00105" />
-      <option name="presentableId" value="LOCAL-00105" />
+      <created>1700685108197</created>
+      <option name="number" value="00164" />
+      <option name="presentableId" value="LOCAL-00164" />
       <option name="project" value="LOCAL" />
-      <updated>1699915704757</updated>
+      <updated>1700685108197</updated>
     </task>
-    <task id="LOCAL-00106" summary="Update dashboard_view.fxml">
+    <task id="LOCAL-00165" summary="Updated view_student.fxml">
       <option name="closed" value="true" />
-      <created>1699915719724</created>
-      <option name="number" value="00106" />
-      <option name="presentableId" value="LOCAL-00106" />
+      <created>1700685146402</created>
+      <option name="number" value="00165" />
+      <option name="presentableId" value="LOCAL-00165" />
       <option name="project" value="LOCAL" />
-      <updated>1699915719724</updated>
+      <updated>1700685146403</updated>
     </task>
-    <task id="LOCAL-00107" summary="Add input.png">
+    <task id="LOCAL-00166" summary="Updated view_result.fxml">
       <option name="closed" value="true" />
-      <created>1699915737693</created>
-      <option name="number" value="00107" />
-      <option name="presentableId" value="LOCAL-00107" />
+      <created>1700685167904</created>
+      <option name="number" value="00166" />
+      <option name="presentableId" value="LOCAL-00166" />
       <option name="project" value="LOCAL" />
-      <updated>1699915737693</updated>
+      <updated>1700685167904</updated>
     </task>
-    <task id="LOCAL-00108" summary="Add close.png">
+    <task id="LOCAL-00167" summary="Updated style.css">
       <option name="closed" value="true" />
-      <created>1699915748402</created>
-      <option name="number" value="00108" />
-      <option name="presentableId" value="LOCAL-00108" />
+      <created>1700685190222</created>
+      <option name="number" value="00167" />
+      <option name="presentableId" value="LOCAL-00167" />
       <option name="project" value="LOCAL" />
-      <updated>1699915748403</updated>
+      <updated>1700685190222</updated>
     </task>
-    <task id="LOCAL-00109" summary="Update build.gradle">
+    <task id="LOCAL-00168" summary="Updated settings_view.fxml">
       <option name="closed" value="true" />
-      <created>1699915767607</created>
-      <option name="number" value="00109" />
-      <option name="presentableId" value="LOCAL-00109" />
+      <created>1700685210234</created>
+      <option name="number" value="00168" />
+      <option name="presentableId" value="LOCAL-00168" />
       <option name="project" value="LOCAL" />
-      <updated>1699915767607</updated>
+      <updated>1700685210234</updated>
     </task>
-    <task id="LOCAL-00110" summary="files">
+    <task id="LOCAL-00169" summary="Updated result_list.fxml">
       <option name="closed" value="true" />
-      <created>1699915787276</created>
-      <option name="number" value="00110" />
-      <option name="presentableId" value="LOCAL-00110" />
+      <created>1700685237513</created>
+      <option name="number" value="00169" />
+      <option name="presentableId" value="LOCAL-00169" />
       <option name="project" value="LOCAL" />
-      <updated>1699915787276</updated>
+      <updated>1700685237513</updated>
     </task>
-    <task id="LOCAL-00111" summary="files">
+    <task id="LOCAL-00170" summary="Updated add_student.fxml">
       <option name="closed" value="true" />
-      <created>1699977829731</created>
-      <option name="number" value="00111" />
-      <option name="presentableId" value="LOCAL-00111" />
+      <created>1700685260185</created>
+      <option name="number" value="00170" />
+      <option name="presentableId" value="LOCAL-00170" />
       <option name="project" value="LOCAL" />
-      <updated>1699977829731</updated>
+      <updated>1700685260185</updated>
     </task>
-    <task id="LOCAL-00112" summary="Update build.gradle">
+    <task id="LOCAL-00171" summary="Updated launcher.fxml">
       <option name="closed" value="true" />
-      <created>1699977845613</created>
-      <option name="number" value="00112" />
-      <option name="presentableId" value="LOCAL-00112" />
+      <created>1700685280536</created>
+      <option name="number" value="00171" />
+      <option name="presentableId" value="LOCAL-00171" />
       <option name="project" value="LOCAL" />
-      <updated>1699977845613</updated>
+      <updated>1700685280536</updated>
     </task>
-    <task id="LOCAL-00113" summary="Update dashboard_view.fxml">
+    <task id="LOCAL-00172" summary="generated files">
       <option name="closed" value="true" />
-      <created>1699977861628</created>
-      <option name="number" value="00113" />
-      <option name="presentableId" value="LOCAL-00113" />
+      <created>1700685303309</created>
+      <option name="number" value="00172" />
+      <option name="presentableId" value="LOCAL-00172" />
       <option name="project" value="LOCAL" />
-      <updated>1699977861628</updated>
+      <updated>1700685303309</updated>
     </task>
-    <task id="LOCAL-00114" summary="Update ConnectionProvider.kt">
+    <task id="LOCAL-00173" summary="generated files">
       <option name="closed" value="true" />
-      <created>1699977875980</created>
-      <option name="number" value="00114" />
-      <option name="presentableId" value="LOCAL-00114" />
+      <created>1700749647541</created>
+      <option name="number" value="00173" />
+      <option name="presentableId" value="LOCAL-00173" />
       <option name="project" value="LOCAL" />
-      <updated>1699977875980</updated>
+      <updated>1700749647542</updated>
     </task>
-    <task id="LOCAL-00115" summary="Add icon_16.ico, icon_32.ico and icon_48.ico">
+    <task id="LOCAL-00174" summary="generated files">
       <option name="closed" value="true" />
-      <created>1699977915252</created>
-      <option name="number" value="00115" />
-      <option name="presentableId" value="LOCAL-00115" />
+      <created>1700749667101</created>
+      <option name="number" value="00174" />
+      <option name="presentableId" value="LOCAL-00174" />
       <option name="project" value="LOCAL" />
-      <updated>1699977915252</updated>
+      <updated>1700749667101</updated>
     </task>
-    <task id="LOCAL-00116" summary="Update input_result.fxml">
+    <task id="LOCAL-00175" summary="generated files">
       <option name="closed" value="true" />
-      <created>1699977933395</created>
-      <option name="number" value="00116" />
-      <option name="presentableId" value="LOCAL-00116" />
+      <created>1700749681618</created>
+      <option name="number" value="00175" />
+      <option name="presentableId" value="LOCAL-00175" />
       <option name="project" value="LOCAL" />
-      <updated>1699977933395</updated>
+      <updated>1700749681618</updated>
     </task>
-    <task id="LOCAL-00117" summary="Update InputResultController.kt">
+    <task id="LOCAL-00176" summary="Add add_result.png">
       <option name="closed" value="true" />
-      <created>1699977947416</created>
-      <option name="number" value="00117" />
-      <option name="presentableId" value="LOCAL-00117" />
+      <created>1700749848870</created>
+      <option name="number" value="00176" />
+      <option name="presentableId" value="LOCAL-00176" />
       <option name="project" value="LOCAL" />
-      <updated>1699977947416</updated>
+      <updated>1700749848870</updated>
     </task>
-    <task id="LOCAL-00118" summary="Update LauncherController.java">
+    <task id="LOCAL-00177" summary="Add add_student.png">
       <option name="closed" value="true" />
-      <created>1699977962458</created>
-      <option name="number" value="00118" />
-      <option name="presentableId" value="LOCAL-00118" />
+      <created>1700749868996</created>
+      <option name="number" value="00177" />
+      <option name="presentableId" value="LOCAL-00177" />
       <option name="project" value="LOCAL" />
-      <updated>1699977962458</updated>
+      <updated>1700749868996</updated>
     </task>
-    <task id="LOCAL-00119" summary="Update module-info.java">
+    <task id="LOCAL-00178" summary="Add close.png">
       <option name="closed" value="true" />
-      <created>1699977976087</created>
-      <option name="number" value="00119" />
-      <option name="presentableId" value="LOCAL-00119" />
+      <created>1700749883670</created>
+      <option name="number" value="00178" />
+      <option name="presentableId" value="LOCAL-00178" />
       <option name="project" value="LOCAL" />
-      <updated>1699977976087</updated>
+      <updated>1700749883670</updated>
     </task>
-    <task id="LOCAL-00120" summary="Update QueryExecutor.kt">
+    <task id="LOCAL-00179" summary="Add download.png">
       <option name="closed" value="true" />
-      <created>1699977989193</created>
-      <option name="number" value="00120" />
-      <option name="presentableId" value="LOCAL-00120" />
+      <created>1700749897305</created>
+      <option name="number" value="00179" />
+      <option name="presentableId" value="LOCAL-00179" />
       <option name="project" value="LOCAL" />
-      <updated>1699977989193</updated>
+      <updated>1700749897305</updated>
     </task>
-    <task id="LOCAL-00121" summary="Update result_list.fxml">
+    <task id="LOCAL-00180" summary="Add result.png">
       <option name="closed" value="true" />
-      <created>1699978004329</created>
-      <option name="number" value="00121" />
-      <option name="presentableId" value="LOCAL-00121" />
+      <created>1700749915836</created>
+      <option name="number" value="00180" />
+      <option name="presentableId" value="LOCAL-00180" />
       <option name="project" value="LOCAL" />
-      <updated>1699978004329</updated>
+      <updated>1700749915836</updated>
     </task>
-    <task id="LOCAL-00122" summary="Update ResultListController">
+    <task id="LOCAL-00181" summary="Update add_student.fxml">
       <option name="closed" value="true" />
-      <created>1699978017279</created>
-      <option name="number" value="00122" />
-      <option name="presentableId" value="LOCAL-00122" />
+      <created>1700749954222</created>
+      <option name="number" value="00181" />
+      <option name="presentableId" value="LOCAL-00181" />
       <option name="project" value="LOCAL" />
-      <updated>1699978017279</updated>
+      <updated>1700749954222</updated>
     </task>
-    <task id="LOCAL-00123" summary="Update student_view.fxml">
+    <task id="LOCAL-00182" summary="Update dashboard_view.fxml">
       <option name="closed" value="true" />
-      <created>1699978033511</created>
-      <option name="number" value="00123" />
-      <option name="presentableId" value="LOCAL-00123" />
+      <created>1700749981463</created>
+      <option name="number" value="00182" />
+      <option name="presentableId" value="LOCAL-00182" />
       <option name="project" value="LOCAL" />
-      <updated>1699978033511</updated>
+      <updated>1700749981463</updated>
     </task>
-    <task id="LOCAL-00124" summary="Update StudentController.kt">
+    <task id="LOCAL-00183" summary="Update LauncherController.java">
       <option name="closed" value="true" />
-      <created>1699978055041</created>
-      <option name="number" value="00124" />
-      <option name="presentableId" value="LOCAL-00124" />
+      <created>1700749996388</created>
+      <option name="number" value="00183" />
+      <option name="presentableId" value="LOCAL-00183" />
       <option name="project" value="LOCAL" />
-      <updated>1699978055041</updated>
+      <updated>1700749996388</updated>
     </task>
-    <task id="LOCAL-00125" summary="Update StudentController.kt">
+    <task id="LOCAL-00184" summary="Update print.png">
       <option name="closed" value="true" />
-      <created>1699997066768</created>
-      <option name="number" value="00125" />
-      <option name="presentableId" value="LOCAL-00125" />
+      <created>1700750012961</created>
+      <option name="number" value="00184" />
+      <option name="presentableId" value="LOCAL-00184" />
       <option name="project" value="LOCAL" />
-      <updated>1699997066769</updated>
+      <updated>1700750012961</updated>
     </task>
-    <task id="LOCAL-00126" summary="Update style.css">
+    <task id="LOCAL-00185" summary="Update ViewResultController">
       <option name="closed" value="true" />
-      <created>1699997082206</created>
-      <option name="number" value="00126" />
-      <option name="presentableId" value="LOCAL-00126" />
+      <created>1700750032007</created>
+      <option name="number" value="00185" />
+      <option name="presentableId" value="LOCAL-00185" />
       <option name="project" value="LOCAL" />
-      <updated>1699997082206</updated>
+      <updated>1700750032007</updated>
     </task>
-    <task id="LOCAL-00127" summary="Update Util.kt">
+    <task id="LOCAL-00186" summary="Update view_result.fxml">
       <option name="closed" value="true" />
-      <created>1699997098218</created>
-      <option name="number" value="00127" />
-      <option name="presentableId" value="LOCAL-00127" />
+      <created>1700750055687</created>
+      <option name="number" value="00186" />
+      <option name="presentableId" value="LOCAL-00186" />
       <option name="project" value="LOCAL" />
-      <updated>1699997098218</updated>
+      <updated>1700750055687</updated>
     </task>
-    <task id="LOCAL-00128" summary="Update view_result.fxml">
+    <task id="LOCAL-00187" summary="Update">
       <option name="closed" value="true" />
-      <created>1699997111890</created>
-      <option name="number" value="00128" />
-      <option name="presentableId" value="LOCAL-00128" />
+      <created>1700750077673</created>
+      <option name="number" value="00187" />
+      <option name="presentableId" value="LOCAL-00187" />
       <option name="project" value="LOCAL" />
-      <updated>1699997111890</updated>
+      <updated>1700750077673</updated>
     </task>
-    <task id="LOCAL-00129" summary="Update student_view.fxml">
+    <task id="LOCAL-00188" summary="Updated">
       <option name="closed" value="true" />
-      <created>1699997126248</created>
-      <option name="number" value="00129" />
-      <option name="presentableId" value="LOCAL-00129" />
+      <created>1700750091109</created>
+      <option name="number" value="00188" />
+      <option name="presentableId" value="LOCAL-00188" />
       <option name="project" value="LOCAL" />
-      <updated>1699997126248</updated>
+      <updated>1700750091109</updated>
     </task>
-    <task id="LOCAL-00130" summary="Update SettingsController.kt">
+    <task id="LOCAL-00189" summary="Updated">
       <option name="closed" value="true" />
-      <created>1699997141432</created>
-      <option name="number" value="00130" />
-      <option name="presentableId" value="LOCAL-00130" />
+      <created>1700750098630</created>
+      <option name="number" value="00189" />
+      <option name="presentableId" value="LOCAL-00189" />
       <option name="project" value="LOCAL" />
-      <updated>1699997141432</updated>
+      <updated>1700750098630</updated>
     </task>
-    <task id="LOCAL-00131" summary="Update settings_view.fxml">
+    <task id="LOCAL-00190" summary="Updated">
       <option name="closed" value="true" />
-      <created>1699997155967</created>
-      <option name="number" value="00131" />
-      <option name="presentableId" value="LOCAL-00131" />
+      <created>1700750107477</created>
+      <option name="number" value="00190" />
+      <option name="presentableId" value="LOCAL-00190" />
       <option name="project" value="LOCAL" />
-      <updated>1699997155968</updated>
+      <updated>1700750107477</updated>
     </task>
-    <task id="LOCAL-00132" summary="Update ResultListController.kt">
+    <task id="LOCAL-00191" summary="Updated">
       <option name="closed" value="true" />
-      <created>1699997171281</created>
-      <option name="number" value="00132" />
-      <option name="presentableId" value="LOCAL-00132" />
+      <created>1700750117649</created>
+      <option name="number" value="00191" />
+      <option name="presentableId" value="LOCAL-00191" />
       <option name="project" value="LOCAL" />
-      <updated>1699997171281</updated>
+      <updated>1700750117650</updated>
     </task>
-    <task id="LOCAL-00133" summary="Update result_list.fxml">
+    <task id="LOCAL-00192" summary="Updated">
       <option name="closed" value="true" />
-      <created>1699997184393</created>
-      <option name="number" value="00133" />
-      <option name="presentableId" value="LOCAL-00133" />
+      <created>1700750127758</created>
+      <option name="number" value="00192" />
+      <option name="presentableId" value="LOCAL-00192" />
       <option name="project" value="LOCAL" />
-      <updated>1699997184393</updated>
+      <updated>1700750127758</updated>
     </task>
-    <task id="LOCAL-00134" summary="Update input_result.fxml">
+    <task id="LOCAL-00193" summary="Updated">
       <option name="closed" value="true" />
-      <created>1699997202712</created>
-      <option name="number" value="00134" />
-      <option name="presentableId" value="LOCAL-00134" />
+      <created>1700750151933</created>
+      <option name="number" value="00193" />
+      <option name="presentableId" value="LOCAL-00193" />
       <option name="project" value="LOCAL" />
-      <updated>1699997202712</updated>
+      <updated>1700750151933</updated>
     </task>
-    <task id="LOCAL-00135" summary="Update InputResultController.kt">
+    <task id="LOCAL-00194" summary="Updated">
       <option name="closed" value="true" />
-      <created>1699997214527</created>
-      <option name="number" value="00135" />
-      <option name="presentableId" value="LOCAL-00135" />
+      <created>1700750164903</created>
+      <option name="number" value="00194" />
+      <option name="presentableId" value="LOCAL-00194" />
       <option name="project" value="LOCAL" />
-      <updated>1699997214527</updated>
+      <updated>1700750164903</updated>
     </task>
-    <task id="LOCAL-00136" summary="Files">
+    <task id="LOCAL-00195" summary="Updated">
       <option name="closed" value="true" />
-      <created>1699997228801</created>
-      <option name="number" value="00136" />
-      <option name="presentableId" value="LOCAL-00136" />
+      <created>1700750191664</created>
+      <option name="number" value="00195" />
+      <option name="presentableId" value="LOCAL-00195" />
       <option name="project" value="LOCAL" />
-      <updated>1699997228801</updated>
+      <updated>1700750191664</updated>
     </task>
-    <task id="LOCAL-00137" summary="Files">
+    <task id="LOCAL-00196" summary="Updated">
       <option name="closed" value="true" />
-      <created>1700007831059</created>
-      <option name="number" value="00137" />
-      <option name="presentableId" value="LOCAL-00137" />
+      <created>1700750199097</created>
+      <option name="number" value="00196" />
+      <option name="presentableId" value="LOCAL-00196" />
       <option name="project" value="LOCAL" />
-      <updated>1700007831059</updated>
+      <updated>1700750199098</updated>
     </task>
-    <task id="LOCAL-00138" summary="Update Config.kt">
+    <task id="LOCAL-00197" summary="Updated">
       <option name="closed" value="true" />
-      <created>1700007851615</created>
-      <option name="number" value="00138" />
-      <option name="presentableId" value="LOCAL-00138" />
+      <created>1700750209087</created>
+      <option name="number" value="00197" />
+      <option name="presentableId" value="LOCAL-00197" />
       <option name="project" value="LOCAL" />
-      <updated>1700007851615</updated>
+      <updated>1700750209087</updated>
     </task>
-    <task id="LOCAL-00139" summary="Update StudentController.kt">
+    <task id="LOCAL-00198" summary="Updated">
       <option name="closed" value="true" />
-      <created>1700007866852</created>
-      <option name="number" value="00139" />
-      <option name="presentableId" value="LOCAL-00139" />
+      <created>1700750218519</created>
+      <option name="number" value="00198" />
+      <option name="presentableId" value="LOCAL-00198" />
       <option name="project" value="LOCAL" />
-      <updated>1700007866852</updated>
+      <updated>1700750218519</updated>
     </task>
-    <task id="LOCAL-00140" summary="Update StudentController.kt, ConnectionProvider.kt, and Config.kt">
+    <task id="LOCAL-00199" summary="Updated">
       <option name="closed" value="true" />
-      <created>1700007894049</created>
-      <option name="number" value="00140" />
-      <option name="presentableId" value="LOCAL-00140" />
+      <created>1700750226839</created>
+      <option name="number" value="00199" />
+      <option name="presentableId" value="LOCAL-00199" />
       <option name="project" value="LOCAL" />
-      <updated>1700007894049</updated>
+      <updated>1700750226839</updated>
     </task>
-    <task id="LOCAL-00141" summary="Update StudentController.kt, ConnectionProvider.kt, and Config.kt">
+    <task id="LOCAL-00200" summary="Updated">
       <option name="closed" value="true" />
-      <created>1700007911830</created>
-      <option name="number" value="00141" />
-      <option name="presentableId" value="LOCAL-00141" />
+      <created>1700750235878</created>
+      <option name="number" value="00200" />
+      <option name="presentableId" value="LOCAL-00200" />
       <option name="project" value="LOCAL" />
-      <updated>1700007911830</updated>
+      <updated>1700750235878</updated>
     </task>
-    <task id="LOCAL-00142" summary="Update StudentController.kt, ConnectionProvider.kt, and Config.kt">
+    <task id="LOCAL-00201" summary="Updated">
       <option name="closed" value="true" />
-      <created>1700007959542</created>
-      <option name="number" value="00142" />
-      <option name="presentableId" value="LOCAL-00142" />
+      <created>1700750256430</created>
+      <option name="number" value="00201" />
+      <option name="presentableId" value="LOCAL-00201" />
       <option name="project" value="LOCAL" />
-      <updated>1700007959542</updated>
+      <updated>1700750256430</updated>
     </task>
-    <option name="localTasksCounter" value="143" />
+    <option name="localTasksCounter" value="202" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -720,32 +734,32 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Add input.png" />
+    <MESSAGE value="Updated ConnectionProvider.kt" />
+    <MESSAGE value="Updated dashboard_view.fxml" />
+    <MESSAGE value="Updated DashboardController" />
+    <MESSAGE value="Updated InputResultController.kt" />
+    <MESSAGE value="Updated view_student.fxml" />
+    <MESSAGE value="Updated view_result.fxml" />
+    <MESSAGE value="Updated style.css" />
+    <MESSAGE value="Updated settings_view.fxml" />
+    <MESSAGE value="Updated result_list.fxml" />
+    <MESSAGE value="Updated add_student.fxml" />
+    <MESSAGE value="Updated launcher.fxml" />
+    <MESSAGE value="generated files" />
+    <MESSAGE value="Add add_result.png" />
+    <MESSAGE value="Add add_student.png" />
     <MESSAGE value="Add close.png" />
-    <MESSAGE value="files" />
-    <MESSAGE value="Update build.gradle" />
+    <MESSAGE value="Add download.png" />
+    <MESSAGE value="Add result.png" />
+    <MESSAGE value="Update add_student.fxml" />
     <MESSAGE value="Update dashboard_view.fxml" />
-    <MESSAGE value="Update ConnectionProvider.kt" />
-    <MESSAGE value="Add icon_16.ico, icon_32.ico and icon_48.ico" />
     <MESSAGE value="Update LauncherController.java" />
-    <MESSAGE value="Update module-info.java" />
-    <MESSAGE value="Update QueryExecutor.kt" />
-    <MESSAGE value="Update ResultListController" />
-    <MESSAGE value="Update style.css" />
-    <MESSAGE value="Update Util.kt" />
+    <MESSAGE value="Update print.png" />
+    <MESSAGE value="Update ViewResultController" />
     <MESSAGE value="Update view_result.fxml" />
-    <MESSAGE value="Update student_view.fxml" />
-    <MESSAGE value="Update SettingsController.kt" />
-    <MESSAGE value="Update settings_view.fxml" />
-    <MESSAGE value="Update ResultListController.kt" />
-    <MESSAGE value="Update result_list.fxml" />
-    <MESSAGE value="Update input_result.fxml" />
-    <MESSAGE value="Update InputResultController.kt" />
-    <MESSAGE value="Files" />
-    <MESSAGE value="Update Config.kt" />
-    <MESSAGE value="Update StudentController.kt" />
-    <MESSAGE value="Update StudentController.kt, ConnectionProvider.kt, and Config.kt" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update StudentController.kt, ConnectionProvider.kt, and Config.kt" />
+    <MESSAGE value="Update view_student" />
+    <MESSAGE value="Updated" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

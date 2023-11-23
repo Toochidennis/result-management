@@ -1,6 +1,7 @@
 package com.toochi.resultmanagement.models
 
 import javafx.beans.property.SimpleDoubleProperty
+import javafx.beans.property.SimpleIntegerProperty
 import javafx.beans.property.SimpleStringProperty
 
 class Settings(
@@ -12,11 +13,11 @@ class Settings(
     val programme: String = "",
     val semester: String = "",
     gradeLater: String = "",
-    gradePoint: Double = 0.0,
+    gradePoint: Int = 0,
     total: Double = 0.0
 ) {
     val gradeLaterProperty = SimpleStringProperty(gradeLater)
-    val gradePointProperty = SimpleDoubleProperty(gradePoint)
+    val gradePointProperty = SimpleIntegerProperty(gradePoint)
     val totalProperty = SimpleDoubleProperty(total)
 
     init {
@@ -27,13 +28,13 @@ class Settings(
 
     private fun calculateGradePointAndTotal() {
         when (gradeLaterProperty.value) {
-            "A" -> gradePointProperty.value = 5.0
-            "B" -> gradePointProperty.value = 4.0
-            "C" -> gradePointProperty.value = 3.0
-            else -> gradePointProperty.value = 0.0
+            "A" -> gradePointProperty.value = 5
+            "B" -> gradePointProperty.value = 4
+            "C" -> gradePointProperty.value = 3
+            else -> gradePointProperty.value = 0
         }
 
-        totalProperty.set(gradePointProperty.get() * courseUnits)
+        totalProperty.set(gradePointProperty.get() * courseUnits.toDouble())
     }
 
 

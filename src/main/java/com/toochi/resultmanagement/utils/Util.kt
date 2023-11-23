@@ -9,24 +9,17 @@ import javafx.concurrent.ScheduledService
 import javafx.concurrent.Task
 import javafx.fxml.FXMLLoader
 import javafx.scene.Node
-import javafx.scene.control.ComboBox
 import javafx.scene.control.Label
 import javafx.scene.effect.BoxBlur
-import javafx.scene.input.KeyCode
 import javafx.scene.layout.BorderPane
 import javafx.scene.layout.StackPane
+import javafx.stage.FileChooser
+import javafx.stage.Window
 import javafx.util.Duration
-import java.nio.file.Files
-import java.nio.file.Path
-import java.nio.file.StandardOpenOption
+import java.io.File
 
 object Util {
 
-    private val programFilePath: Path = Path.of("programList.txt")
-    private val programmeList = mutableListOf<String>()
-
-
-    @JvmStatic
     fun loadFXMLScene(root: BorderPane, fxmlFileName: String) {
         try {
             val loader =
@@ -38,7 +31,6 @@ object Util {
         }
     }
 
-    @JvmStatic
     fun generateSessions(): ObservableList<String> {
         val sessionList = FXCollections.observableArrayList<String>()
 
@@ -49,7 +41,7 @@ object Util {
         return sessionList
     }
 
-    @JvmStatic
+
     fun generateSemesters(): ObservableList<String> =
         FXCollections.observableArrayList(
             "First semester",
@@ -57,50 +49,18 @@ object Util {
         )
 
 
-    @JvmStatic
-    fun generateProgrammes(comboBox: ComboBox<String>) {
-        //Files.deleteIfExists(programFilePath)
-        comboBox.apply {
-            loadProgrammesFromFile(this)
-            isEditable = true
-            promptText = "Type and press Enter to add"
-
-            setOnKeyPressed {
-                if (it.code == KeyCode.ENTER) {
-                    val selectedProgram = editor.text.trim()
-                    if (selectedProgram.isNotEmpty() && !programmeList.contains(selectedProgram)) {
-                        saveAddedProgramme(selectedProgram)
-                        loadProgrammesFromFile(this)
-                    }
-                }
-            }
-        }
-    }
-
-    private fun saveAddedProgramme(programme: String) {
-        Files.write(
-            programFilePath,
-            listOf(programme),
-            StandardOpenOption.APPEND,
-            StandardOpenOption.CREATE
+    fun generateProgrammes(): ObservableList<String> =
+        FXCollections.observableArrayList(
+            "Postgraduate diploma (PGD)",
+            "Masters",
+            "Doctor of Philosophy (Ph.D)"
         )
-    }
 
-    private fun loadProgrammesFromFile(comboBox: ComboBox<String>) {
-        if (Files.exists(programFilePath)) {
-            programmeList.clear()
-            comboBox.items.clear()
-            val programmes = Files.readAllLines(programFilePath)
-            programmeList.addAll(programmes)
-            comboBox.items.addAll(programmes)
-        }
-    }
 
-    @JvmStatic
     fun generateGender(): ObservableList<String> =
         FXCollections.observableArrayList("Male", "Female", "Prefer not to say")
 
-    @JvmStatic
+
     fun showMessageDialog(
         rootPane: StackPane,
         nodeToBlur: Node,
@@ -137,12 +97,11 @@ object Util {
     }
 
 
-    @JvmStatic
     fun refreshService(function: () -> Unit) {
         object : ScheduledService<Unit>() {
 
             init {
-                period = Duration.minutes(1.0)
+                period = Duration.seconds(15.0)
             }
 
             override fun createTask(): Task<Unit> {
@@ -153,6 +112,25 @@ object Util {
                 }
             }
         }.start()
+    }
+
+    fun openFileChooser(
+        window: Window,
+        filters: FileChooser.ExtensionFilter,
+        directory: String,
+        title: String
+    ): File? {
+        val fileChooser = FileChooser().apply {
+            this.title = title
+            extensionFilters.add(filters)
+        }
+
+        return if (directory == "Pictures") {
+            fileChooser.showOpenDialog(window)
+        } else {
+            fileChooser.initialDirectory = File(System.getProperty("user.home"), directory)
+            fileChooser.showSaveDialog(window)
+        }
     }
 
 }

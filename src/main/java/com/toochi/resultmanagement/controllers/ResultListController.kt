@@ -59,12 +59,12 @@ class ResultListController {
     @FXML
     fun initialize() {
         databaseRefresh()
-        viewStudentResult()
     }
 
 
     private fun getStudents(): ObservableList<Student> {
         val studentsResultSet = executeStudentsWithResultQuery("students")
+        studentList.clear()
 
         while (studentsResultSet?.next() == true) {
             with(studentsResultSet) {
@@ -109,16 +109,17 @@ class ResultListController {
         refreshService { createTableItems() }
     }
 
-    private fun viewStudentResult() {
+    @FXML
+    fun resultDetails() {
         tableView.selectionModel.selectionMode = SelectionMode.SINGLE
 
-        tableView.setOnMouseClicked {
-            try {
-                val selectedStudent = tableView.selectionModel.selectedItem
-                println(selectedStudent)
+        try {
+            val selectedStudent = tableView.selectionModel.selectedItem
+            val studentId = selectedStudent?.studentId
 
+            if (studentId != null && studentId != -1) {
                 Preferences.userNodeForPackage(ResultListController::class.java).apply {
-                    put("student_id", (selectedStudent?.studentId ?: -1).toString())
+                    put("student_id", (studentId).toString())
                 }
 
                 tableView.selectionModel.clearSelection()
@@ -134,10 +135,9 @@ class ResultListController {
                     title = "Student result"
 
                 }.showAndWait()
-
-            } catch (e: Exception) {
-                e.printStackTrace()
             }
+        } catch (e: Exception) {
+            e.printStackTrace()
         }
     }
 
@@ -160,4 +160,5 @@ class ResultListController {
             }
         }
     }
+
 }

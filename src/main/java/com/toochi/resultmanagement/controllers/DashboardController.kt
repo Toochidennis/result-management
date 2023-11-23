@@ -12,7 +12,12 @@ class DashboardController {
 
     @FXML
     fun studentBtn() {
-        loadFXMLScene(borderPane, "student/student_view.fxml")
+        loadFXMLScene(borderPane, "student/add_student.fxml")
+    }
+
+    @FXML
+    fun viewStudentBtn() {
+        loadFXMLScene(borderPane, "student/view_student.fxml")
     }
 
     @FXML
@@ -33,7 +38,8 @@ class DashboardController {
 
     @FXML
     fun initialize() {
-        loadFXMLScene(borderPane, "student/student_view.fxml")
+        loadFXMLScene(borderPane, "student/add_student.fxml")
     }
+
 
 }

@@ -1,20 +1,31 @@
 package com.toochi.resultmanagement.controllers
 
 import com.toochi.resultmanagement.backend.QueryExecutor.executeAllTablesQuery
-import com.toochi.resultmanagement.models.Settings
-import javafx.beans.property.SimpleIntegerProperty
-import javafx.beans.property.SimpleStringProperty
+import com.toochi.resultmanagement.models.Result
+import com.toochi.resultmanagement.utils.Util.openFileChooser
 import javafx.collections.FXCollections
+import javafx.embed.swing.SwingFXUtils
 import javafx.fxml.FXML
+import javafx.geometry.Insets
+import javafx.geometry.Orientation
+import javafx.geometry.Pos
+import javafx.print.PrinterJob
 import javafx.scene.Node
+import javafx.scene.SnapshotParameters
 import javafx.scene.control.Label
-import javafx.scene.control.TableColumn
-import javafx.scene.control.TableView
+import javafx.scene.control.Separator
 import javafx.scene.image.Image
 import javafx.scene.image.ImageView
+import javafx.scene.image.WritableImage
 import javafx.scene.layout.AnchorPane
+import javafx.scene.layout.HBox
+import javafx.scene.layout.VBox
+import javafx.stage.FileChooser
 import javafx.stage.Stage
-import org.w3c.dom.events.MouseEvent
+import org.apache.pdfbox.pdmodel.PDDocument
+import org.apache.pdfbox.pdmodel.PDPage
+import org.apache.pdfbox.pdmodel.PDPageContentStream
+import org.apache.pdfbox.pdmodel.graphics.image.LosslessFactory
 import java.io.ByteArrayInputStream
 import java.sql.ResultSet
 import java.util.*
@@ -23,6 +34,11 @@ import java.util.prefs.Preferences
 class ViewResultController {
 
 
+    @FXML
+    private lateinit var resultPane: AnchorPane
+
+    @FXML
+    private lateinit var academicSessionLabel: Label
 
     @FXML
     private lateinit var nameLabel: Label
@@ -43,106 +59,18 @@ class ViewResultController {
     private lateinit var disciplineLabel: Label
 
     @FXML
-    private lateinit var genderLabel: Label
+    private lateinit var resultVBox: VBox
 
-    @FXML
-    private lateinit var supervisorLabel: Label
-
-
-    // First semester
-
-    @FXML
-    private lateinit var firstCourseCodeColumn: TableColumn<Settings, String>
-
-    @FXML
-    private lateinit var firstCourseNameColumn: TableColumn<Settings, String>
-
-    @FXML
-    private lateinit var firstCourseUnitsColumn: TableColumn<Settings, Number>
-
-    @FXML
-    private lateinit var firstCumulativeColumn: TableColumn<Settings, Number>
-
-    @FXML
-    private lateinit var firstCumulativeLabel: Label
-
-    @FXML
-    private lateinit var firstGradeLaterColumn: TableColumn<Settings, String>
-
-    @FXML
-    private lateinit var firstGradePointColumn: TableColumn<Settings, Number>
-
-    @FXML
-    private lateinit var firstSemesterLabel: Label
-
-    @FXML
-    private lateinit var firstSerialNumberColumn: TableColumn<Settings, Number>
-
-    @FXML
-    private lateinit var firstTableView: TableView<Settings>
-
-    @FXML
-    private lateinit var firstUnitsLabel: Label
-
-
-    // Second semester table
-    @FXML
-    private lateinit var secondCourseCodeColumn: TableColumn<Settings, String>
-
-    @FXML
-    private lateinit var secondCourseNameColumn: TableColumn<Settings, String>
-
-    @FXML
-    private lateinit var secondCourseUnitsColumn: TableColumn<Settings, Number>
-
-    @FXML
-    private lateinit var secondCumulativeColumn: TableColumn<Settings, Number>
-
-    @FXML
-    private lateinit var secondCumulativeLabel: Label
-
-    @FXML
-    private lateinit var secondGradeLaterColumn: TableColumn<Settings, String>
-
-    @FXML
-    private lateinit var secondGradePointColumn: TableColumn<Settings, Number>
-
-    @FXML
-    private lateinit var secondSemesterLabel: Label
-
-    @FXML
-    private lateinit var secondSerialNumberColumn: TableColumn<Settings, Number>
-
-    @FXML
-    private lateinit var secondTableView: TableView<Settings>
-
-    @FXML
-    private lateinit var secondUnitsLabel: Label
-
-    @FXML
-    private lateinit var sessionLabel: Label
-
-    @FXML
-    private lateinit var firstGPALabel: Label
-
-    @FXML
-    private lateinit var secondGPALabel: Label
-
-    @FXML
-    private lateinit var anchorPane: AnchorPane
-
-    @FXML
-    private  lateinit var exitImageView: ImageView
-
-    private val firstSemesterResultList = FXCollections.observableArrayList<Settings>()
-    private val secondSemesterResultList = FXCollections.observableArrayList<Settings>()
+    private val firstSemesterResultList = FXCollections.observableArrayList<Result>()
+    private val secondSemesterResultList = FXCollections.observableArrayList<Result>()
     private var isStudentDetails = true
+    private var sessionText = ""
+    private var firstCount = 1
+    private var secondCount = 1
     private var unitsSum1 = 0
     private var unitsSum2 = 0
     private var scoreSum1 = 0.0
     private var scoreSum2 = 0.0
-    private var firstCount = 1
-    private var secondCount = 1
 
 
     @FXML
@@ -150,15 +78,170 @@ class ViewResultController {
         val preferences = Preferences.userNodeForPackage(ViewResultController::class.java)
         val studentId = preferences.get("student_id", "")
 
-        if (studentId == "-1") {
-            anchorPane.isVisible = false
-        } else {
-            val resultSet = executeAllTablesQuery(studentId.toInt())
-            parseResultSet(resultSet)
+        val resultSet = executeAllTablesQuery(studentId.toInt())
+        parseResultSet(resultSet)
+    }
+
+    private fun createTitleRow(term: String): HBox {
+        return HBox().apply {
+            alignment = Pos.BASELINE_CENTER
+            children.add(Label("$sessionText $term Semester").apply {
+                style = "-fx-font-weight: bold;" +
+                        "-fx-font-size: 16;"
+
+            })
         }
+    }
+
+    private fun createHeadingRow(): HBox {
+        val serialNumberLabel = createLabel("S/N", 30.0, true)
+        val codeLabel = createLabel("Code", 80.0, true)
+        val titleLabel = createLabel("Title", 420.0, true)
+        val unitLabel = createLabel("Unit", 30.0, true)
+        val gradeLabel = createLabel("Grade", 40.0, true)
+        val gradePointLabel = createLabel("GP", 30.0, true)
+        val wgpLabel = createLabel("WGP", 42.0, true)
+
+        val labelList = mutableListOf(
+            serialNumberLabel,
+            codeLabel,
+            titleLabel,
+            unitLabel,
+            gradeLabel,
+            gradePointLabel,
+            wgpLabel
+        )
+
+        return children(labelList)
 
     }
 
+    private fun createItems(result: Result): HBox {
+        val serialNumberLabel = createLabel(result.id, 30.0, true, Pos.CENTER)
+        val codeLabel = createLabel(result.code, 80.0, false)
+        val titleLabel = createLabel(result.title, 420.0, false)
+        val unitLabel = createLabel(result.unit, 30.0, false, Pos.CENTER)
+        val gradeLabel = createLabel(result.grade, 40.0, false, Pos.CENTER)
+        val gradePointLabel = createLabel(result.gradePoint, 30.0, false, Pos.CENTER)
+        val wgpLabel = createLabel(result.wgp, 42.0, false, Pos.CENTER)
+
+        val labelList = mutableListOf(
+            serialNumberLabel,
+            codeLabel,
+            titleLabel,
+            unitLabel,
+            gradeLabel,
+            gradePointLabel,
+            wgpLabel
+        )
+
+        return children(labelList)
+    }
+
+    private fun children(labelList: MutableList<Label>): HBox {
+        val hBox = HBox()
+        val lastLabel = labelList.last()
+
+        labelList.forEach { label ->
+            if (lastLabel == label) {
+                hBox.children.addAll(
+                    Separator(Orientation.VERTICAL),
+                    label,
+                    Separator(Orientation.VERTICAL)
+                )
+
+            } else {
+                hBox.children.addAll(Separator(Orientation.VERTICAL), label)
+            }
+        }
+
+        return hBox
+    }
+
+    private fun createTotalRow(result: Result): HBox {
+        val serialNumberLabel = createLabel("", 30.0, true, Pos.CENTER)
+        val codeLabel = createLabel("", 80.0, false)
+        val titleLabel = createLabel(result.title, 430.0, true, Pos.BASELINE_RIGHT)
+        val unitLabel = createLabel(result.unit, 30.0, true, Pos.CENTER)
+        val gradeLabel = createLabel("", 40.0, false, Pos.CENTER)
+        val gradePointLabel = createLabel("", 40.0, false, Pos.CENTER)
+        val wgpLabel = createLabel(result.wgp, 42.0, true, Pos.CENTER)
+
+        return HBox().apply {
+            children.addAll(
+                Separator(Orientation.VERTICAL),
+                serialNumberLabel,
+                codeLabel,
+                titleLabel,
+                Separator(Orientation.VERTICAL),
+                unitLabel,
+                gradeLabel,
+                gradePointLabel,
+                Separator(Orientation.VERTICAL),
+                wgpLabel,
+                Separator(Orientation.VERTICAL)
+            )
+        }
+    }
+
+    private fun createGPARow(result: Result): HBox {
+        val serialNumberLabel = createLabel("", 30.0)
+        val codeLabel = createLabel("", 80.0)
+        val titleLabel = createLabel(result.title, 430.0, true, Pos.BASELINE_RIGHT)
+        val unitLabel = createLabel(result.unit, 40.0, true, Pos.CENTER)
+        val gradeLabel = createLabel("", 40.0)
+        val gradePointLabel = createLabel("", 30.0)
+        val wgpLabel = createLabel(result.wgp, 42.0)
+
+        return HBox().apply {
+            children.addAll(
+                Separator(Orientation.VERTICAL),
+                serialNumberLabel,
+                codeLabel,
+                titleLabel,
+                Separator(Orientation.VERTICAL),
+                unitLabel,
+                gradeLabel,
+                gradePointLabel,
+                Separator(Orientation.VERTICAL),
+                wgpLabel,
+                Separator(Orientation.VERTICAL)
+            )
+        }
+    }
+
+    private fun createContainer(container: VBox, term: String) {
+        container.children.addAll(
+            Separator(Orientation.HORIZONTAL),
+            createTitleRow(term),
+            Separator(Orientation.HORIZONTAL),
+            createHeadingRow(),
+            Separator(Orientation.HORIZONTAL)
+        )
+    }
+
+    private fun createLabel(
+        text: String,
+        width: Double = 0.0,
+        isBold: Boolean = false,
+        alignment: Pos = Pos.BASELINE_LEFT,
+        paddingRight: Double = 0.0,
+        paddingLeft: Double = 0.0
+    ): Label {
+        return Label(text).apply {
+            prefWidth = width
+            //prefHeight = 40.0
+            padding = Insets(0.0, paddingRight, 0.0, paddingLeft)
+            this.alignment = alignment
+
+            style = if (isBold) {
+                "-fx-font-weight: bold; " +
+                        "-fx-font-size: 14;"
+            } else {
+                "-fx-font-size: 16;"
+            }
+        }
+    }
 
     private fun parseResultSet(resultSet: ResultSet?) {
         with(resultSet) {
@@ -166,32 +249,36 @@ class ViewResultController {
                 studentDetails(this)
                 studentResult(this)
             }
-
-            createFirstTable()
-            createSecondTable()
-
-            calculateCGPA()
         }
+
+        resultVBox.apply {
+            spacing = 20.0
+
+            children.addAll(
+                createFirst(),
+                createSecond()
+            )
+        }
+
+        calculateCGPA()
     }
 
     private fun studentDetails(resultSet: ResultSet) {
         if (isStudentDetails) {
             with(resultSet) {
-                val studentName =
-                    " ${getString("surname")} ${getString("other_name")} ${getString("first_name")}"
+                val studentName = "${getString("surname")} " +
+                        "${getString("other_name")} ${getString("first_name")}"
                 val passport = getBytes("passport")
-
                 nameLabel.text = studentName
                 registrationNumberLabel.text = getString("registration_number")
                 disciplineLabel.text = getString("discipline")
-                supervisorLabel.text = getString("supervisor")
-                genderLabel.text = getString("gender")
-                sessionLabel.text = getString("session")
+                sessionText = getString("session")
                 programmeLabel.text = getString("programme")
-
                 val imageStream = ByteArrayInputStream(passport)
                 val image = Image(imageStream)
                 passportImageView.image = image
+
+                academicSessionLabel.text = "$sessionText ACADEMIC SESSION RESULTS"
             }
 
             isStudentDetails = !isStudentDetails
@@ -206,16 +293,14 @@ class ViewResultController {
             when (getString("semester")) {
                 "First semester" -> {
                     firstSemesterResultList.add(
-                        Settings(
-                            firstCount++,
-                            getInt("course_id"),
-                            getString("course_name"),
+                        Result(
+                            (firstCount++).toString(),
                             getString("course_code"),
-                            courseUnits,
-                            "", "",
-                            getString("grade_later"),
-                            getDouble("grade_point"),
-                            total
+                            getString("course_name"),
+                            (courseUnits).toString(),
+                            getString("grade_letter"),
+                            (getInt("grade_point")).toString(),
+                            (total).toString()
                         )
                     )
 
@@ -225,16 +310,14 @@ class ViewResultController {
 
                 else -> {
                     secondSemesterResultList.add(
-                        Settings(
-                            secondCount++,
-                            getInt("course_id"),
-                            getString("course_name"),
+                        Result(
+                            (secondCount++).toString(),
                             getString("course_code"),
-                            courseUnits,
-                            "", "",
-                            getString("grade_later"),
-                            getDouble("grade_point"),
-                            total
+                            getString("course_name"),
+                            (courseUnits).toString(),
+                            getString("grade_letter"),
+                            (getInt("grade_point")).toString(),
+                            (total).toString()
                         )
                     )
 
@@ -245,67 +328,149 @@ class ViewResultController {
         }
     }
 
+    private fun createFirst(): VBox {
+        val vBox = VBox()
+        createContainer(vBox, "First")
+        firstSemesterResultList.forEach { result ->
+            vBox.children.addAll(createItems(result), Separator(Orientation.HORIZONTAL))
+        }
 
-    private fun createFirstTable() {
-        firstSerialNumberColumn.setCellValueFactory { SimpleIntegerProperty(it.value.serialNumber) }
-        firstCourseNameColumn.setCellValueFactory { SimpleStringProperty(it.value.courseName) }
-        firstCourseCodeColumn.setCellValueFactory { SimpleStringProperty(it.value.courseCode) }
-        firstCourseUnitsColumn.setCellValueFactory { SimpleIntegerProperty(it.value.courseUnits) }
-        firstGradeLaterColumn.setCellValueFactory { it.value.gradeLaterProperty }
-        firstGradePointColumn.setCellValueFactory { it.value.gradePointProperty }
-        firstCumulativeColumn.setCellValueFactory { it.value.totalProperty }
+        val totalResult = Result(
+            "", "", "Total",
+            unitsSum1.toString(), "",
+            "", scoreSum1.toString()
+        )
 
-        val semester = "First semester ${sessionLabel.text}"
-        firstSemesterLabel.text = semester
-        firstUnitsLabel.text = unitsSum1.toString()
-        firstCumulativeLabel.text = scoreSum1.toString()
+        val gpaResult = Result(
+            "", "", "GPA",
+            calculateFirstGPA(), "",
+            "", ""
+        )
 
-        firstTableView.items = firstSemesterResultList
+        vBox.children.addAll(
+            createTotalRow(totalResult),
+            Separator(Orientation.HORIZONTAL),
+            createGPARow(gpaResult),
+            Separator(Orientation.HORIZONTAL)
+        )
+
+        return vBox
     }
 
-    private fun createSecondTable() {
-        secondSerialNumberColumn.setCellValueFactory { SimpleIntegerProperty(it.value.serialNumber) }
-        secondCourseNameColumn.setCellValueFactory { SimpleStringProperty(it.value.courseName) }
-        secondCourseCodeColumn.setCellValueFactory { SimpleStringProperty(it.value.courseCode) }
-        secondCourseUnitsColumn.setCellValueFactory { SimpleIntegerProperty(it.value.courseUnits) }
-        secondGradeLaterColumn.setCellValueFactory { it.value.gradeLaterProperty }
-        secondGradePointColumn.setCellValueFactory { it.value.gradePointProperty }
-        secondCumulativeColumn.setCellValueFactory { it.value.totalProperty }
+    private fun createSecond(): VBox {
+        val vBox = VBox()
 
-        val semester = "Second semester ${sessionLabel.text}"
-        secondSemesterLabel.text = semester
-        secondUnitsLabel.text = unitsSum2.toString()
-        secondCumulativeLabel.text = scoreSum2.toString()
+        createContainer(vBox, "Second")
 
-        secondTableView.items = secondSemesterResultList
+        secondSemesterResultList.forEach { result ->
+            vBox.children.addAll(createItems(result), Separator(Orientation.HORIZONTAL))
+        }
+
+        val totalResult = Result(
+            "", "", "Total",
+            unitsSum2.toString(), "",
+            "", scoreSum2.toString()
+        )
+
+        val gpaResult = Result(
+            "", "", "GPA",
+            calculateSecondGPA(), "",
+            "", ""
+        )
+
+        vBox.children.addAll(
+            createTotalRow(totalResult),
+            Separator(Orientation.HORIZONTAL),
+            createGPARow(gpaResult),
+            Separator(Orientation.HORIZONTAL)
+        )
+
+        return vBox
+    }
+
+    private fun calculateFirstGPA(): String {
+        val gpa = scoreSum1 / unitsSum1
+        return String.format(Locale.getDefault(), "%.2f", gpa)
+    }
+
+    private fun calculateSecondGPA(): String {
+        val gpa = scoreSum2 / unitsSum2
+        return String.format(Locale.getDefault(), "%.2f", gpa)
     }
 
     private fun calculateCGPA() {
         val totalUnits = unitsSum1 + unitsSum2
-        val totalScores = scoreSum1 + scoreSum2
-        val cgpa = totalScores / totalUnits.toDouble()
-        val roundedCGPA = String.format(Locale.getDefault(), "%.2f", cgpa)
-        cgpaLabel.text = roundedCGPA
+        val totalWGP = scoreSum1 + scoreSum2
+        val cgpa = totalWGP / totalUnits
+        val roundedCgpa = String.format(Locale.getDefault(), "%.2f", cgpa)
 
-        calculateGPA()
+        cgpaLabel.text = roundedCgpa
     }
 
-    private fun calculateGPA() {
-        val firstGPA = scoreSum1 / unitsSum1.toDouble()
-        val roundedFirst = String.format(Locale.getDefault(), "%.2f", firstGPA)
-
-        firstGPALabel.text = roundedFirst
-
-        val secondGPA = scoreSum2 / unitsSum2.toDouble()
-        val roundedSecond = String.format(Locale.getDefault(), "%.2f", secondGPA)
-
-        secondGPALabel.text = roundedSecond
-    }
 
     @FXML
     fun exitBtn() {
-        val stage = exitImageView.scene.window as Stage
+        val stage = resultPane.scene.window as Stage
         stage.close()
     }
 
+    @FXML
+    fun printBtn() {
+        val printerJob = PrinterJob.createPrinterJob()
+        val window = resultPane.scene.window
+
+        if (printerJob.showPageSetupDialog(window)) {
+            if (printerJob.showPrintDialog(window)) {
+                printerJob.printPage(resultPane)
+                printerJob.endJob()
+            }
+        }
+    }
+
+    @FXML
+    fun saveBtn() {
+        val filters = FileChooser.ExtensionFilter("PDF Files (.pdf)", ".pdf")
+        val file = openFileChooser(resultPane.scene.window, filters, "Downloads", "Save")
+
+        if (file != null) {
+            val filePath = file.absolutePath
+            generatePdf(resultPane, filePath)
+        }
+    }
+
+    private fun generatePdf(root: Node, filePath: String) {
+        val document = PDDocument()
+        val page = PDPage()
+        document.addPage(page)
+
+        val contentStream = PDPageContentStream(document, page)
+
+        val scaleX = 0.75
+        val scaleY = 0.75
+
+        val snapshot = SnapshotParameters()
+        //   snapshot.transform = Transform.scale(scaleX, scaleY)
+        val writableImage =
+            WritableImage(root.boundsInLocal.width.toInt(), root.boundsInLocal.height.toInt())
+        root.snapshot(snapshot, writableImage)
+
+        val bufferedImage = SwingFXUtils.fromFXImage(writableImage, null)
+        val pdImageXObject = LosslessFactory.createFromImage(document, bufferedImage)
+
+        val width = bufferedImage.width * scaleX
+        val height = bufferedImage.height * scaleY
+
+        contentStream.drawImage(
+            pdImageXObject,
+            0f,
+            (page.cropBox.upperRightY - height).toFloat(),
+            width.toFloat(),
+            height.toFloat()
+        )
+
+        contentStream.close()
+
+        document.save(filePath)
+        document.close()
+    }
 }
