@@ -39,7 +39,7 @@ javafx {
     modules = ['javafx.controls', 'javafx.fxml']
 }
 
-jar {
+/*jar {
     from { configurations.compileClasspath.collect { it.isDirectory() ? it : zipTree(it) } }
     manifest {
         attributes(
@@ -47,7 +47,7 @@ jar {
         )
         duplicatesStrategy = DuplicatesStrategy.EXCLUDE
     }
-}
+}*/
 
 
 dependencies {
