@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="628.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.toochi.resultmanagement.controllers.ViewStudentController">
+    <padding>
+        <Insets left="20.0" right="20.0" />
+    </padding>
+    <TableView fx:id="tableView" layoutX="60.0" layoutY="185.33333333333334" prefHeight="423.0" prefWidth="920.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="185.0">
+        <columns>
+            <TableColumn fx:id="studentIdColumn" prefWidth="38.66666221618652" text="S/N" />
+            <TableColumn fx:id="surnameColumn" prefWidth="148.6666717529297" text="Surname" />
+            <TableColumn fx:id="firstNameColumn" prefWidth="128.00001525878906" text="First name" />
+            <TableColumn fx:id="otherNameColumn" prefWidth="126.66665649414062" text="Other name" />
+            <TableColumn fx:id="programmeColumn" prefWidth="81.99996948242188" text="Programme" />
+            <TableColumn fx:id="disciplineColumn" prefWidth="117.3333740234375" text="Discipline" />
+            <TableColumn fx:id="sessionColumn" prefWidth="103.33331298828125" text="Session" />
+            <TableColumn fx:id="registrationNumberColumn" prefWidth="134.0" text="Reg number" />
+            <TableColumn fx:id="phoneNumberColumn" prefWidth="161.333251953125" text="Phone number" />
+        </columns>
+        <padding>
+            <Insets right="1.0" />
+        </padding>
+    </TableView>
+    <TextField fx:id="searchTextField" layoutX="290.0" layoutY="87.0" prefHeight="40.0" prefWidth="448.0" promptText="Search...">
+        <padding>
+            <Insets left="20.0" />
+        </padding>
+    </TextField>
+    <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="704.0" layoutY="95.0" pickOnBounds="true" preserveRatio="true">
+        <Image url="@../assets/icons/search.png" />
+    </ImageView>
+</AnchorPane>
