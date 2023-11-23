@@ -15,7 +15,7 @@
             xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="com.toochi.resultmanagement.controllers.DashboardController">
     <left>
-        <VBox alignment="TOP_CENTER" prefHeight="579.0" prefWidth="250.0" style="-fx-background-color: #EBE8F9;"
+        <VBox alignment="TOP_CENTER" prefHeight="579.0" prefWidth="250.0" style="-fx-background-color: #23A455;"
               BorderPane.alignment="CENTER">
             <ImageView fitHeight="94.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
                 <VBox.margin>
@@ -26,8 +26,20 @@
             <MenuButton alignment="BASELINE_LEFT" graphicTextGap="18.0" mnemonicParsing="false" popupSide="RIGHT"
                         prefHeight="45.0" prefWidth="250.0" text="Student">
                 <items>
-                    <MenuItem mnemonicParsing="false" onAction="#studentBtn" text="Add student"/>
-                    <MenuItem mnemonicParsing="false" onAction="#viewStudentBtn" text="View student"/>
+                    <MenuItem mnemonicParsing="false" onAction="#studentBtn" text="Add student">
+                        <graphic>
+                            <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                <Image url="@../assets/icons/add_student.png"/>
+                            </ImageView>
+                        </graphic>
+                    </MenuItem>
+                    <MenuItem mnemonicParsing="false" onAction="#viewStudentBtn" text="View student">
+                        <graphic>
+                            <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                <Image url="@../assets/icons/view.png"/>
+                            </ImageView>
+                        </graphic>
+                    </MenuItem>
                 </items>
                 <padding>
                     <Insets left="50.0"/>
@@ -50,7 +62,7 @@
                     <MenuItem mnemonicParsing="false" onAction="#inputResultBtn" text="Add result">
                         <graphic>
                             <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
-                                <Image url="@../assets/icons/input.png"/>
+                                <Image url="@../assets/icons/add_result.png"/>
                             </ImageView>
                         </graphic>
                     </MenuItem>
@@ -64,7 +76,7 @@
                 </items>
                 <graphic>
                     <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
-                        <Image url="@../assets/icons/view.png"/>
+                        <Image url="@../assets/icons/result.png"/>
                     </ImageView>
                 </graphic>
                 <padding>
