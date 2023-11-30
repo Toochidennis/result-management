@@ -3,19 +3,27 @@ package com.toochi.resultmanagement.utils
 import com.jfoenix.controls.JFXButton
 import com.jfoenix.controls.JFXDialog
 import com.jfoenix.controls.JFXDialogLayout
+import javafx.animation.KeyFrame
+import javafx.animation.Timeline
 import javafx.collections.FXCollections
 import javafx.collections.ObservableList
-import javafx.concurrent.ScheduledService
-import javafx.concurrent.Task
+import javafx.embed.swing.SwingFXUtils
 import javafx.fxml.FXMLLoader
 import javafx.scene.Node
+import javafx.scene.SnapshotParameters
 import javafx.scene.control.Label
 import javafx.scene.effect.BoxBlur
+import javafx.scene.image.WritableImage
 import javafx.scene.layout.BorderPane
 import javafx.scene.layout.StackPane
 import javafx.stage.FileChooser
 import javafx.stage.Window
 import javafx.util.Duration
+import org.apache.pdfbox.pdmodel.PDDocument
+import org.apache.pdfbox.pdmodel.PDPage
+import org.apache.pdfbox.pdmodel.PDPageContentStream
+import org.apache.pdfbox.pdmodel.common.PDRectangle
+import org.apache.pdfbox.pdmodel.graphics.image.LosslessFactory
 import java.io.File
 
 object Util {
@@ -64,7 +72,7 @@ object Util {
     fun showMessageDialog(
         rootPane: StackPane,
         nodeToBlur: Node,
-        controls: List<JFXButton>,
+        controls: List<Pair<JFXButton, (() -> Unit)?>>,
         header: String,
         body: String = ""
     ) {
@@ -78,13 +86,18 @@ object Util {
             nodeToBlur.effect = null
         }
 
-        controls.forEach { jfxButton ->
+        controls.forEach { (jfxButton, action) ->
             jfxButton.styleClass.add("dialog-button")
-            jfxButton.setOnAction { jfxDialog.close() }
+            jfxButton.setOnAction {
+                jfxDialog.close()
+                action?.invoke()
+            }
+
+
         }
 
         with(jfxDialogLayout) {
-            setActions(controls)
+            setActions(controls.map { it.first })
             setHeading(Label(header).apply {
                 styleClass.add("dialog-header")
             })
@@ -96,22 +109,33 @@ object Util {
         jfxDialog.show()
     }
 
-
     fun refreshService(function: () -> Unit) {
-        object : ScheduledService<Unit>() {
-
-            init {
-                period = Duration.seconds(15.0)
-            }
-
-            override fun createTask(): Task<Unit> {
-                return object : Task<Unit>() {
-                    override fun call() {
-                        function()
-                    }
+        val timeLine = Timeline(
+            KeyFrame(
+                Duration.seconds(1.0),
+                {
+                    function.invoke()
                 }
-            }
-        }.start()
+            )
+        )
+
+        timeLine.cycleCount = Timeline.INDEFINITE
+        timeLine.play()
+
+        /* object : ScheduledService<Unit>() {
+
+             init {
+                 period = Duration.seconds(15.0)
+             }
+
+             override fun createTask(): Task<Unit> {
+                 return object : Task<Unit>() {
+                     override fun call() {
+                         function()
+                     }
+                 }
+             }
+         }.start()*/
     }
 
     fun openFileChooser(
@@ -133,4 +157,63 @@ object Util {
         }
     }
 
+    /* fun generatePdf(root: Node, filePath: String) {
+         val document = PDDocument()
+
+         // Set page dimensions to A4 size (8.27 x 11.69 inches)
+         val pageWidth = PDRectangle.A4.width
+         val pageHeight = PDRectangle.A4.height
+         val page = PDPage(PDRectangle(pageWidth, pageHeight))
+
+         document.addPage(page)
+
+         val contentStream = PDPageContentStream(document, page)
+
+         val snapshot = SnapshotParameters()
+         val scaleX = pageWidth / root.boundsInLocal.width
+         val scaleY = pageHeight / root.boundsInLocal.height
+
+         val writableImage = WritableImage(pageWidth.toInt(), pageHeight.toInt())
+         snapshot.transform = Transform.scale(scaleX, scaleY)
+         root.snapshot(snapshot, writableImage)
+
+         val bufferedImage = SwingFXUtils.fromFXImage(writableImage, null)
+         val pdImageXObject = LosslessFactory.createFromImage(document, bufferedImage)
+
+         contentStream.drawImage(pdImageXObject, 0f, 0f, pageWidth, pageHeight)
+
+         contentStream.close()
+
+         document.save(filePath)
+         document.close()
+     }*/
+
+
+    fun generatePdf(root: Node, filePath: String) {
+        val document = PDDocument()
+        val page = PDPage()
+
+        // Set page dimensions to fit the entire content
+        val pageWidth = root.boundsInLocal.width
+        val pageHeight = root.boundsInLocal.height
+        page.mediaBox = PDRectangle(pageWidth.toFloat(), pageHeight.toFloat())
+
+        document.addPage(page)
+
+        val contentStream = PDPageContentStream(document, page)
+
+        val snapshot = SnapshotParameters()
+        val writableImage = WritableImage(pageWidth.toInt(), pageHeight.toInt())
+        root.snapshot(snapshot, writableImage)
+
+        val bufferedImage = SwingFXUtils.fromFXImage(writableImage, null)
+        val pdImageXObject = LosslessFactory.createFromImage(document, bufferedImage)
+
+        contentStream.drawImage(pdImageXObject, 0f, 0f, pageWidth.toFloat(), pageHeight.toFloat())
+
+        contentStream.close()
+
+        document.save(filePath)
+        document.close()
+    }
 }
