@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="650.0" prefWidth="850.0" stylesheets="@../assets/css/style.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.toochi.resultmanagement.controllers.TranscriptController">
+    <Pane prefHeight="50.0" prefWidth="835.0" AnchorPane.rightAnchor="0.0">
+        <Button id="exit-btn" contentDisplay="GRAPHIC_ONLY" layoutX="776.0" layoutY="9.0" mnemonicParsing="false" onMouseClicked="#exitBtn" prefHeight="24.0" prefWidth="24.0" text="Button">
+            <graphic>
+                <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                    <Image url="@../assets/icons/close.png" />
+                </ImageView>
+            </graphic>
+        </Button>
+        <Button id="results-btn" contentDisplay="GRAPHIC_ONLY" layoutX="718.0" layoutY="9.0" mnemonicParsing="false" onMouseClicked="#printBtn" prefHeight="24.0" prefWidth="24.0" text="Button">
+            <graphic>
+                <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                    <Image url="@../assets/icons/print.png" />
+                </ImageView>
+            </graphic>
+        </Button>
+        <Button id="results-btn" contentDisplay="GRAPHIC_ONLY" layoutX="662.0" layoutY="9.0" mnemonicParsing="false" onMouseClicked="#saveBtn" prefHeight="24.0" prefWidth="24.0" text="Button">
+            <graphic>
+                <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                    <Image url="@../assets/icons/download.png" />
+                </ImageView>
+            </graphic>
+        </Button>
+    </Pane>
+    <ScrollPane layoutY="46.0" pannable="true" prefHeight="604.0" prefWidth="835.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+        <AnchorPane fx:id="resultPane" minHeight="0.0" minWidth="0.0" prefHeight="1300.0" prefWidth="850.0">
+            <VBox alignment="TOP_CENTER" layoutX="299.0" layoutY="20.0" prefHeight="1147.0" prefWidth="835.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                <padding>
+                    <Insets top="20.0" />
+                </padding>
+                <Label text="UNIVERSITY OF NIGERIA, NSUKKA">
+                    <font>
+                        <Font name="System Bold" size="22.0" />
+                    </font>
+                </Label>
+                <Label text="School of Postgraduates Studies">
+                    <font>
+                        <Font name="System Bold" size="16.0" />
+                    </font>
+                </Label>
+                <Label text="POSTGRADUATE EXAMINATION RESULT">
+                    <font>
+                        <Font name="System Bold" size="22.0" />
+                    </font>
+                </Label>
+                <Label text="(COURSE WORK)">
+                    <font>
+                        <Font name="System Bold" size="22.0" />
+                    </font>
+                </Label>
+                <AnchorPane prefHeight="196.0" prefWidth="745.0">
+                    <VBox.margin>
+                        <Insets left="30.0" right="30.0" top="20.0" />
+                    </VBox.margin>
+                    <VBox layoutX="-2.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <padding>
+                            <Insets top="20.0" />
+                        </padding>
+                        <HBox prefHeight="30.0" prefWidth="745.0" spacing="20.0">
+                            <Label prefHeight="25.0" prefWidth="147.0" text="Name:">
+                                <font>
+                                    <Font size="16.0" />
+                                </font>
+                            </Label>
+                            <Label fx:id="nameLabel" prefHeight="25.0" prefWidth="579.0" text="TOOCHUKWU SAMUEL DENNIS">
+                                <font>
+                                    <Font name="System Bold" size="16.0" />
+                                </font>
+                                <HBox.margin>
+                                    <Insets />
+                                </HBox.margin>
+                            </Label>
+                        </HBox>
+                        <HBox layoutX="10.0" layoutY="10.0" prefHeight="30.0" prefWidth="745.0" spacing="20.0">
+                            <Label prefHeight="25.0" prefWidth="149.0" text="Reg. No:">
+                                <font>
+                                    <Font size="16.0" />
+                                </font>
+                                <HBox.margin>
+                                    <Insets />
+                                </HBox.margin>
+                            </Label>
+                            <Label fx:id="regNoLabel" prefHeight="25.0" prefWidth="505.0" text="PAS/CSC/17/80098">
+                                <font>
+                                    <Font name="System Bold" size="16.0" />
+                                </font>
+                            </Label>
+                        </HBox>
+                        <HBox prefHeight="30.0" prefWidth="216.0" spacing="20.0">
+                            <Label text="Postgraduate Course:">
+                                <font>
+                                    <Font size="16.0" />
+                                </font>
+                            </Label>
+                            <Label layoutX="10.0" layoutY="10.0" prefHeight="25.0" prefWidth="563.0" text="HEALTH INFORMATION ECONOMICS, MANAGEMENT AND POLICY">
+                                <font>
+                                    <Font name="System Bold" size="16.0" />
+                                </font>
+                            </Label>
+                        </HBox>
+                        <HBox prefHeight="30.0" prefWidth="224.0" spacing="20.0">
+                            <Label prefHeight="25.0" prefWidth="151.0" text="Year of Entry:">
+                                <font>
+                                    <Font size="16.0" />
+                                </font>
+                            </Label>
+                            <Label fx:id="yearOfEntryLabel" layoutX="10.0" layoutY="10.0" prefHeight="25.0" prefWidth="287.0" text="2022">
+                                <font>
+                                    <Font name="System Bold" size="16.0" />
+                                </font>
+                            </Label>
+                        </HBox>
+                        <HBox prefHeight="30.0" prefWidth="745.0" spacing="20.0">
+                            <Label prefHeight="25.0" prefWidth="150.0" text="Faculty:">
+                                <font>
+                                    <Font size="16.0" />
+                                </font>
+                            </Label>
+                            <Label layoutX="10.0" layoutY="10.0" prefHeight="25.0" prefWidth="575.0" text="FACULTY OF HEALTH SCIENCES AND TECHNOLOGY">
+                                <font>
+                                    <Font name="System Bold" size="16.0" />
+                                </font>
+                            </Label>
+                        </HBox>
+                        <HBox layoutX="10.0" layoutY="191.0" prefHeight="30.0" prefWidth="745.0" spacing="20.0">
+                            <Label layoutX="63.0" layoutY="10.0" prefHeight="25.0" prefWidth="148.0" text="Department:">
+                                <font>
+                                    <Font size="16.0" />
+                                </font>
+                            </Label>
+                            <Label layoutX="104.0" layoutY="10.0" prefHeight="25.0" prefWidth="574.0" text="HEALTH ADMINISTRATION &amp; MANAGEMENT">
+                                <font>
+                                    <Font name="System Bold" size="16.0" />
+                                </font>
+                            </Label>
+                        </HBox>
+                    </VBox>
+                </AnchorPane>
+                <Separator prefWidth="200.0">
+                    <VBox.margin>
+                        <Insets top="10.0" />
+                    </VBox.margin>
+                </Separator>
+                <VBox fx:id="resultVBox" prefHeight="200.0" prefWidth="100.0">
+                    <VBox.margin>
+                        <Insets left="30.0" right="30.0" top="20.0" />
+                    </VBox.margin>
+                </VBox>
+            </VBox>
+        </AnchorPane>
+    </ScrollPane>
+</AnchorPane>
