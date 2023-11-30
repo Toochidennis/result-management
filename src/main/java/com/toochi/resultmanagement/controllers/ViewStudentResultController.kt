@@ -1,8 +1,10 @@
 package com.toochi.resultmanagement.controllers
 
+import com.jfoenix.controls.JFXButton
 import com.toochi.resultmanagement.backend.QueryExecutor.executeStudentsWithResultQuery
 import com.toochi.resultmanagement.models.Student
 import com.toochi.resultmanagement.utils.Util.refreshService
+import com.toochi.resultmanagement.utils.Util.showMessageDialog
 import javafx.beans.property.SimpleIntegerProperty
 import javafx.beans.property.SimpleStringProperty
 import javafx.collections.FXCollections
@@ -16,13 +18,21 @@ import javafx.scene.control.SelectionMode
 import javafx.scene.control.TableColumn
 import javafx.scene.control.TableView
 import javafx.scene.control.TextField
+import javafx.scene.layout.AnchorPane
+import javafx.scene.layout.StackPane
 import javafx.stage.Modality
 import javafx.stage.Stage
 import javafx.stage.StageStyle
 import java.util.prefs.Preferences
 
-class ResultListController {
+class ViewStudentResultController {
 
+
+    @FXML
+    private lateinit var rootPane: StackPane
+
+    @FXML
+    private lateinit var anchorPane: AnchorPane
 
     @FXML
     private lateinit var searchTextField: TextField
@@ -58,6 +68,7 @@ class ResultListController {
 
     @FXML
     fun initialize() {
+        createTableItems()
         databaseRefresh()
     }
 
@@ -113,29 +124,50 @@ class ResultListController {
     fun resultDetails() {
         tableView.selectionModel.selectionMode = SelectionMode.SINGLE
 
-        try {
-            val selectedStudent = tableView.selectionModel.selectedItem
-            val studentId = selectedStudent?.studentId
+        val selectedStudent = tableView.selectionModel.selectedItem
+        val studentId = selectedStudent?.studentId
 
-            if (studentId != null && studentId != -1) {
-                Preferences.userNodeForPackage(ResultListController::class.java).apply {
-                    put("student_id", (studentId).toString())
-                }
-
-                tableView.selectionModel.clearSelection()
-
-                val fxmlLoader = FXMLLoader(
-                    javaClass.getResource("/com/toochi/resultmanagement/result/view_result.fxml")
-                )
-
-                Stage().apply {
-                    scene = Scene(fxmlLoader.load())
-                    initModality(Modality.APPLICATION_MODAL)
-                    initStyle(StageStyle.UNDECORATED)
-                    title = "Student result"
-
-                }.showAndWait()
+        if (studentId != null && studentId != -1) {
+            Preferences.userNodeForPackage(ViewStudentResultController::class.java).apply {
+                put("student_id", (studentId).toString())
             }
+            tableView.selectionModel.clearSelection()
+
+            val transcriptBtn = JFXButton("Transcript")
+            val statementOfResultBtn = JFXButton("Statement of result")
+
+            showMessageDialog(
+                rootPane,
+                anchorPane,
+                listOf(
+                    transcriptBtn to {
+                        loadStage("transcript", "Transcript")
+                    },
+
+                    statementOfResultBtn to {
+                        loadStage("statement_of_result", "Statement of result")
+                    }
+                ),
+                "Select an option to view",
+            )
+
+        }
+
+    }
+
+    private fun loadStage(viewName: String, title: String) {
+        try {
+            val fxmlLoader = FXMLLoader(
+                javaClass.getResource("/com/toochi/resultmanagement/result/$viewName.fxml")
+            )
+
+            Stage().apply {
+                scene = Scene(fxmlLoader.load())
+                initModality(Modality.APPLICATION_MODAL)
+                initStyle(StageStyle.UNDECORATED)
+                this.title = title
+
+            }.showAndWait()
         } catch (e: Exception) {
             e.printStackTrace()
         }
