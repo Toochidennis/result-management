@@ -105,7 +105,7 @@ class InputResultController {
                 showMessageDialog(
                     rootPane,
                     anchorPane,
-                    listOf(JFXButton("Okay, I'll check")),
+                    listOf(JFXButton("Okay, I'll check") to null),
                     "Error",
                     "Student with id ${searchTextField.text} does not exist"
                 )
@@ -253,10 +253,12 @@ class InputResultController {
                 "student_id" to studentIdInt
             )
 
-            if (recordExists(existingRecordCondition)) {
-                updateRecord(existingRecordCondition, gradeLater, gradePoint, total)
-            } else {
-                insertRecord(studentIdInt, courseId, gradeLater, gradePoint, total)
+            if (gradeLater.isNotBlank()) {
+                if (recordExists(existingRecordCondition)) {
+                    updateRecord(existingRecordCondition, gradeLater, gradePoint, total)
+                } else {
+                    insertRecord(studentIdInt, courseId, gradeLater, gradePoint, total)
+                }
             }
         }
     }
@@ -323,7 +325,7 @@ class InputResultController {
                 showMessageDialog(
                     rootPane,
                     anchorPane,
-                    listOf(JFXButton("Okay")),
+                    listOf(JFXButton("Okay") to null),
                     "Success",
                     "Result saved successfully"
                 )
@@ -333,7 +335,7 @@ class InputResultController {
                 showMessageDialog(
                     rootPane,
                     anchorPane,
-                    listOf(JFXButton("Okay, I'll check")),
+                    listOf(JFXButton("Okay, I'll check") to null),
                     "Error!",
                     "Oops! Something went wrong, please try again"
                 )
