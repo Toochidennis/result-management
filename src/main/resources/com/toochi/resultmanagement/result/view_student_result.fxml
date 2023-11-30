@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<StackPane fx:id="rootPane" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="com.toochi.resultmanagement.controllers.ViewStudentResultController">
+    <AnchorPane fx:id="anchorPane" prefHeight="700.0" prefWidth="1000.0" stylesheets="@../assets/css/style.css">
+        <VBox layoutX="114.0" layoutY="40.0" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #fff;"
+              AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+              AnchorPane.topAnchor="0.0">
+            <Pane prefHeight="239.0" prefWidth="1000.0" style="-fx-background-color: #fff;">
+                <TextField fx:id="searchTextField" layoutX="283.0" layoutY="108.0" prefHeight="40.0" prefWidth="448.0"
+                           promptText="Search..."/>
+                <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="700.0" layoutY="116.0" pickOnBounds="true"
+                           preserveRatio="true">
+                    <Image url="@../assets/icons/search.png"/>
+                </ImageView>
+                <Label layoutX="21.0" layoutY="24.0" prefHeight="35.0" prefWidth="163.0" text="Results">
+                    <font>
+                        <Font size="24.0"/>
+                    </font>
+                </Label>
+            </Pane>
+            <TableView fx:id="tableView" onMouseClicked="#resultDetails" prefHeight="510.0" prefWidth="960.0">
+                <columns>
+                    <TableColumn fx:id="studentIdColumn" prefWidth="58.6666898727417" text="S/N"/>
+                    <TableColumn fx:id="surnameColumn" prefWidth="145.33330535888672" text="Surname"/>
+                    <TableColumn fx:id="firstnameColumn" prefWidth="144.6667022705078" text="Firstname"/>
+                    <TableColumn fx:id="otherNameColumn" prefWidth="133.3333282470703" text="Other name"/>
+                    <TableColumn fx:id="programmeColumn" prefWidth="133.3333282470703" text="Programme"/>
+                    <TableColumn fx:id="disciplineColumn" prefWidth="123.33331298828125" text="Discipline"/>
+                    <TableColumn fx:id="sessionColumn" minWidth="0.0" prefWidth="87.33331298828125" text="Session"/>
+                    <TableColumn fx:id="registrationNumberColumn" prefWidth="192.666748046875" text="Reg Number"/>
+                </columns>
+                <VBox.margin>
+                    <Insets left="20.0" right="20.0"/>
+                </VBox.margin>
+            </TableView>
+        </VBox>
+    </AnchorPane>
+</StackPane>
