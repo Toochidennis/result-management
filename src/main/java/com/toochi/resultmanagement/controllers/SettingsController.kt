@@ -4,6 +4,7 @@ import com.jfoenix.controls.JFXButton
 import com.toochi.resultmanagement.backend.QueryExecutor
 import com.toochi.resultmanagement.backend.QueryExecutor.executeInsertQuery
 import com.toochi.resultmanagement.backend.QueryExecutor.executeSelectAllQuery
+import com.toochi.resultmanagement.backend.QueryExecutor.executeSelectWithConditionsQuery2
 import com.toochi.resultmanagement.backend.QueryExecutor.executeUpdateQuery
 import com.toochi.resultmanagement.models.Settings
 import com.toochi.resultmanagement.utils.Util.generateProgrammes
@@ -19,6 +20,7 @@ import javafx.scene.control.*
 import javafx.scene.layout.AnchorPane
 import javafx.scene.layout.StackPane
 import java.io.File
+import java.sql.ResultSet
 
 class SettingsController {
 
@@ -169,11 +171,19 @@ class SettingsController {
     }
 
     private fun existingRecord() {
-        val settingsResultSet = executeSelectAllQuery("settings")
         val settingsList = FXCollections.observableArrayList<Settings>()
+        val programmeType = programmeComboBox.value
 
-        while (settingsResultSet?.next() == true) {
-            with(settingsResultSet) {
+        val settingsResult = if (programmeType?.isNotBlank() == true) {
+            val condition = hashMapOf<String, Any>("programme" to programmeType)
+            executeSelectWithConditionsQuery2("settings", condition)
+        } else {
+            executeSelectAllQuery("settings")
+        }
+
+
+        with(settingsResult) {
+            while (this?.next() == true) {
                 settingsList.add(
                     Settings(
                         0, getInt("course_id"),
@@ -240,7 +250,7 @@ class SettingsController {
         showMessageDialog(
             rootPane,
             anchorPane,
-            listOf(JFXButton("Okay")),
+            listOf(JFXButton("Okay") to null),
             "Warning!",
             message
         )
@@ -252,9 +262,9 @@ class SettingsController {
                 showMessageDialog(
                     rootPane,
                     anchorPane,
-                    listOf(JFXButton("Okay")),
+                    listOf(JFXButton("Okay") to null),
                     "Success",
-                    "Settings saved successfully"
+                    "Course saved successfully"
                 )
 
                 clearFields()
@@ -264,7 +274,7 @@ class SettingsController {
                 showMessageDialog(
                     rootPane,
                     anchorPane,
-                    listOf(JFXButton("Okay, I'll check")),
+                    listOf(JFXButton("Okay, I'll check") to null),
                     "Error!",
                     "Oops! Something went wrong, please try again"
                 )
