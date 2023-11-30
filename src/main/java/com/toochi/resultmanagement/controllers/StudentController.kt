@@ -110,14 +110,14 @@ class StudentController {
 
             fileSize?.let {
                 if (it > maxSize) {
-                    showMessageDialog(rootPane, anchorPane, listOf(button), header, body)
+                    showMessageDialog(rootPane, anchorPane, listOf(button to null), header, body)
                     selectedFile = null
                 } else {
                     passportTextField.text = selectedFile?.name
                     showMessageDialog(
                         rootPane,
                         anchorPane,
-                        listOf(button),
+                        listOf(button to null),
                         "Success",
                         "File uploaded!"
                     )
@@ -189,7 +189,7 @@ class StudentController {
             showMessageDialog(
                 rootPane,
                 anchorPane,
-                listOf(JFXButton("Okay")),
+                listOf(JFXButton("Okay") to null),
                 "Success",
                 "Student registered successfully!"
             )
@@ -198,7 +198,7 @@ class StudentController {
             showMessageDialog(
                 rootPane,
                 anchorPane,
-                listOf(JFXButton("Okay, I'll check")),
+                listOf(JFXButton("Okay, I'll check") to null),
                 "Error!",
                 "Oops! Something went wrong, please try again"
             )
@@ -224,18 +224,6 @@ class StudentController {
                     showValidationMessage("Please provide phone number")
                 }
 
-                addressTextField.text.isBlank() -> {
-                    showValidationMessage("Please provide address")
-                }
-
-                nextOfKinNameTextField.text.isBlank() -> {
-                    showValidationMessage("Please provide next of kin name")
-                }
-
-                nextOfKinPhoneNumberTextField.text.isNullOrBlank() -> {
-                    showValidationMessage("Please provide next of kin phone number")
-                }
-
                 sessionComboBox.value.isNullOrBlank() -> {
                     showValidationMessage("Please select a session")
                 }
@@ -253,7 +241,7 @@ class StudentController {
         showMessageDialog(
             rootPane,
             anchorPane,
-            listOf(JFXButton("Okay")),
+            listOf(JFXButton("Okay") to null),
             "Warning!",
             message
         )
