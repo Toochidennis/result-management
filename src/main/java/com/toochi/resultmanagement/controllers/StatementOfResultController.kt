@@ -2,36 +2,29 @@ package com.toochi.resultmanagement.controllers
 
 import com.toochi.resultmanagement.backend.QueryExecutor.executeAllTablesQuery
 import com.toochi.resultmanagement.models.Result
+import com.toochi.resultmanagement.utils.Util.generatePdf
 import com.toochi.resultmanagement.utils.Util.openFileChooser
 import javafx.collections.FXCollections
-import javafx.embed.swing.SwingFXUtils
 import javafx.fxml.FXML
 import javafx.geometry.Insets
 import javafx.geometry.Orientation
 import javafx.geometry.Pos
 import javafx.print.PrinterJob
-import javafx.scene.Node
-import javafx.scene.SnapshotParameters
 import javafx.scene.control.Label
 import javafx.scene.control.Separator
 import javafx.scene.image.Image
 import javafx.scene.image.ImageView
-import javafx.scene.image.WritableImage
 import javafx.scene.layout.AnchorPane
 import javafx.scene.layout.HBox
 import javafx.scene.layout.VBox
 import javafx.stage.FileChooser
 import javafx.stage.Stage
-import org.apache.pdfbox.pdmodel.PDDocument
-import org.apache.pdfbox.pdmodel.PDPage
-import org.apache.pdfbox.pdmodel.PDPageContentStream
-import org.apache.pdfbox.pdmodel.graphics.image.LosslessFactory
 import java.io.ByteArrayInputStream
 import java.sql.ResultSet
 import java.util.*
 import java.util.prefs.Preferences
 
-class ViewResultController {
+class StatementOfResultController {
 
 
     @FXML
@@ -75,7 +68,7 @@ class ViewResultController {
 
     @FXML
     fun initialize() {
-        val preferences = Preferences.userNodeForPackage(ViewResultController::class.java)
+        val preferences = Preferences.userNodeForPackage(StatementOfResultController::class.java)
         val studentId = preferences.get("student_id", "")
 
         val resultSet = executeAllTablesQuery(studentId.toInt())
@@ -438,39 +431,4 @@ class ViewResultController {
         }
     }
 
-    private fun generatePdf(root: Node, filePath: String) {
-        val document = PDDocument()
-        val page = PDPage()
-        document.addPage(page)
-
-        val contentStream = PDPageContentStream(document, page)
-
-        val scaleX = 0.75
-        val scaleY = 0.75
-
-        val snapshot = SnapshotParameters()
-        //   snapshot.transform = Transform.scale(scaleX, scaleY)
-        val writableImage =
-            WritableImage(root.boundsInLocal.width.toInt(), root.boundsInLocal.height.toInt())
-        root.snapshot(snapshot, writableImage)
-
-        val bufferedImage = SwingFXUtils.fromFXImage(writableImage, null)
-        val pdImageXObject = LosslessFactory.createFromImage(document, bufferedImage)
-
-        val width = bufferedImage.width * scaleX
-        val height = bufferedImage.height * scaleY
-
-        contentStream.drawImage(
-            pdImageXObject,
-            0f,
-            (page.cropBox.upperRightY - height).toFloat(),
-            width.toFloat(),
-            height.toFloat()
-        )
-
-        contentStream.close()
-
-        document.save(filePath)
-        document.close()
-    }
 }
