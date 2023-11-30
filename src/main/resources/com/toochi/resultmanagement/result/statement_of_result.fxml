@@ -16,7 +16,7 @@
 
 <AnchorPane prefHeight="650.0" prefWidth="800.0" stylesheets="@../assets/css/style.css"
             xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.toochi.resultmanagement.controllers.ViewResultController">
+            fx:controller="com.toochi.resultmanagement.controllers.StatementOfResultController">
     <Pane prefHeight="50.0" prefWidth="835.0" AnchorPane.rightAnchor="0.0">
         <Button id="exit-btn" contentDisplay="GRAPHIC_ONLY" layoutX="776.0" layoutY="9.0" mnemonicParsing="false"
                 onMouseClicked="#exitBtn" prefHeight="24.0" prefWidth="24.0" text="Button">
@@ -44,7 +44,7 @@
         </Button>
     </Pane>
     <ScrollPane layoutY="46.0" pannable="true" prefHeight="604.0" prefWidth="835.0" AnchorPane.rightAnchor="0.0">
-        <AnchorPane fx:id="resultPane" minHeight="0.0" minWidth="0.0" prefHeight="1400.0" prefWidth="835.0">
+        <AnchorPane fx:id="resultPane" minHeight="0.0" minWidth="0.0" prefHeight="1300.0" prefWidth="835.0">
             <VBox alignment="TOP_CENTER" layoutX="299.0" layoutY="20.0" prefHeight="1147.0" prefWidth="835.0"
                   AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
                   AnchorPane.topAnchor="0.0">
