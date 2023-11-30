@@ -27,7 +27,7 @@ class DashboardController {
 
     @FXML
     fun viewResultBtn() {
-        loadFXMLScene(borderPane, "result/result_list.fxml")
+        loadFXMLScene(borderPane, "result/view_student_result.fxml")
     }
 
     @FXML
